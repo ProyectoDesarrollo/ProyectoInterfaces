@@ -26,12 +26,13 @@ public class ControladorInicio implements ActionListener,MouseListener{
      
     }
     
-    public ControladorInicio(){
+    public ControladorInicio(Interface vista){
         this.vista=vista;
     }
     
     public void iniciar(){
         try {
+            this.vista.setVisible(true);
             this.vista.jPanelPrincipal.setVisible(true);
             this.vista.jPanelPresupuesto.setVisible(false);
             this.vista.jPanelPedido.setVisible(false);
