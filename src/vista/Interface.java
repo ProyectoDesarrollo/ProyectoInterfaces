@@ -28,30 +28,33 @@ public class Interface extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
+        jPanelPresupuesto = new javax.swing.JPanel();
+        jPanelClientes = new javax.swing.JPanel();
+        jPanelFactura = new javax.swing.JPanel();
+        jPanelCobros = new javax.swing.JPanel();
+        jPanelArticulosP = new javax.swing.JPanel();
+        jPanelPagos = new javax.swing.JPanel();
+        jPanelProveedores = new javax.swing.JPanel();
+        jPanelArticulos = new javax.swing.JPanel();
+        jPanelBotones = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnPresupuestos = new javax.swing.JButton();
+        btnPedido = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        btnFactura = new javax.swing.JButton();
+        btnCobros = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnArticulosP = new javax.swing.JButton();
+        btnPagos = new javax.swing.JButton();
+        btnProveedores = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jButton9 = new javax.swing.JButton();
+        btnArticulos = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
-        jButton10 = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        jPanelPrincipal = new javax.swing.JPanel();
+        jPanelPedido = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -70,182 +73,216 @@ public class Interface extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelPresupuestoLayout = new javax.swing.GroupLayout(jPanelPresupuesto);
+        jPanelPresupuesto.setLayout(jPanelPresupuestoLayout);
+        jPanelPresupuestoLayout.setHorizontalGroup(
+            jPanelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
-
-        jPanel3.setPreferredSize(new java.awt.Dimension(600, 650));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelPresupuestoLayout.setVerticalGroup(
+            jPanelPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+        getContentPane().add(jPanelPresupuesto, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
-        jPanel4.setPreferredSize(new java.awt.Dimension(600, 650));
+        jPanelClientes.setPreferredSize(new java.awt.Dimension(600, 650));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelClientesLayout = new javax.swing.GroupLayout(jPanelClientes);
+        jPanelClientes.setLayout(jPanelClientesLayout);
+        jPanelClientesLayout.setHorizontalGroup(
+            jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
-
-        jPanel5.setPreferredSize(new java.awt.Dimension(600, 650));
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelClientesLayout.setVerticalGroup(
+            jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+        getContentPane().add(jPanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
-        jPanel6.setPreferredSize(new java.awt.Dimension(600, 650));
+        jPanelFactura.setPreferredSize(new java.awt.Dimension(600, 650));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelFacturaLayout = new javax.swing.GroupLayout(jPanelFactura);
+        jPanelFactura.setLayout(jPanelFacturaLayout);
+        jPanelFacturaLayout.setHorizontalGroup(
+            jPanelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
-
-        jPanel7.setPreferredSize(new java.awt.Dimension(600, 650));
-
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelFacturaLayout.setVerticalGroup(
+            jPanelFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+        getContentPane().add(jPanelFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
-        jPanel8.setPreferredSize(new java.awt.Dimension(600, 650));
+        jPanelCobros.setPreferredSize(new java.awt.Dimension(600, 650));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanelCobrosLayout = new javax.swing.GroupLayout(jPanelCobros);
+        jPanelCobros.setLayout(jPanelCobrosLayout);
+        jPanelCobrosLayout.setHorizontalGroup(
+            jPanelCobrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
-
-        jPanel9.setPreferredSize(new java.awt.Dimension(600, 650));
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jPanelCobrosLayout.setVerticalGroup(
+            jPanelCobrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+        getContentPane().add(jPanelCobros, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
-        jPanel10.setLayout(new java.awt.GridLayout(0, 1));
+        jPanelArticulosP.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        javax.swing.GroupLayout jPanelArticulosPLayout = new javax.swing.GroupLayout(jPanelArticulosP);
+        jPanelArticulosP.setLayout(jPanelArticulosPLayout);
+        jPanelArticulosPLayout.setHorizontalGroup(
+            jPanelArticulosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+        jPanelArticulosPLayout.setVerticalGroup(
+            jPanelArticulosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanelArticulosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+
+        jPanelPagos.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        javax.swing.GroupLayout jPanelPagosLayout = new javax.swing.GroupLayout(jPanelPagos);
+        jPanelPagos.setLayout(jPanelPagosLayout);
+        jPanelPagosLayout.setHorizontalGroup(
+            jPanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+        jPanelPagosLayout.setVerticalGroup(
+            jPanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanelPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+
+        jPanelProveedores.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        javax.swing.GroupLayout jPanelProveedoresLayout = new javax.swing.GroupLayout(jPanelProveedores);
+        jPanelProveedores.setLayout(jPanelProveedoresLayout);
+        jPanelProveedoresLayout.setHorizontalGroup(
+            jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+        jPanelProveedoresLayout.setVerticalGroup(
+            jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanelProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+
+        jPanelArticulos.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        javax.swing.GroupLayout jPanelArticulosLayout = new javax.swing.GroupLayout(jPanelArticulos);
+        jPanelArticulos.setLayout(jPanelArticulosLayout);
+        jPanelArticulosLayout.setHorizontalGroup(
+            jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+        jPanelArticulosLayout.setVerticalGroup(
+            jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanelArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+
+        jPanelBotones.setLayout(new java.awt.GridLayout(0, 1));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Ventas");
         jLabel1.setOpaque(true);
-        jPanel10.add(jLabel1);
+        jPanelBotones.add(jLabel1);
 
-        jButton1.setText("Presupuesto/ Pedido");
-        jPanel10.add(jButton1);
+        btnPresupuestos.setText("Presupuesto");
+        jPanelBotones.add(btnPresupuestos);
 
-        jButton2.setText("Clientes");
-        jPanel10.add(jButton2);
+        btnPedido.setText("Pedido");
+        jPanelBotones.add(btnPedido);
 
-        jButton3.setText("Factura");
-        jPanel10.add(jButton3);
+        btnClientes.setText("Clientes");
+        jPanelBotones.add(btnClientes);
 
-        jButton4.setText("Cobros");
-        jPanel10.add(jButton4);
+        btnFactura.setText("Factura");
+        jPanelBotones.add(btnFactura);
+
+        btnCobros.setText("Cobros");
+        jPanelBotones.add(btnCobros);
 
         jSeparator3.setMaximumSize(new java.awt.Dimension(20, 10));
         jSeparator3.setMinimumSize(new java.awt.Dimension(20, 10));
         jSeparator3.setPreferredSize(new java.awt.Dimension(20, 10));
-        jPanel10.add(jSeparator3);
+        jPanelBotones.add(jSeparator3);
 
         jLabel2.setBackground(new java.awt.Color(204, 204, 204));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Compras");
         jLabel2.setOpaque(true);
-        jPanel10.add(jLabel2);
+        jPanelBotones.add(jLabel2);
 
-        jButton5.setText("Artículos Proveedores");
-        jPanel10.add(jButton5);
+        btnArticulosP.setText("Artículos Proveedores");
+        jPanelBotones.add(btnArticulosP);
 
-        jButton6.setText("Pagos");
-        jPanel10.add(jButton6);
+        btnPagos.setText("Pagos");
+        jPanelBotones.add(btnPagos);
 
-        jButton7.setText("Proveedores");
-        jPanel10.add(jButton7);
-        jPanel10.add(jSeparator2);
+        btnProveedores.setText("Proveedores");
+        jPanelBotones.add(btnProveedores);
+        jPanelBotones.add(jSeparator2);
 
         jLabel3.setBackground(new java.awt.Color(204, 204, 204));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Almacen");
         jLabel3.setOpaque(true);
-        jPanel10.add(jLabel3);
+        jPanelBotones.add(jLabel3);
 
-        jButton9.setText("Artículos");
-        jPanel10.add(jButton9);
-        jPanel10.add(jSeparator1);
+        btnArticulos.setText("Artículos");
+        jPanelBotones.add(btnArticulos);
+        jPanelBotones.add(jSeparator1);
 
-        jButton10.setText("Salir");
-        jPanel10.add(jButton10);
+        btnSalir.setText("Salir");
+        jPanelBotones.add(btnSalir);
 
-        getContentPane().add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 630));
+        getContentPane().add(jPanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 630));
+
+        jPanelPrincipal.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanelPrincipal.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
+        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
+        jPanelPrincipalLayout.setHorizontalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+        jPanelPrincipalLayout.setVerticalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+
+        jPanelPedido.setMinimumSize(new java.awt.Dimension(0, 0));
+
+        javax.swing.GroupLayout jPanelPedidoLayout = new javax.swing.GroupLayout(jPanelPedido);
+        jPanelPedido.setLayout(jPanelPedidoLayout);
+        jPanelPedidoLayout.setHorizontalGroup(
+            jPanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+        jPanelPedidoLayout.setVerticalGroup(
+            jPanelPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 630, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanelPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -294,15 +331,16 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton btnArticulos;
+    private javax.swing.JButton btnArticulosP;
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnCobros;
+    private javax.swing.JButton btnFactura;
+    private javax.swing.JButton btnPagos;
+    private javax.swing.JButton btnPedido;
+    private javax.swing.JButton btnPresupuestos;
+    private javax.swing.JButton btnProveedores;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -310,15 +348,17 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
+    private javax.swing.JPanel jPanelArticulos;
+    private javax.swing.JPanel jPanelArticulosP;
+    private javax.swing.JPanel jPanelBotones;
+    private javax.swing.JPanel jPanelClientes;
+    private javax.swing.JPanel jPanelCobros;
+    private javax.swing.JPanel jPanelFactura;
+    private javax.swing.JPanel jPanelPagos;
+    private javax.swing.JPanel jPanelPedido;
+    private javax.swing.JPanel jPanelPresupuesto;
+    private javax.swing.JPanel jPanelPrincipal;
+    private javax.swing.JPanel jPanelProveedores;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
