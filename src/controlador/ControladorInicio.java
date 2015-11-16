@@ -23,6 +23,7 @@ public class ControladorInicio implements ActionListener,MouseListener{
         btnProveedores,
         btnArticulos,
         btnSalir
+     
     }
     
     public ControladorInicio(){
@@ -78,7 +79,7 @@ public class ControladorInicio implements ActionListener,MouseListener{
     }
     
     public void actionPerformed(ActionEvent e) {
-        switch(AccionMVC.valueOf(e.getActionCommand())){
+        switch(AccionMVC.valueOf(e.getActionCommand())) {
             
             case btnPresupuestos:
                 
