@@ -331,16 +331,16 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnArticulos;
-    private javax.swing.JButton btnArticulosP;
-    private javax.swing.JButton btnClientes;
-    private javax.swing.JButton btnCobros;
-    private javax.swing.JButton btnFactura;
-    private javax.swing.JButton btnPagos;
-    private javax.swing.JButton btnPedido;
-    private javax.swing.JButton btnPresupuestos;
-    private javax.swing.JButton btnProveedores;
-    private javax.swing.JButton btnSalir;
+    public javax.swing.JButton btnArticulos;
+    public javax.swing.JButton btnArticulosP;
+    public javax.swing.JButton btnClientes;
+    public javax.swing.JButton btnCobros;
+    public javax.swing.JButton btnFactura;
+    public javax.swing.JButton btnPagos;
+    public javax.swing.JButton btnPedido;
+    public javax.swing.JButton btnPresupuestos;
+    public javax.swing.JButton btnProveedores;
+    public javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -348,17 +348,17 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelArticulos;
-    private javax.swing.JPanel jPanelArticulosP;
-    private javax.swing.JPanel jPanelBotones;
-    private javax.swing.JPanel jPanelClientes;
-    private javax.swing.JPanel jPanelCobros;
-    private javax.swing.JPanel jPanelFactura;
-    private javax.swing.JPanel jPanelPagos;
-    private javax.swing.JPanel jPanelPedido;
-    private javax.swing.JPanel jPanelPresupuesto;
-    private javax.swing.JPanel jPanelPrincipal;
-    private javax.swing.JPanel jPanelProveedores;
+    public javax.swing.JPanel jPanelArticulos;
+    public javax.swing.JPanel jPanelArticulosP;
+    public javax.swing.JPanel jPanelBotones;
+    public javax.swing.JPanel jPanelClientes;
+    public javax.swing.JPanel jPanelCobros;
+    public javax.swing.JPanel jPanelFactura;
+    public javax.swing.JPanel jPanelPagos;
+    public javax.swing.JPanel jPanelPedido;
+    public javax.swing.JPanel jPanelPresupuesto;
+    public javax.swing.JPanel jPanelPrincipal;
+    public javax.swing.JPanel jPanelProveedores;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
