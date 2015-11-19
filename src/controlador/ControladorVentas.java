@@ -22,7 +22,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
     public enum AccionMVC{
         btnAñadir_Pedido,
         btnModificar_Pedido,
-        btnEliminar_Pedido,
+        btnBorrar_Pedido,
         btnBuscar_Pedido
     }
     
@@ -32,13 +32,41 @@ public class ControladorVentas implements ActionListener,MouseListener{
     
     public void iniciar(){
         try {
+            //Iniciar tablas
             
         } catch (Exception e) {
         }
- 
+        
+        this.vista.btnAñadir_Pedido.setActionCommand( "btnAñadir_Pedido" );
+        this.vista.btnAñadir_Pedido.addActionListener(this);
+        
+        this.vista.btnModificar_Pedido.setActionCommand( "btnModificar_Pedido" );
+        this.vista.btnModificar_Pedido.addActionListener(this);
+        
+        this.vista.btnBorrar_Pedido.setActionCommand( "btnEliminar_Pedido" );
+        this.vista.btnBorrar_Pedido.addActionListener(this);
+        
+        this.vista.btnBuscar_Pedido.setActionCommand( "btnBuscar_Pedido" );
+        this.vista.btnBuscar_Pedido.addActionListener(this);
     }
     
-    public void actionPerformed(ActionEvent e) {}
+    public void actionPerformed(ActionEvent e) {
+    switch(AccionMVC.valueOf(e.getActionCommand())) {
+        
+        case btnAñadir_Pedido:
+            break;
+        
+        case btnModificar_Pedido:
+            break;
+        
+        case btnBorrar_Pedido:
+            break;
+        
+        case btnBuscar_Pedido:
+            break;
+    
+    }
+    }
 
     public void mouseClicked(MouseEvent e) {}
 
