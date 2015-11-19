@@ -31,7 +31,11 @@ public class ControladorVentas implements ActionListener,MouseListener{
     }
     
     public void iniciar(){
-         
+        try {
+            
+        } catch (Exception e) {
+        }
+ 
     }
     
     public void actionPerformed(ActionEvent e) {}

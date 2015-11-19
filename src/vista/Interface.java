@@ -45,7 +45,7 @@ public class Interface extends javax.swing.JFrame {
         pDatosPedido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        btnAñadir_Articulo_Pedido = new javax.swing.JButton();
+        btnAñadir_Pedido = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtNombre_Articulo_Pedido = new javax.swing.JTextField();
@@ -56,15 +56,15 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
-        btnBorrar_Articulo_Pedido = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnBorrar_Pedido = new javax.swing.JButton();
+        btnBuscar_Pedido = new javax.swing.JButton();
+        btnCalendario_Pedido = new javax.swing.JButton();
         txtDia_Pedido = new javax.swing.JTextField();
         txtMes_Pedido = new javax.swing.JTextField();
         txtAnio_Pedido = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
-        btnModificar_Articulo_Pedido = new javax.swing.JButton();
+        btnModificar_Pedido = new javax.swing.JButton();
         jPanelClientes = new javax.swing.JPanel();
         jPanelFactura = new javax.swing.JPanel();
         jPanelCobros = new javax.swing.JPanel();
@@ -220,7 +220,7 @@ public class Interface extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        btnAñadir_Articulo_Pedido.setText("Añadir Articulo");
+        btnAñadir_Pedido.setText("Añadir Articulo");
 
         jLabel10.setText("Nombre Articulo: ");
 
@@ -260,17 +260,17 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel13.setText("Fecha :");
 
-        btnBorrar_Articulo_Pedido.setText("Borrar Articulo");
+        btnBorrar_Pedido.setText("Borrar Articulo");
 
-        jButton2.setText("Buscar Articulo");
+        btnBuscar_Pedido.setText("Buscar Articulo");
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagines/calendario.jpg"))); // NOI18N
+        btnCalendario_Pedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagines/calendario.jpg"))); // NOI18N
 
         jLabel14.setText("/");
 
         jLabel15.setText("/");
 
-        btnModificar_Articulo_Pedido.setText("Modificar Articulo");
+        btnModificar_Pedido.setText("Modificar Articulo");
 
         javax.swing.GroupLayout pDatosPedidoLayout = new javax.swing.GroupLayout(pDatosPedido);
         pDatosPedido.setLayout(pDatosPedidoLayout);
@@ -296,7 +296,7 @@ public class Interface extends javax.swing.JFrame {
                         .addGap(18, 18, 18))
                     .addGroup(pDatosPedidoLayout.createSequentialGroup()
                         .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pDatosPedidoLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -310,16 +310,16 @@ public class Interface extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtAnio_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnCalendario_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(127, 127, 127)))
                 .addComponent(jPanelBuscar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pDatosPedidoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAñadir_Articulo_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAñadir_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnBorrar_Articulo_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBorrar_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(btnModificar_Articulo_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnModificar_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         pDatosPedidoLayout.setVerticalGroup(
@@ -346,18 +346,18 @@ public class Interface extends javax.swing.JFrame {
                                 .addComponent(txtAnio_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel14)
                                 .addComponent(jLabel15))
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnCalendario_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(21, 21, 21)
-                        .addComponent(jButton2)
+                        .addComponent(btnBuscar_Pedido)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanelBuscar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBorrar_Articulo_Pedido)
-                    .addComponent(btnAñadir_Articulo_Pedido)
-                    .addComponent(btnModificar_Articulo_Pedido)))
+                    .addComponent(btnBorrar_Pedido)
+                    .addComponent(btnAñadir_Pedido)
+                    .addComponent(btnModificar_Pedido)))
         );
 
         javax.swing.GroupLayout jPanelPedidoLayout = new javax.swing.GroupLayout(jPanelPedido);
@@ -634,19 +634,19 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnArticulos;
     public javax.swing.JButton btnArticulosP;
-    private javax.swing.JButton btnAñadir_Articulo_Pedido;
-    private javax.swing.JButton btnBorrar_Articulo_Pedido;
+    private javax.swing.JButton btnAñadir_Pedido;
+    private javax.swing.JButton btnBorrar_Pedido;
+    private javax.swing.JButton btnBuscar_Pedido;
+    private javax.swing.JButton btnCalendario_Pedido;
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCobros;
     public javax.swing.JButton btnFactura;
-    private javax.swing.JButton btnModificar_Articulo_Pedido;
+    private javax.swing.JButton btnModificar_Pedido;
     public javax.swing.JButton btnPagos;
     public javax.swing.JButton btnPedido;
     public javax.swing.JButton btnPresupuestos;
     public javax.swing.JButton btnProveedores;
     public javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
