@@ -634,14 +634,14 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnArticulos;
     public javax.swing.JButton btnArticulosP;
-    private javax.swing.JButton btnAñadir_Pedido;
-    private javax.swing.JButton btnBorrar_Pedido;
-    private javax.swing.JButton btnBuscar_Pedido;
+    public javax.swing.JButton btnAñadir_Pedido;
+    public javax.swing.JButton btnBorrar_Pedido;
+    public javax.swing.JButton btnBuscar_Pedido;
     private javax.swing.JButton btnCalendario_Pedido;
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCobros;
     public javax.swing.JButton btnFactura;
-    private javax.swing.JButton btnModificar_Pedido;
+    public javax.swing.JButton btnModificar_Pedido;
     public javax.swing.JButton btnPagos;
     public javax.swing.JButton btnPedido;
     public javax.swing.JButton btnPresupuestos;
@@ -683,8 +683,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable2;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
     private javax.swing.JTextField txtAnio_Pedido;
