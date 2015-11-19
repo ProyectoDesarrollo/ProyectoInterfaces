@@ -56,10 +56,14 @@ public class Interface extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
-        txtFechaPr = new javax.swing.JFormattedTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        txtDiaPr = new javax.swing.JTextField();
+        txtMesPr = new javax.swing.JTextField();
+        txtAnioPr = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
         jPanelClientes = new javax.swing.JPanel();
         jPanelFactura = new javax.swing.JPanel();
         jPanelCobros = new javax.swing.JPanel();
@@ -255,14 +259,15 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel13.setText("Fecha :");
 
-        txtFechaPr.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        txtFechaPr.setEnabled(false);
-
         jButton1.setText("Borrar Articulo");
 
         jButton2.setText("Buscar Articulo");
 
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagines/calendario.jpg"))); // NOI18N
+
+        jLabel14.setText("/");
+
+        jLabel15.setText("/");
 
         javax.swing.GroupLayout pDatosPresupuestosLayout = new javax.swing.GroupLayout(pDatosPresupuestos);
         pDatosPresupuestos.setLayout(pDatosPresupuestosLayout);
@@ -271,16 +276,6 @@ public class Interface extends javax.swing.JFrame {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
             .addGroup(pDatosPresupuestosLayout.createSequentialGroup()
                 .addGroup(pDatosPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pDatosPresupuestosLayout.createSequentialGroup()
-                        .addGroup(pDatosPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pDatosPresupuestosLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFechaPr, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(19, 19, 19))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDatosPresupuestosLayout.createSequentialGroup()
                         .addGroup(pDatosPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(pDatosPresupuestosLayout.createSequentialGroup()
@@ -295,7 +290,25 @@ public class Interface extends javax.swing.JFrame {
                                 .addComponent(jLabel10)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtNombreArticuloPr, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)))
+                        .addGap(18, 18, 18))
+                    .addGroup(pDatosPresupuestosLayout.createSequentialGroup()
+                        .addGroup(pDatosPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pDatosPresupuestosLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtDiaPr, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel15)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMesPr, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel14)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtAnioPr, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(127, 127, 127)))
                 .addComponent(jPanelBusArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pDatosPresupuestosLayout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,11 +333,15 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(txtNombreArticuloPr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pDatosPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13)
                             .addGroup(pDatosPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtFechaPr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(24, 24, 24)
+                                .addComponent(jLabel13)
+                                .addComponent(txtDiaPr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMesPr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtAnioPr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel14)
+                                .addComponent(jLabel15))
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21)
                         .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanelBusArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -627,6 +644,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -660,12 +679,14 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPresupuestos;
+    private javax.swing.JTextField txtAnioPr;
     private javax.swing.JTextField txtApellidosPr;
     private javax.swing.JSpinner txtCantidadPr;
     private javax.swing.JFormattedTextField txtDNIPr;
+    private javax.swing.JTextField txtDiaPr;
     private javax.swing.JTextField txtDireccionPr;
-    private javax.swing.JFormattedTextField txtFechaPr;
     private javax.swing.JTextField txtIDPr;
+    private javax.swing.JTextField txtMesPr;
     private javax.swing.JTextField txtNombreArticuloPr;
     private javax.swing.JTextField txtNombrePr;
     private javax.swing.JTextField txtTarjetaPr;
