@@ -40,7 +40,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnAñadir_Pedido.setActionCommand( "btnAñadir_Pedido" );
         this.vista.btnAñadir_Pedido.addActionListener(this);
         
-        this.vista.btnModificar_Pedido.setActionCommand( "btnModificar_Pedido" );
+    this.vista.btnModificar_Pedido.setActionCommand( "btnModificar_Pedido" );
         this.vista.btnModificar_Pedido.addActionListener(this);
         
         this.vista.btnBorrar_Pedido.setActionCommand( "btnEliminar_Pedido" );
