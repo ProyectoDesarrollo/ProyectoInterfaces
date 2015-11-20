@@ -44,7 +44,7 @@ public class Interface extends javax.swing.JFrame {
         txtTarjeta_Pedido = new javax.swing.JTextField();
         pDatosPedido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaPedido_Carrito = new javax.swing.JTable();
+        jTablePedido_Carrito = new javax.swing.JTable();
         btnAñadir_Pedido = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -57,7 +57,7 @@ public class Interface extends javax.swing.JFrame {
         tablePedido_BuscarArticulo = new javax.swing.JTable();
         btnBorrar_Pedido = new javax.swing.JButton();
         btnModificar_Pedido = new javax.swing.JButton();
-        btnCrearFactura = new javax.swing.JButton();
+        btnCrear_Factura = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
@@ -213,7 +213,7 @@ public class Interface extends javax.swing.JFrame {
 
         pDatosPedido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Pedido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
-        tablaPedido_Carrito.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePedido_Carrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -224,7 +224,7 @@ public class Interface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tablaPedido_Carrito);
+        jScrollPane1.setViewportView(jTablePedido_Carrito);
 
         btnAñadir_Pedido.setText("Añadir Articulo");
 
@@ -266,7 +266,7 @@ public class Interface extends javax.swing.JFrame {
 
         btnModificar_Pedido.setText("Modificar Articulo");
 
-        btnCrearFactura.setText("Crear Factura");
+        btnCrear_Factura.setText("Crear Factura");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -306,7 +306,7 @@ public class Interface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnModificar_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnCrearFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCrear_Factura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32))
         );
         pDatosPedidoLayout.setVerticalGroup(
@@ -338,7 +338,7 @@ public class Interface extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBorrar_Pedido)
-                    .addComponent(btnCrearFactura)))
+                    .addComponent(btnCrear_Factura)))
         );
 
         javax.swing.GroupLayout jPanelPedidoLayout = new javax.swing.GroupLayout(jPanelPedido);
@@ -678,7 +678,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnBorrar_Pedido;
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCobros;
-    public javax.swing.JButton btnCrearFactura;
+    public javax.swing.JButton btnCrear_Factura;
     public javax.swing.JButton btnModificar_Pedido;
     public javax.swing.JButton btnPagos;
     public javax.swing.JButton btnPedido;
@@ -726,11 +726,11 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    public javax.swing.JTable jTablePedido_Carrito;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
-    public javax.swing.JTable tablaPedido_Carrito;
     public javax.swing.JTable tablePedido_BuscarArticulo;
     private javax.swing.JTextField txtApellidos_Pedido;
     private javax.swing.JSpinner txtCantidad_Pedido;
