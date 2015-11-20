@@ -57,7 +57,6 @@ public class Interface extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jLabel13 = new javax.swing.JLabel();
         btnBorrar_Pedido = new javax.swing.JButton();
-        btnBuscar_Pedido = new javax.swing.JButton();
         btnCalendario_Pedido = new javax.swing.JButton();
         txtDia_Pedido = new javax.swing.JTextField();
         txtMes_Pedido = new javax.swing.JTextField();
@@ -87,6 +86,7 @@ public class Interface extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
         btnArticulos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         btnSalir = new javax.swing.JButton();
         jPanelPrincipal = new javax.swing.JPanel();
@@ -262,8 +262,6 @@ public class Interface extends javax.swing.JFrame {
 
         btnBorrar_Pedido.setText("Borrar Articulo");
 
-        btnBuscar_Pedido.setText("Buscar Articulo");
-
         btnCalendario_Pedido.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagines/calendario.jpg"))); // NOI18N
 
         jLabel14.setText("/");
@@ -295,22 +293,19 @@ public class Interface extends javax.swing.JFrame {
                                 .addComponent(txtNombre_Articulo_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18))
                     .addGroup(pDatosPedidoLayout.createSequentialGroup()
-                        .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pDatosPedidoLayout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtDia_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMes_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel14)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtAnio_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnCalendario_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDia_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMes_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAnio_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCalendario_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(127, 127, 127)))
                 .addComponent(jPanelBuscar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pDatosPedidoLayout.createSequentialGroup()
@@ -347,8 +342,6 @@ public class Interface extends javax.swing.JFrame {
                                 .addComponent(jLabel14)
                                 .addComponent(jLabel15))
                             .addComponent(btnCalendario_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(21, 21, 21)
-                        .addComponent(btnBuscar_Pedido)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanelBuscar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
@@ -543,6 +536,9 @@ public class Interface extends javax.swing.JFrame {
 
         btnArticulos.setText("Artículos");
         jPanelBotones.add(btnArticulos);
+
+        jButton1.setText("jButton1");
+        jPanelBotones.add(jButton1);
         jPanelBotones.add(jSeparator1);
 
         btnSalir.setText("Salir");
@@ -636,7 +632,6 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnArticulosP;
     public javax.swing.JButton btnAñadir_Pedido;
     public javax.swing.JButton btnBorrar_Pedido;
-    public javax.swing.JButton btnBuscar_Pedido;
     private javax.swing.JButton btnCalendario_Pedido;
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCobros;
@@ -647,6 +642,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnPresupuestos;
     public javax.swing.JButton btnProveedores;
     public javax.swing.JButton btnSalir;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
