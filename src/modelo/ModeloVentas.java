@@ -40,6 +40,7 @@ public class ModeloVentas {
             ResultSet res = stmt.executeQuery("SELECT count(*) as Total FROM Articulos");
             res.next();
             registros = res.getInt("Total");
+            res.close();
             
         } catch (SQLException e) {
         
@@ -65,6 +66,8 @@ public class ModeloVentas {
                 
             }
             
+            res.close();
+            
             tableModel.setDataVector(data, columNames);
             
         } catch (SQLException e) {
@@ -74,6 +77,30 @@ public class ModeloVentas {
         }
         
         return tableModel;
+        
+    }
+    
+    public String getDescripcion(int i) {
+        
+        String q = "SELECT Descripcion FROM Articulos WHERE ID = '" + String.valueOf(i) + "'";
+        String r = null;
+        
+        try {
+            
+            Statement stmt = db.getConnection().createStatement();
+            
+            ResultSet res = stmt.executeQuery(q);
+            res.next();
+            r = res.getString("Descripcion");
+            res.close();
+            
+        } catch (SQLException e) {
+        
+            System.err.println(e.getMessage());
+            
+        }
+        
+        return r;
         
     }
     
