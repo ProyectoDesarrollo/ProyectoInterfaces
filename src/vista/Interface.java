@@ -73,7 +73,6 @@ public class Interface extends javax.swing.JFrame {
         btnPresupuestos = new javax.swing.JButton();
         btnPedido = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
-        btnCobros = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
         btnArticulosP = new javax.swing.JButton();
@@ -481,14 +480,11 @@ public class Interface extends javax.swing.JFrame {
         btnPresupuestos.setText("Presupuesto");
         jPanelBotones.add(btnPresupuestos);
 
-        btnPedido.setText("Pedido");
+        btnPedido.setText("Pedido/ Cobros");
         jPanelBotones.add(btnPedido);
 
         btnClientes.setText("Clientes");
         jPanelBotones.add(btnClientes);
-
-        btnCobros.setText("Cobros");
-        jPanelBotones.add(btnCobros);
 
         jSeparator3.setMaximumSize(new java.awt.Dimension(20, 10));
         jSeparator3.setMinimumSize(new java.awt.Dimension(20, 10));
@@ -677,7 +673,6 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnAñadirPedido;
     public javax.swing.JButton btnBorrarPedido;
     public javax.swing.JButton btnClientes;
-    public javax.swing.JButton btnCobros;
     public javax.swing.JButton btnCrearFactura;
     public javax.swing.JButton btnModificarPedido;
     public javax.swing.JButton btnPagos;

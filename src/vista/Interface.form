@@ -725,7 +725,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btnPedido">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Pedido"/>
+            <Property name="text" type="java.lang.String" value="Pedido/ Cobros"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -734,14 +734,6 @@
         <Component class="javax.swing.JButton" name="btnClientes">
           <Properties>
             <Property name="text" type="java.lang.String" value="Clientes"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JButton" name="btnCobros">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cobros"/>
           </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

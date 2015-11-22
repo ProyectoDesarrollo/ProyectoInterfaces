@@ -16,7 +16,6 @@ public class ControladorInicio implements ActionListener,MouseListener{
         btnPresupuestos,
         btnPedido,
         btnClientes,
-        btnCobros,
         btnPagos,
         btnProveedores,
         btnArticulos,
@@ -53,9 +52,6 @@ public class ControladorInicio implements ActionListener,MouseListener{
         
         this.vista.btnClientes.setActionCommand( "btnClientes" );
         this.vista.btnClientes.addActionListener(this);     
-        
-        this.vista.btnCobros.setActionCommand( "btnCobros" );
-        this.vista.btnCobros.addActionListener(this);
         
         this.vista.btnArticulosP.setActionCommand( "btnArticulosP" );
         this.vista.btnArticulosP.addActionListener(this);
@@ -139,28 +135,7 @@ public class ControladorInicio implements ActionListener,MouseListener{
                 }
                 
                 break;
-                            
-            case btnCobros:
-                
-                try {                   
- 
-                    this.vista.jPanelPrincipal.setVisible(false);
-                    this.vista.jPanelPresupuestos.setVisible(false);
-                    this.vista.jPanelPedido.setVisible(false);
-                    this.vista.jPanelClientes.setVisible(false);
-                    this.vista.jPanelFactura.setVisible(false);
-                    this.vista.jPanelCobros.setVisible(true);
-                    this.vista.jPanelArticulosP.setVisible(false);
-                    this.vista.jPanelPagos.setVisible(false);
-                    this.vista.jPanelProveedores.setVisible(false);
-                    this.vista.jPanelArticulos.setVisible(false);
-                    
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                
-                break;
-            
+                                       
             case btnPagos:
                 
                 try {                   
