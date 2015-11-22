@@ -20,10 +20,13 @@ public class ControladorVentas implements ActionListener,MouseListener{
     Interface vista;
     
     public enum AccionMVC{
-        btnAñadir_Pedido,
-        btnModificar_Pedido,
-        btnBorrar_Pedido,
-        btnCrear_Factura
+        btnAñadirPedido,
+        btnModificarPedido,
+        btnBorrarPedido,
+        btnCrearFactura,
+        btnAñadirClientes,
+        btnModificarCliente,
+        btnBorrarCliente
     }
     
     public ControladorVentas(Interface vista){
@@ -32,42 +35,66 @@ public class ControladorVentas implements ActionListener,MouseListener{
     
     public void iniciar(){
         try {
-            //Iniciar tablas
+            //this.vista.jTable.setModel(this.modelo.());
+            //this.vista.jTable.setModel(this.modelo.());
+            //this.vista.jTable.setModel(this.modelo.());
+            //this.vista.jTable.setModel(this.modelo.());
+            //this.vista.jTable.setModel(this.modelo.());
+            //this.vista.jTable.setModel(this.modelo.());
             
         } catch (Exception e) {
         }
         
-        this.vista.btnAñadir_Pedido.setActionCommand( "btnAñadir_Pedido" );
-        this.vista.btnAñadir_Pedido.addActionListener(this);
+        this.vista.btnAñadirPedido.setActionCommand( "btnAñadirPedido" );
+        this.vista.btnAñadirPedido.addActionListener(this);
         
-        this.vista.btnModificar_Pedido.setActionCommand( "btnModificar_Pedido" );
-        this.vista.btnModificar_Pedido.addActionListener(this);
+        this.vista.btnModificarPedido.setActionCommand( "btnModificarPedido" );
+        this.vista.btnModificarPedido.addActionListener(this);
         
-        this.vista.btnBorrar_Pedido.setActionCommand( "btnEliminar_Pedido" );
-        this.vista.btnBorrar_Pedido.addActionListener(this);
+        this.vista.btnBorrarPedido.setActionCommand( "btnEliminarPedido" );
+        this.vista.btnBorrarPedido.addActionListener(this);
         
-        this.vista.btnCrear_Factura.setActionCommand( "btnCrear_Factura" );
-        this.vista.btnCrear_Factura.addActionListener(this);
+        this.vista.btnCrearFactura.setActionCommand( "btnCrearFactura" );
+        this.vista.btnCrearFactura.addActionListener(this);
         
+        this.vista.btnAñadirCliente.setActionCommand( "btnAñadirCliente" );
+        this.vista.btnAñadirCliente.addActionListener(this);
         
+        this.vista.btnModificarCliente.setActionCommand( "btnModificarCliente" );
+        this.vista.btnModificarCliente.addActionListener(this);
+        
+        this.vista.btnBorrarCliente.setActionCommand( "btnEliminarCliente" );
+        this.vista.btnBorrarCliente.addActionListener(this);
     }
     
     public void actionPerformed(ActionEvent e) {
     switch(AccionMVC.valueOf(e.getActionCommand())) {
         
-        case btnAñadir_Pedido:           
+        case btnAñadirPedido:           
             
             break;
         
-        case btnModificar_Pedido:
+        case btnModificarPedido:
             
             break;
         
-        case btnBorrar_Pedido:
+        case btnBorrarPedido:
             
             break;
             
-        case btnCrear_Factura:
+        case btnCrearFactura:
+            
+            break;
+            
+        case btnAñadirCliente:
+            
+            break;
+            
+        case btnModificarCliente:
+            
+            break;
+            
+        case btnBorrarCliente:
             
             break;
         

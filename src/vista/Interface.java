@@ -45,7 +45,7 @@ public class Interface extends javax.swing.JFrame {
         pDatosPedido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTablePedido_Carrito = new javax.swing.JTable();
-        btnAñadir_Pedido = new javax.swing.JButton();
+        btnAñadirPedido = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         txtNombre_Articulo_Pedido = new javax.swing.JTextField();
@@ -55,9 +55,9 @@ public class Interface extends javax.swing.JFrame {
         jPanelBuscar_Articulo_Pedido = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePedido_BuscarArticulo = new javax.swing.JTable();
-        btnBorrar_Pedido = new javax.swing.JButton();
-        btnModificar_Pedido = new javax.swing.JButton();
-        btnCrear_Factura = new javax.swing.JButton();
+        btnBorrarPedido = new javax.swing.JButton();
+        btnModificarPedido = new javax.swing.JButton();
+        btnCrearFactura = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
@@ -226,7 +226,7 @@ public class Interface extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTablePedido_Carrito);
 
-        btnAñadir_Pedido.setText("Añadir Articulo");
+        btnAñadirPedido.setText("Añadir Articulo");
 
         jLabel10.setText("Nombre Articulo: ");
 
@@ -262,11 +262,11 @@ public class Interface extends javax.swing.JFrame {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
-        btnBorrar_Pedido.setText("Borrar Articulo");
+        btnBorrarPedido.setText("Borrar Articulo");
 
-        btnModificar_Pedido.setText("Modificar Articulo");
+        btnModificarPedido.setText("Modificar Articulo");
 
-        btnCrear_Factura.setText("Crear Factura");
+        btnCrearFactura.setText("Crear Factura");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -301,12 +301,12 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(pDatosPedidoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBorrar_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAñadir_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                    .addComponent(btnBorrarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAñadirPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnModificar_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                    .addComponent(btnCrear_Factura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnModificarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                    .addComponent(btnCrearFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(32, 32, 32))
         );
         pDatosPedidoLayout.setVerticalGroup(
@@ -333,12 +333,12 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAñadir_Pedido)
-                    .addComponent(btnModificar_Pedido))
+                    .addComponent(btnAñadirPedido)
+                    .addComponent(btnModificarPedido))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBorrar_Pedido)
-                    .addComponent(btnCrear_Factura)))
+                    .addComponent(btnBorrarPedido)
+                    .addComponent(btnCrearFactura)))
         );
 
         javax.swing.GroupLayout jPanelPedidoLayout = new javax.swing.GroupLayout(jPanelPedido);
@@ -674,12 +674,12 @@ public class Interface extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnArticulos;
     public javax.swing.JButton btnArticulosP;
-    public javax.swing.JButton btnAñadir_Pedido;
-    public javax.swing.JButton btnBorrar_Pedido;
+    public javax.swing.JButton btnAñadirPedido;
+    public javax.swing.JButton btnBorrarPedido;
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCobros;
-    public javax.swing.JButton btnCrear_Factura;
-    public javax.swing.JButton btnModificar_Pedido;
+    public javax.swing.JButton btnCrearFactura;
+    public javax.swing.JButton btnModificarPedido;
     public javax.swing.JButton btnPagos;
     public javax.swing.JButton btnPedido;
     public javax.swing.JButton btnPresupuestos;

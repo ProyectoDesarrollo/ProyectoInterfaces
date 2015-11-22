@@ -296,13 +296,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnBorrar_Pedido" max="32767" attributes="0"/>
-                          <Component id="btnAñadir_Pedido" pref="200" max="32767" attributes="0"/>
+                          <Component id="btnBorrarPedido" max="32767" attributes="0"/>
+                          <Component id="btnAñadirPedido" pref="200" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnModificar_Pedido" pref="200" max="32767" attributes="0"/>
-                          <Component id="btnCrear_Factura" max="32767" attributes="0"/>
+                          <Component id="btnModificarPedido" pref="200" max="32767" attributes="0"/>
+                          <Component id="btnCrearFactura" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
@@ -336,13 +336,13 @@
                       <Component id="jScrollPane1" min="-2" pref="137" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnAñadir_Pedido" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnModificar_Pedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnAñadirPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnModificarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnBorrar_Pedido" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnCrear_Factura" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnBorrarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCrearFactura" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -370,7 +370,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnA&#xf1;adir_Pedido">
+            <Component class="javax.swing.JButton" name="btnA&#xf1;adirPedido">
               <Properties>
                 <Property name="text" type="java.lang.String" value="A&#xf1;adir Articulo"/>
               </Properties>
@@ -443,7 +443,7 @@
                 </Container>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="btnBorrar_Pedido">
+            <Component class="javax.swing.JButton" name="btnBorrarPedido">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Borrar Articulo"/>
               </Properties>
@@ -451,7 +451,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnModificar_Pedido">
+            <Component class="javax.swing.JButton" name="btnModificarPedido">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Modificar Articulo"/>
               </Properties>
@@ -459,7 +459,7 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="btnCrear_Factura">
+            <Component class="javax.swing.JButton" name="btnCrearFactura">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Crear Factura"/>
               </Properties>
