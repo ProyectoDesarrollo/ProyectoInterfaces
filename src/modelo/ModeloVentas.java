@@ -1,6 +1,5 @@
 package modelo;
 
-import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,135 +7,158 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-public class ModeloVentas extends Database{
+public class ModeloVentas extends DatabaseSQLite{
     
-    //private Database db = null;
     
-    public ModeloVentas() {
-        
-        //db = new Database();
-        
-    }
+    public ModeloVentas() {}
     
     public DefaultTableModel getTablaArticulos(){
         
-        DefaultTableModel tablemodel = new DefaultTableModel();
-        int registros=0;
-        String[] columNames = {"ID", "Nombre", "Stock", "Precio"};
-        
-        try{
-            
-            PreparedStatement pstm = this.getConnection().prepareStatement( "SELECT count(*) as Total FROM Articulos");
-            ResultSet res = pstm.executeQuery();
-            res.next();
-            registros=res.getInt("total");
-            res.close();
-            
-            
-        }catch(SQLException e){            
-            System.err.println( e.getMessage() );
-        }
-        
-        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
-        Object[][] data = new String[registros][4];
-        
-        try{
-            //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConnection().prepareStatement("SELECT * FROM Articulos");
-            ResultSet res = pstm.executeQuery();
-            int i=0;
-            
-            while(res.next()){ //y llenamos los datos en la matriz
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0; // Indica la cantidad de filas de la tabla.
+      String[] columNames = {"ID", "Nombre", "Stock", "Precio"}; // Indica el nombre de las columnas de la tabla.
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Articulos");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+      Object[][] data = new String[registros][4];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID, Nombre, Stock, Precio FROM Articulos");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
                 data[i][0] = res.getString("ID");
                 data[i][1] = res.getString("Nombre");
                 data[i][2] = res.getString("Stock");
                 data[i][3] = res.getString("Precio");
-                i++;
-            }
-            
-            res.close();
-            //se añade la matriz de datos en el DefaultTableModel
-            tablemodel.setDataVector(data, columNames );            
-            
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+    }
+    
+    public boolean InsertarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Alumnos ( DNI ,Nombre ,Apellidos ,Domicilio ,Acceso ,Telefono ) "
+                    + "VALUES ( '" + dni + "','" + nombre + "', '" + apellidos + "','" + direccion + "', '" + telefono + "', " + tarjeta + " ) ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
         }catch(SQLException e){
-                
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
+    
+    public boolean InsertarProveedores (String nif, String nombre , String apellidos, int telefono) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Profesores ( DNI ,Nombre ,Apellidos ,Domicilio ,Telefono ) "
+                    + "VALUES ( '" + nif + "','" + nombre + "', '" + apellidos + "', " + telefono + " ) ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
+    
+    public boolean EliminarClientes( String dni ){
+         boolean res=false;
+        //se arma la consulta
+        String q = " DELETE FROM Clientes WHERE  DNI='" + dni + "' " ;
+        //se ejecuta la consulta
+         try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return res;
+    }
+    
+    public boolean EliminarProveedores( String nif ){
+         boolean res=false;
+        //se arma la consulta
+        String q = " DELETE FROM Proveedores WHERE  NIF='" + nif + "' " ;
+        //se ejecuta la consulta
+         try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            res=true;
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return res;
+    }
+    
+    public void modificarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
+        
+        String q="Update Cliente set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Direccion='"+direccion+"', Telefono='"+telefono+"',, Tarjeta='"+tarjeta+"' where DNI='"+dni+"';";
+        
+        try {
+            
+            //Se mete en la base de datos
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();            
+
+        }catch(SQLException e){
             System.err.println( e.getMessage() );
             JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
         }catch(Exception e){
             
-            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
-        }
-        return tablemodel;
+            JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
+        }  
     }
-    /*
-    public DefaultTableModel getTablaArticulos() {
+
+    public void modificarProveedor (String nif, String nombre , String apellidos, int telefono) {
         
-        DefaultTableModel tableModel = new DefaultTableModel () {
-            
-            @Override
-            public boolean isCellEditable (int row, int column) {
-                
-                return false;
-                
-            }
-            
-        };
+        String q="Update Profesores set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Telefono='"+telefono+"' where NIF='"+nif+"';";
         
-        int registros = 0; // Indica la cantidad de filas de la tabla.
-        String[] columNames = {"ID", "Nombre", "Stock", "Precio"}; // Indica el nombre de las columnas de la tabla.
-        
-        Statement stmt = null;
-        
-        // Se calculará la cantidad de filas que tendra la tabla.
         try {
             
-            stmt = db.getConnection().createStatement();
+            //Se mete en la base de datos
+            PreparedStatement pstm1 = this.getConexion().prepareStatement(q);
+            pstm1.execute();
+            pstm1.close();            
+
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        }catch(Exception e){
             
-            ResultSet res = stmt.executeQuery("SELECT count(*) as Total FROM Articulos");
-            res.next();
-            registros = res.getInt("Total");
-            res.close();
-            
-        } catch (SQLException e) {
-        
-            System.err.println(e.getMessage());
-            
-        }
-        
-        Object[][] data = new String[registros][4];
-        
-        // Se rellenara en una matriz el contenido por celdas de la tabla.
-        try {
-            
-            ResultSet res = stmt.executeQuery("SELECT ID, Nombre, Stock, Precio FROM Articulos");
-            int i = 0;
-            
-            while (res.next()) {
-                
-                data[i][0] = res.getString("ID");
-                data[i][1] = res.getString("Nombre");
-                data[i][2] = res.getString("Stock");
-                data[i][3] = res.getString("Precio");
-                
-                i++;
-                
-            }
-            
-            res.close();
-            
-            tableModel.setDataVector(data, columNames);
-            
-        } catch (SQLException e) {
-            
-            System.err.println(e.getMessage());
-            
-        }
-        
-        return tableModel;
-        
+            JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
+        }  
     }
     
-    public String getDescripcion(int i) {
+    
+    /*public String getDescripcion(int i) {
         
         String q = "SELECT Descripcion FROM Articulos WHERE ID = '" + String.valueOf(i) + "'";
         String r = null;
