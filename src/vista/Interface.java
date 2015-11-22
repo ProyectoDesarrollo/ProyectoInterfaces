@@ -30,28 +30,28 @@ public class Interface extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanelPedido = new javax.swing.JPanel();
         pDatosClientes = new javax.swing.JPanel();
-        txtDNI_Pedido = new javax.swing.JFormattedTextField();
+        txtDNIPedido = new javax.swing.JFormattedTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtNombre_Pedido = new javax.swing.JTextField();
-        txtApellidos_Pedido = new javax.swing.JTextField();
-        txtDireccion_Pedido = new javax.swing.JTextField();
-        txtTelefono_Pedido = new javax.swing.JTextField();
-        txtTarjeta_Pedido = new javax.swing.JTextField();
+        txtNombrePedido = new javax.swing.JTextField();
+        txtApellidosPedido = new javax.swing.JTextField();
+        txtDireccionPedido = new javax.swing.JTextField();
+        txtTelefonoPedido = new javax.swing.JTextField();
+        txtTarjetaPedido = new javax.swing.JTextField();
         pDatosPedido = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTablePedidoCarrito = new javax.swing.JTable();
+        tablePedidoCarrito = new javax.swing.JTable();
         btnAñadirPedido = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        txtNombre_Articulo_Pedido = new javax.swing.JTextField();
-        txtID_Pedido = new javax.swing.JTextField();
+        txtNombreArticuloPedido = new javax.swing.JTextField();
+        txtIDPedido = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        txtCantidad_Pedido = new javax.swing.JSpinner();
+        txtCantidadPedido = new javax.swing.JSpinner();
         jPanelBuscar_Articulo_Pedido = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePedidoBuscarArticulo = new javax.swing.JTable();
@@ -81,7 +81,7 @@ public class Interface extends javax.swing.JFrame {
         jFormattedTextField4 = new javax.swing.JFormattedTextField();
         jPanelVisualizar = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tableVisualizar = new javax.swing.JTable();
         jComboVisualizar = new javax.swing.JComboBox();
         jTextField1 = new javax.swing.JTextField();
         btnBuscarCliente = new javax.swing.JButton();
@@ -90,6 +90,19 @@ public class Interface extends javax.swing.JFrame {
         jPanelArticulosP = new javax.swing.JPanel();
         jPanelPagos = new javax.swing.JPanel();
         jPanelProveedores = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tableProveedores = new javax.swing.JTable();
+        jLabel27 = new javax.swing.JLabel();
+        txtNIFProveedores = new javax.swing.JFormattedTextField();
+        jLabel28 = new javax.swing.JLabel();
+        txtNombreProveedores = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        txtApellidosProveedores = new javax.swing.JTextField();
+        txtTelefonoProveedor = new javax.swing.JFormattedTextField();
+        btnAñadirProveedor = new javax.swing.JButton();
+        btnModificarProveedor = new javax.swing.JButton();
+        btnBorrarProveedor = new javax.swing.JButton();
         jPanelArticulos = new javax.swing.JPanel();
         jPanelBotones = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -153,13 +166,13 @@ public class Interface extends javax.swing.JFrame {
         pDatosClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
 
         try {
-            txtDNI_Pedido.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########-U")));
+            txtDNIPedido.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########-U")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        txtDNI_Pedido.addActionListener(new java.awt.event.ActionListener() {
+        txtDNIPedido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDNI_PedidoActionPerformed(evt);
+                txtDNIPedidoActionPerformed(evt);
             }
         });
 
@@ -180,15 +193,15 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel9.setText("Nº Tarjeta:");
 
-        txtNombre_Pedido.setEnabled(false);
+        txtNombrePedido.setEnabled(false);
 
-        txtApellidos_Pedido.setEnabled(false);
+        txtApellidosPedido.setEnabled(false);
 
-        txtDireccion_Pedido.setEnabled(false);
+        txtDireccionPedido.setEnabled(false);
 
-        txtTelefono_Pedido.setEnabled(false);
+        txtTelefonoPedido.setEnabled(false);
 
-        txtTarjeta_Pedido.setEnabled(false);
+        txtTarjetaPedido.setEnabled(false);
 
         javax.swing.GroupLayout pDatosClientesLayout = new javax.swing.GroupLayout(pDatosClientes);
         pDatosClientes.setLayout(pDatosClientesLayout);
@@ -199,7 +212,7 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(pDatosClientesLayout.createSequentialGroup()
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28)
-                        .addComponent(txtApellidos_Pedido))
+                        .addComponent(txtApellidosPedido))
                     .addGroup(pDatosClientesLayout.createSequentialGroup()
                         .addGroup(pDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pDatosClientesLayout.createSequentialGroup()
@@ -208,8 +221,8 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtDNI_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(txtNombre_Pedido))))
+                            .addComponent(txtDNIPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(txtNombrePedido))))
                 .addGap(18, 18, 18)
                 .addGroup(pDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -217,9 +230,9 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTarjeta_Pedido)
-                    .addComponent(txtDireccion_Pedido, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtTelefono_Pedido))
+                    .addComponent(txtTarjetaPedido)
+                    .addComponent(txtDireccionPedido, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtTelefonoPedido))
                 .addContainerGap())
         );
         pDatosClientesLayout.setVerticalGroup(
@@ -227,28 +240,28 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(pDatosClientesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtDNI_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDNIPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel7)
-                    .addComponent(txtDireccion_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel8)
-                    .addComponent(txtNombre_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTelefono_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombrePedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTelefonoPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(pDatosClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jLabel9)
-                    .addComponent(txtApellidos_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTarjeta_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtApellidosPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTarjetaPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pDatosPedido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Pedido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
-        jTablePedidoCarrito.setModel(new javax.swing.table.DefaultTableModel(
+        tablePedidoCarrito.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -259,7 +272,7 @@ public class Interface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTablePedidoCarrito);
+        jScrollPane1.setViewportView(tablePedidoCarrito);
 
         btnAñadirPedido.setText("Añadir Articulo");
 
@@ -267,9 +280,9 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel11.setText("ID :");
 
-        txtNombre_Articulo_Pedido.setEnabled(false);
+        txtNombreArticuloPedido.setEnabled(false);
 
-        txtID_Pedido.setEnabled(false);
+        txtIDPedido.setEnabled(false);
 
         jLabel12.setText("Cantidad :");
 
@@ -320,15 +333,15 @@ public class Interface extends javax.swing.JFrame {
                         .addGroup(pDatosPedidoLayout.createSequentialGroup()
                             .addComponent(jLabel11)
                             .addGap(18, 18, 18)
-                            .addComponent(txtID_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIDPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(jLabel12)
                             .addGap(34, 34, 34)
-                            .addComponent(txtCantidad_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCantidadPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(pDatosPedidoLayout.createSequentialGroup()
                             .addComponent(jLabel10)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(txtNombre_Articulo_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtNombreArticuloPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addGap(10, 10, 10)
@@ -351,14 +364,14 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(pDatosPedidoLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtID_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIDPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
                             .addComponent(jLabel12)
-                            .addComponent(txtCantidad_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCantidadPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(txtNombre_Articulo_Pedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNombreArticuloPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -514,7 +527,7 @@ public class Interface extends javax.swing.JFrame {
 
         jPanelVisualizar.setPreferredSize(new java.awt.Dimension(600, 650));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tableVisualizar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -525,7 +538,7 @@ public class Interface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane8.setViewportView(jTable2);
+        jScrollPane8.setViewportView(tableVisualizar);
 
         jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -566,7 +579,7 @@ public class Interface extends javax.swing.JFrame {
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jComboVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscarCliente)
@@ -608,17 +621,104 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
+        jPanelProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Zona Proveedores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jPanelProveedores.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        tableProveedores.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(tableProveedores);
+
+        jLabel27.setText("CIF / NIF:");
+
+        try {
+            txtNIFProveedores.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("U-########")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
+        jLabel28.setText("Nombre:");
+
+        jLabel29.setText("Apellido: ");
+
+        jLabel30.setText("Teléfono:");
+
+        txtTelefonoProveedor.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#########"))));
+
+        btnAñadirProveedor.setText("Añadir");
+
+        btnModificarProveedor.setText("Modificar");
+
+        btnBorrarProveedor.setText("Borrar");
 
         javax.swing.GroupLayout jPanelProveedoresLayout = new javax.swing.GroupLayout(jPanelProveedores);
         jPanelProveedores.setLayout(jPanelProveedoresLayout);
         jPanelProveedoresLayout.setHorizontalGroup(
             jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jPanelProveedoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                    .addGroup(jPanelProveedoresLayout.createSequentialGroup()
+                        .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelProveedoresLayout.createSequentialGroup()
+                                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel27)
+                                    .addComponent(jLabel28))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombreProveedores)
+                                    .addComponent(txtNIFProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanelProveedoresLayout.createSequentialGroup()
+                                        .addComponent(jLabel30)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtTelefonoProveedor))
+                                    .addGroup(jPanelProveedoresLayout.createSequentialGroup()
+                                        .addComponent(jLabel29)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtApellidosProveedores))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelProveedoresLayout.createSequentialGroup()
+                                .addComponent(btnAñadirProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnModificarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(27, 27, 27)
+                                .addComponent(btnBorrarProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
         jPanelProveedoresLayout.setVerticalGroup(
             jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanelProveedoresLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(70, 70, 70)
+                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(txtNIFProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(txtApellidosProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28)
+                    .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNombreProveedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel30)
+                        .addComponent(txtTelefonoProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(87, 87, 87)
+                .addGroup(jPanelProveedoresLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAñadirProveedor)
+                    .addComponent(btnModificarProveedor)
+                    .addComponent(btnBorrarProveedor))
+                .addGap(0, 102, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
@@ -629,11 +729,11 @@ public class Interface extends javax.swing.JFrame {
         jPanelArticulos.setLayout(jPanelArticulosLayout);
         jPanelArticulosLayout.setHorizontalGroup(
             jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 630, Short.MAX_VALUE)
         );
         jPanelArticulosLayout.setVerticalGroup(
             jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGap(0, 630, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanelArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
@@ -910,9 +1010,9 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDNI_PedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNI_PedidoActionPerformed
+    private void txtDNIPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIPedidoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDNI_PedidoActionPerformed
+    }//GEN-LAST:event_txtDNIPedidoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -955,24 +1055,27 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnAñadirCliente;
     public javax.swing.JButton btnAñadirPedido;
     public javax.swing.JButton btnAñadirPresupuesto;
+    public javax.swing.JButton btnAñadirProveedor;
     public javax.swing.JButton btnBorrarCliente;
     public javax.swing.JButton btnBorrarPedido;
     public javax.swing.JButton btnBorrarPresupuesto;
-    private javax.swing.JButton btnBuscarCliente;
+    public javax.swing.JButton btnBorrarProveedor;
+    public javax.swing.JButton btnBuscarCliente;
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCrearFactura;
     public javax.swing.JButton btnCrerPedido;
     public javax.swing.JButton btnModificarCliente;
     public javax.swing.JButton btnModificarPedido;
     public javax.swing.JButton btnModificarPresupuesto;
+    public javax.swing.JButton btnModificarProveedor;
     public javax.swing.JButton btnPagos;
     public javax.swing.JButton btnPedido;
     public javax.swing.JButton btnPresupuestos;
     public javax.swing.JButton btnProveedores;
     public javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVisualizar;
-    private javax.swing.JComboBox jComboBuscar;
-    private javax.swing.JComboBox jComboVisualizar;
+    public javax.swing.JComboBox jComboBuscar;
+    public javax.swing.JComboBox jComboVisualizar;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     public javax.swing.JFormattedTextField jFormattedTextField2;
     public javax.swing.JFormattedTextField jFormattedTextField3;
@@ -996,7 +1099,11 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1028,15 +1135,14 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTable jTable2;
-    public javax.swing.JTable jTablePedidoCarrito;
     public javax.swing.JTable jTablePresupuestoCarrito;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField1;
     public javax.swing.JTextField jTextField2;
     public javax.swing.JTextField jTextField3;
     public javax.swing.JTextField jTextField4;
@@ -1044,19 +1150,26 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel pDatosPedido;
     public javax.swing.JTable tableClientes;
     public javax.swing.JTable tablePedidoBuscarArticulo;
+    public javax.swing.JTable tablePedidoCarrito;
     public javax.swing.JTable tablePresuspuestoBuscarArticulo;
-    private javax.swing.JTextField txtApellidos_Pedido;
-    private javax.swing.JSpinner txtCantidad_Pedido;
+    public javax.swing.JTable tableProveedores;
+    public javax.swing.JTable tableVisualizar;
+    public javax.swing.JTextField txtApellidosPedido;
+    public javax.swing.JTextField txtApellidosProveedores;
+    private javax.swing.JSpinner txtCantidadPedido;
     private javax.swing.JSpinner txtCantidad_Pedido1;
-    private javax.swing.JFormattedTextField txtDNI_Pedido;
-    private javax.swing.JTextField txtDireccion_Pedido;
-    private javax.swing.JTextField txtID_Pedido;
+    public javax.swing.JFormattedTextField txtDNIPedido;
+    public javax.swing.JTextField txtDireccionPedido;
+    private javax.swing.JTextField txtIDPedido;
     private javax.swing.JTextField txtID_Pedido1;
+    public javax.swing.JFormattedTextField txtNIFProveedores;
+    private javax.swing.JTextField txtNombreArticuloPedido;
+    public javax.swing.JTextField txtNombrePedido;
     private javax.swing.JTextField txtNombrePresupuesto;
-    private javax.swing.JTextField txtNombre_Articulo_Pedido;
+    public javax.swing.JTextField txtNombreProveedores;
     private javax.swing.JTextField txtNombre_Articulo_Pedido1;
-    private javax.swing.JTextField txtNombre_Pedido;
-    private javax.swing.JTextField txtTarjeta_Pedido;
-    private javax.swing.JTextField txtTelefono_Pedido;
+    public javax.swing.JTextField txtTarjetaPedido;
+    public javax.swing.JTextField txtTelefonoPedido;
+    public javax.swing.JFormattedTextField txtTelefonoProveedor;
     // End of variables declaration//GEN-END:variables
 }
