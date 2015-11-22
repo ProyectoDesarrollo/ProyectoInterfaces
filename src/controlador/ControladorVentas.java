@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import modelo.ModeloVentas;
 import vista.Interface;
 
 /**
@@ -18,6 +19,7 @@ import vista.Interface;
 public class ControladorVentas implements ActionListener,MouseListener{
 
     Interface vista;
+    ModeloVentas modelo;
     
     public enum AccionMVC{
         btnAñadirPedido,
@@ -34,11 +36,16 @@ public class ControladorVentas implements ActionListener,MouseListener{
     
     public ControladorVentas(Interface vista){
         this.vista=vista;
+        
     }
     
     public void iniciar(){
+        
         try {
-            //this.vista.jTable.setModel(this.modelo.());
+            
+            this.vista.jPanelPrincipal.setVisible(true);
+            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
+            
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
@@ -60,14 +67,14 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnCrearFactura.setActionCommand( "btnCrearFactura" );
         this.vista.btnCrearFactura.addActionListener(this);
         
-        this.vista.btnAñadirCliente.setActionCommand( "btnAñadirCliente" );
+        /*this.vista.btnAñadirCliente.setActionCommand( "btnAñadirCliente" );
         this.vista.btnAñadirCliente.addActionListener(this);
         
         this.vista.btnModificarCliente.setActionCommand( "btnModificarCliente" );
         this.vista.btnModificarCliente.addActionListener(this);
         
         this.vista.btnBorrarCliente.setActionCommand( "btnEliminarCliente" );
-        this.vista.btnBorrarCliente.addActionListener(this);
+        this.vista.btnBorrarCliente.addActionListener(this);*/
         
         this.vista.btnAñadirPresupuesto.setActionCommand( "btnAñadirPresupuesto" );
         this.vista.btnAñadirPresupuesto.addActionListener(this);
@@ -77,6 +84,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         
         this.vista.btnBorrarPresupuesto.setActionCommand( "btnEliminarPresupuesto" );
         this.vista.btnBorrarPresupuesto.addActionListener(this);
+        
     }
     
     public void actionPerformed(ActionEvent e) {

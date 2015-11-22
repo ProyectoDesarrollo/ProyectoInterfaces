@@ -5,12 +5,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import modelo.ModeloVentas;
 import vista.Interface;
 
 
 public class ControladorInicio implements ActionListener,MouseListener{
 
     Interface vista;
+    ModeloVentas modelo;
+    ControladorCompras controladorCompras;
+    ControladorVentas controladorVentas;
     
     public enum AccionMVC{
         btnPresupuestos,
@@ -29,13 +33,16 @@ public class ControladorInicio implements ActionListener,MouseListener{
     
     public void iniciar(){
         try {
+            
+            
+            controladorVentas= new ControladorVentas(vista);
+            controladorVentas.iniciar();            
+            
             this.vista.setVisible(true);
-            this.vista.jPanelPrincipal.setVisible(true);
             this.vista.jPanelPresupuestos.setVisible(false);
             this.vista.jPanelPedido.setVisible(false);
             this.vista.jPanelClientes.setVisible(false);
             this.vista.jPanelVisualizar.setVisible(false);
-            this.vista.jPanelCobros.setVisible(false);
             this.vista.jPanelArticulosP.setVisible(false);
             this.vista.jPanelPagos.setVisible(false);
             this.vista.jPanelProveedores.setVisible(false);
@@ -81,8 +88,7 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPresupuestos.setVisible(true);
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
-                    this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelCobros.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(false);                   
                     this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
@@ -103,11 +109,11 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(true);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelCobros.setVisible(false);
                     this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
+                    
                     
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -124,7 +130,6 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(true);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelCobros.setVisible(false);
                     this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
@@ -145,7 +150,6 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelCobros.setVisible(false);
                     this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(true);
                     this.vista.jPanelProveedores.setVisible(false);
@@ -166,7 +170,6 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelCobros.setVisible(false);
                     this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(true);
@@ -187,7 +190,6 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelCobros.setVisible(false);
                     this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);

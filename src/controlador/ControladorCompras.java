@@ -18,6 +18,8 @@ import vista.Interface;
 public class ControladorCompras implements ActionListener,MouseListener{
 
     Interface vista;
+
+    
     
     public enum AccionMVC{
         btnAñadirProveedor,
@@ -41,7 +43,7 @@ public class ControladorCompras implements ActionListener,MouseListener{
         } catch (Exception e) {
         }
         
-        this.vista.btnAñadirProveedor.setActionCommand( "btnAñadirProveedor" );
+        /*this.vista.btnAñadirProveedor.setActionCommand( "btnAñadirProveedor" );
         this.vista.btnAñadirProveedor.addActionListener(this);
         
         this.vista.btnModificarProveedor.setActionCommand( "btnModificarProveedor" );
@@ -57,10 +59,10 @@ public class ControladorCompras implements ActionListener,MouseListener{
         this.vista.btnModificarArticuloProveedor.addActionListener(this);
         
         this.vista.btnBorrarArticuloProveedor.setActionCommand( "btnEliminarArticuloProveedor" );
-        this.vista.btnBorrarArticuloProveedor.addActionListener(this);
+        this.vista.btnBorrarArticuloProveedor.addActionListener(this);*/
     }
     
-    public void actionPerformed(ActionEvent e) {
+    /*public void actionPerformed(ActionEvent e) {
     switch(ControladorVentas.AccionMVC.valueOf(e.getActionCommand())) {
         
         case btnAñadirProveedor:           
@@ -87,8 +89,10 @@ public class ControladorCompras implements ActionListener,MouseListener{
             
             break;
     }
-    }
-
+    }*/
+    
+    public void actionPerformed(ActionEvent e) {}
+    
     public void mouseClicked(MouseEvent e) {}
 
     public void mousePressed(MouseEvent e) {}
