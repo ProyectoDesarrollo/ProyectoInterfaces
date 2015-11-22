@@ -87,7 +87,6 @@ public class Interface extends javax.swing.JFrame {
         btnBuscarCliente = new javax.swing.JButton();
         jComboBuscar = new javax.swing.JComboBox();
         jLabel26 = new javax.swing.JLabel();
-        jPanelArticulosP = new javax.swing.JPanel();
         jPanelPagos = new javax.swing.JPanel();
         jPanelProveedores = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -104,6 +103,10 @@ public class Interface extends javax.swing.JFrame {
         btnModificarProveedor = new javax.swing.JButton();
         btnBorrarProveedor = new javax.swing.JButton();
         jPanelArticulos = new javax.swing.JPanel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        btnArticulosDisponibles = new javax.swing.JButton();
+        btnArticulosStock = new javax.swing.JButton();
         jPanelBotones = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnPresupuestos = new javax.swing.JButton();
@@ -111,7 +114,6 @@ public class Interface extends javax.swing.JFrame {
         btnClientes = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel2 = new javax.swing.JLabel();
-        btnArticulosP = new javax.swing.JButton();
         btnPagos = new javax.swing.JButton();
         btnProveedores = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
@@ -591,21 +593,6 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
-        jPanelArticulosP.setPreferredSize(new java.awt.Dimension(600, 650));
-
-        javax.swing.GroupLayout jPanelArticulosPLayout = new javax.swing.GroupLayout(jPanelArticulosP);
-        jPanelArticulosP.setLayout(jPanelArticulosPLayout);
-        jPanelArticulosPLayout.setHorizontalGroup(
-            jPanelArticulosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        jPanelArticulosPLayout.setVerticalGroup(
-            jPanelArticulosPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanelArticulosP, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
-
         jPanelPagos.setPreferredSize(new java.awt.Dimension(600, 650));
 
         javax.swing.GroupLayout jPanelPagosLayout = new javax.swing.GroupLayout(jPanelPagos);
@@ -723,17 +710,51 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelProveedores, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
+        jPanelArticulos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Almacen", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanelArticulos.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(jTable1);
+
+        btnArticulosDisponibles.setText("Ver Articulos Disponibles");
+
+        btnArticulosStock.setText("Ver Articulos en Stock");
 
         javax.swing.GroupLayout jPanelArticulosLayout = new javax.swing.GroupLayout(jPanelArticulos);
         jPanelArticulos.setLayout(jPanelArticulosLayout);
         jPanelArticulosLayout.setHorizontalGroup(
             jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(jPanelArticulosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanelArticulosLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btnArticulosDisponibles)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnArticulosStock, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(79, 79, 79))
         );
         jPanelArticulosLayout.setVerticalGroup(
             jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(jPanelArticulosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 277, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145)
+                .addGroup(jPanelArticulosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnArticulosDisponibles)
+                    .addComponent(btnArticulosStock))
+                .addContainerGap(148, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
@@ -767,9 +788,6 @@ public class Interface extends javax.swing.JFrame {
         jLabel2.setText("Compras");
         jLabel2.setOpaque(true);
         jPanelBotones.add(jLabel2);
-
-        btnArticulosP.setText("Artículos Proveedores");
-        jPanelBotones.add(btnArticulosP);
 
         btnPagos.setText("Pagos");
         jPanelBotones.add(btnPagos);
@@ -1051,7 +1069,8 @@ public class Interface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnArticulos;
-    public javax.swing.JButton btnArticulosP;
+    private javax.swing.JButton btnArticulosDisponibles;
+    private javax.swing.JButton btnArticulosStock;
     public javax.swing.JButton btnAñadirCliente;
     public javax.swing.JButton btnAñadirPedido;
     public javax.swing.JButton btnAñadirPresupuesto;
@@ -1073,7 +1092,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnPresupuestos;
     public javax.swing.JButton btnProveedores;
     public javax.swing.JButton btnSalir;
-    private javax.swing.JButton btnVisualizar;
+    public javax.swing.JButton btnVisualizar;
     public javax.swing.JComboBox jComboBuscar;
     public javax.swing.JComboBox jComboVisualizar;
     private javax.swing.JFormattedTextField jFormattedTextField1;
@@ -1117,7 +1136,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public javax.swing.JPanel jPanelArticulos;
-    public javax.swing.JPanel jPanelArticulosP;
     public javax.swing.JPanel jPanelBotones;
     private javax.swing.JPanel jPanelBuscar_Articulo_Pedido;
     public javax.swing.JPanel jPanelClientes;
@@ -1128,6 +1146,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JPanel jPanelProveedores;
     public javax.swing.JPanel jPanelVisualizar;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1139,6 +1158,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTable jTable1;
     public javax.swing.JTable jTablePresupuestoCarrito;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;

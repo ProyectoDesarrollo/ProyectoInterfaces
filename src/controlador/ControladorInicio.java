@@ -23,7 +23,8 @@ public class ControladorInicio implements ActionListener,MouseListener{
         btnPagos,
         btnProveedores,
         btnArticulos,
-        btnSalir
+        btnSalir,
+        btnVisualizar
      
     }
     
@@ -43,10 +44,10 @@ public class ControladorInicio implements ActionListener,MouseListener{
             this.vista.jPanelPedido.setVisible(false);
             this.vista.jPanelClientes.setVisible(false);
             this.vista.jPanelVisualizar.setVisible(false);
-            this.vista.jPanelArticulosP.setVisible(false);
             this.vista.jPanelPagos.setVisible(false);
             this.vista.jPanelProveedores.setVisible(false);
             this.vista.jPanelArticulos.setVisible(false);
+            this.vista.jPanelVisualizar.setVisible(false);
             
         } catch (Exception e) {
         }
@@ -59,9 +60,7 @@ public class ControladorInicio implements ActionListener,MouseListener{
         
         this.vista.btnClientes.setActionCommand( "btnClientes" );
         this.vista.btnClientes.addActionListener(this);     
-        
-        this.vista.btnArticulosP.setActionCommand( "btnArticulosP" );
-        this.vista.btnArticulosP.addActionListener(this);
+    
         
         this.vista.btnPagos.setActionCommand( "btnPagos" );
         this.vista.btnPagos.addActionListener(this);
@@ -75,6 +74,8 @@ public class ControladorInicio implements ActionListener,MouseListener{
         this.vista.btnSalir.setActionCommand( "btnSalir" );
         this.vista.btnSalir.addActionListener(this);
         
+        this.vista.btnVisualizar.setActionCommand( "btnVisualizar" );
+        this.vista.btnVisualizar.addActionListener(this);
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -89,10 +90,10 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);                   
-                    this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(false);
                     
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -109,10 +110,10 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(true);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(false);
                     
                     
                 } catch (Exception ex) {
@@ -130,10 +131,10 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(true);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(false);
                     
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -150,10 +151,10 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(true);
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(false);
                     
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -170,10 +171,10 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(true);
                     this.vista.jPanelArticulos.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(false);
                     
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -190,17 +191,35 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    this.vista.jPanelArticulosP.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(true);
+                    this.vista.jPanelVisualizar.setVisible(false);
                     
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
                 
                 break;
-            
+            case btnVisualizar:
+                     
+                try {                   
+ 
+                    this.vista.jPanelPrincipal.setVisible(false);
+                    this.vista.jPanelPresupuestos.setVisible(false);
+                    this.vista.jPanelPedido.setVisible(false);
+                    this.vista.jPanelClientes.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(false);
+                    this.vista.jPanelPagos.setVisible(false);
+                    this.vista.jPanelProveedores.setVisible(false);
+                    this.vista.jPanelArticulos.setVisible(false);
+                    this.vista.jPanelVisualizar.setVisible(true);
+                    
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                
+                break;
             case btnSalir:
                 
                 try {                   
