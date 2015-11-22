@@ -24,9 +24,12 @@ public class ControladorVentas implements ActionListener,MouseListener{
         btnModificarPedido,
         btnBorrarPedido,
         btnCrearFactura,
-        btnAñadirClientes,
+        btnAñadirCliente,
         btnModificarCliente,
-        btnBorrarCliente
+        btnBorrarCliente,
+        btnAñadirPresupuesto,
+        btnModificarPresupuesto,
+        btnBorrarPresupuesto
     }
     
     public ControladorVentas(Interface vista){
@@ -65,6 +68,15 @@ public class ControladorVentas implements ActionListener,MouseListener{
         
         this.vista.btnBorrarCliente.setActionCommand( "btnEliminarCliente" );
         this.vista.btnBorrarCliente.addActionListener(this);
+        
+        this.vista.btnAñadirPresupuesto.setActionCommand( "btnAñadirPresupuesto" );
+        this.vista.btnAñadirPresupuesto.addActionListener(this);
+        
+        this.vista.btnModificarPresupuesto.setActionCommand( "btnModificarPresupuesto" );
+        this.vista.btnModificarPresupuesto.addActionListener(this);
+        
+        this.vista.btnBorrarPresupuesto.setActionCommand( "btnEliminarPresupuesto" );
+        this.vista.btnBorrarPresupuesto.addActionListener(this);
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -95,6 +107,18 @@ public class ControladorVentas implements ActionListener,MouseListener{
             break;
             
         case btnBorrarCliente:
+            
+            break;
+            
+        case btnAñadirPresupuesto:
+            
+            break;
+            
+        case btnModificarPresupuesto:
+            
+            break;
+            
+        case btnBorrarPresupuesto:
             
             break;
         
