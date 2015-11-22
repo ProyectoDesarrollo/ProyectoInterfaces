@@ -28,11 +28,12 @@ public class ModeloVentas {
             
         };
         
-        int registros = 0;
-        String[] columNames = {"ID", "Nombre", "Stock", "Precio"};
+        int registros = 0; // Indica la cantidad de filas de la tabla.
+        String[] columNames = {"ID", "Nombre", "Stock", "Precio"}; // Indica el nombre de las columnas de la tabla.
         
         Statement stmt = null;
         
+        // Se calculará la cantidad de filas que tendra la tabla.
         try {
             
             stmt = db.getConnection().createStatement();
@@ -50,6 +51,7 @@ public class ModeloVentas {
         
         Object[][] data = new String[registros][7];
         
+        // Se rellenara en una matriz el contenido por celdas de la tabla.
         try {
             
             ResultSet res = stmt.executeQuery("SELECT ID, Nombre, Stock, Precio FROM Articulos");
@@ -85,6 +87,7 @@ public class ModeloVentas {
         String q = "SELECT Descripcion FROM Articulos WHERE ID = '" + String.valueOf(i) + "'";
         String r = null;
         
+        // Se sacara de la base de datos la descripcion correspondiente al articulo indicado.
         try {
             
             Statement stmt = db.getConnection().createStatement();
