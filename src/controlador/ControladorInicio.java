@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -8,15 +7,15 @@ import java.awt.event.MouseListener;
 import modelo.ModeloVentas;
 import vista.Interface;
 
-
-public class ControladorInicio implements ActionListener,MouseListener{
+public class ControladorInicio implements ActionListener, MouseListener {
 
     Interface vista;
     ModeloVentas modelo;
     ControladorCompras controladorCompras;
     ControladorVentas controladorVentas;
-    
-    public enum AccionMVC{
+
+    public enum AccionMVC {
+
         btnPresupuestos,
         btnPedido,
         btnClientes,
@@ -25,22 +24,21 @@ public class ControladorInicio implements ActionListener,MouseListener{
         btnArticulos,
         btnSalir,
         btnVisualizar
-     
+
     }
-    
-    public ControladorInicio(Interface vista){
-        this.vista=vista;
+
+    public ControladorInicio(Interface vista) {
+        this.vista = vista;
     }
-    
-    public void iniciar(){
+
+    public void iniciar() {
         try {
-            
-            
-            controladorVentas= new ControladorVentas(vista);
-            controladorVentas.iniciar(); 
+
+            controladorVentas = new ControladorVentas(vista);
+            controladorVentas.iniciar();
             controladorCompras = new ControladorCompras(vista);
             controladorCompras.iniciar();
-            
+
             this.vista.setVisible(true);
             this.vista.jPanelPresupuestos.setVisible(false);
             this.vista.jPanelPedido.setVisible(false);
@@ -50,63 +48,68 @@ public class ControladorInicio implements ActionListener,MouseListener{
             this.vista.jPanelProveedores.setVisible(false);
             this.vista.jPanelArticulos.setVisible(false);
             this.vista.jPanelVisualizar.setVisible(false);
-            
+            this.vista.pPanelVisualizarPedido.setVisible(false);
+            this.vista.pPanelVisualizarInicial.setVisible(false);
+            this.vista.pPanelVisualizarFactura.setVisible(false);
+
         } catch (Exception e) {
         }
-        
-        this.vista.btnPresupuestos.setActionCommand( "btnPresupuestos" );
+
+        this.vista.btnPresupuestos.setActionCommand("btnPresupuestos");
         this.vista.btnPresupuestos.addActionListener(this);
-        
-        this.vista.btnPedido.setActionCommand( "btnPedido" );
+
+        this.vista.btnPedido.setActionCommand("btnPedido");
         this.vista.btnPedido.addActionListener(this);
-        
-        this.vista.btnClientes.setActionCommand( "btnClientes" );
-        this.vista.btnClientes.addActionListener(this);     
-    
-        
-        this.vista.btnPagos.setActionCommand( "btnPagos" );
+
+        this.vista.btnClientes.setActionCommand("btnClientes");
+        this.vista.btnClientes.addActionListener(this);
+
+        this.vista.btnPagos.setActionCommand("btnPagos");
         this.vista.btnPagos.addActionListener(this);
-        
-        this.vista.btnProveedores.setActionCommand( "btnProveedores" );
+
+        this.vista.btnProveedores.setActionCommand("btnProveedores");
         this.vista.btnProveedores.addActionListener(this);
-        
-        this.vista.btnArticulos.setActionCommand( "btnArticulos" );
+
+        this.vista.btnArticulos.setActionCommand("btnArticulos");
         this.vista.btnArticulos.addActionListener(this);
-        
-        this.vista.btnSalir.setActionCommand( "btnSalir" );
+
+        this.vista.btnSalir.setActionCommand("btnSalir");
         this.vista.btnSalir.addActionListener(this);
-        
-        this.vista.btnVisualizar.setActionCommand( "btnVisualizar" );
+
+        this.vista.btnVisualizar.setActionCommand("btnVisualizar");
         this.vista.btnVisualizar.addActionListener(this);
     }
-    
+
     public void actionPerformed(ActionEvent e) {
-        switch(AccionMVC.valueOf(e.getActionCommand())) {
-            
+        switch (AccionMVC.valueOf(e.getActionCommand())) {
+
             case btnPresupuestos:
-                
-                try {                   
- 
+
+                try {
+
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(true);
                     this.vista.jPanelPedido.setVisible(false);
                     this.vista.jPanelClientes.setVisible(false);
-                    this.vista.jPanelVisualizar.setVisible(false);                   
+                    this.vista.jPanelVisualizar.setVisible(false);
                     this.vista.jPanelPagos.setVisible(false);
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    
+                    this.vista.pPanelVisualizarPedido.setVisible(false);
+                    this.vista.pPanelVisualizarInicial.setVisible(false);
+                    this.vista.pPanelVisualizarFactura.setVisible(false);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
-                
+
             case btnPedido:
-                
-                try {                   
- 
+
+                try {
+
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(true);
@@ -116,18 +119,20 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    
-                    
+                    this.vista.pPanelVisualizarPedido.setVisible(false);
+                    this.vista.pPanelVisualizarInicial.setVisible(false);
+                    this.vista.pPanelVisualizarFactura.setVisible(false);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
-                
+
             case btnClientes:
-                
-                try {                   
- 
+
+                try {
+
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(false);
@@ -137,17 +142,20 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    
+                    this.vista.pPanelVisualizarPedido.setVisible(false);
+                    this.vista.pPanelVisualizarInicial.setVisible(false);
+                    this.vista.pPanelVisualizarFactura.setVisible(false);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
-                                       
+
             case btnPagos:
-                
-                try {                   
- 
+
+                try {
+
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(false);
@@ -157,17 +165,20 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    
+                    this.vista.pPanelVisualizarPedido.setVisible(false);
+                    this.vista.pPanelVisualizarInicial.setVisible(false);
+                    this.vista.pPanelVisualizarFactura.setVisible(false);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
-            
+
             case btnProveedores:
-                
-                try {                   
- 
+
+                try {
+
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(false);
@@ -177,17 +188,20 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelProveedores.setVisible(true);
                     this.vista.jPanelArticulos.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    
+                    this.vista.pPanelVisualizarPedido.setVisible(false);
+                    this.vista.pPanelVisualizarInicial.setVisible(false);
+                    this.vista.pPanelVisualizarFactura.setVisible(false);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
-                
+
             case btnArticulos:
-                
-                try {                   
- 
+
+                try {
+
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(false);
@@ -197,16 +211,19 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(true);
                     this.vista.jPanelVisualizar.setVisible(false);
-                    
+                    this.vista.pPanelVisualizarPedido.setVisible(false);
+                    this.vista.pPanelVisualizarInicial.setVisible(false);
+                    this.vista.pPanelVisualizarFactura.setVisible(false);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
             case btnVisualizar:
-                     
-                try {                   
- 
+
+                try {
+
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(false);
@@ -216,34 +233,42 @@ public class ControladorInicio implements ActionListener,MouseListener{
                     this.vista.jPanelProveedores.setVisible(false);
                     this.vista.jPanelArticulos.setVisible(false);
                     this.vista.jPanelVisualizar.setVisible(true);
-                    
+                    this.vista.pPanelVisualizarPedido.setVisible(false);
+                    this.vista.pPanelVisualizarInicial.setVisible(true);
+                    this.vista.pPanelVisualizarFactura.setVisible(false);
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
             case btnSalir:
-                
-                try {                   
- 
+
+                try {
+
                     this.vista.dispose();
-                    
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
         }
     }
 
-    public void mouseClicked(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+    }
 
-    public void mousePressed(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+    }
 
-    public void mouseReleased(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+    }
 
-    public void mouseEntered(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {
+    }
 
-    public void mouseExited(MouseEvent e) {}
-    
+    public void mouseExited(MouseEvent e) {
+    }
+
 }

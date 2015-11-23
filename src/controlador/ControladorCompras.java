@@ -151,12 +151,15 @@ public class ControladorCompras implements ActionListener, MouseListener {
     }
     /*-----ALMACEN-----*/
 
-    private void jComboVisualizarPropertyChange(java.beans.PropertyChangeEvent evt) {
-        if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
+    private void jComboVisualizarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // TODO add your handling code here:
+            
+        String item = (String)this.vista.jComboVisualizar.getSelectedItem();
+        if (item == "Pedido"){
             this.vista.pPanelVisualizarPedido.setVisible(true);
             this.vista.pPanelVisualizarInicial.setVisible(false);
             this.vista.pPanelVisualizarFactura.setVisible(false);
-        } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
+        } else if (item == "Factura") {
             
             this.vista.pPanelVisualizarPedido.setVisible(true);
             this.vista.pPanelVisualizarInicial.setVisible(false);

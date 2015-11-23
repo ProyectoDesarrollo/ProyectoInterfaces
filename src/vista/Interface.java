@@ -538,6 +538,11 @@ public class Interface extends javax.swing.JFrame {
                 jComboVisualizarItemStateChanged(evt);
             }
         });
+        jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboVisualizarActionPerformed(evt);
+            }
+        });
         jComboVisualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 jComboVisualizarPropertyChange(evt);
@@ -550,7 +555,7 @@ public class Interface extends javax.swing.JFrame {
         jPanelVisualizar.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 158, 106, -1));
 
         jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "DNI", "Nombre" }));
-        jPanelVisualizar.add(jComboBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 159, 93, -1));
+        jPanelVisualizar.add(jComboBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 159, 100, -1));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setText("Elija el tipo de busqueda :");
@@ -1098,6 +1103,10 @@ public class Interface extends javax.swing.JFrame {
     private void jComboVisualizarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboVisualizarPropertyChange
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboVisualizarPropertyChange
+
+    private void jComboVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboVisualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboVisualizarActionPerformed
 
     /**
      * @param args the command line arguments
