@@ -10,6 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
+import modelo.ModeloCompras;
 import modelo.ModeloVentas;
 import vista.Interface;
 
@@ -18,29 +19,29 @@ import vista.Interface;
  * @author usuario
  */
 public class ControladorCompras implements ActionListener, MouseListener {
-    
+
     Interface vista;
-    ModeloVentas modelo;
+    ModeloCompras modelo = new ModeloCompras();
     int fila = -1;
-    String[]comboBuscar={"-Seleccionar-","DNI","Nombre"};
-    String[] comboVisualizar={"-Seleccionar","Pedido","Factura"};
+    String[] comboBuscar = {"-Seleccionar-", "DNI", "Nombre"};
+    String[] comboVisualizar = {"-Seleccionar", "Pedido", "Factura"};
 
     //en esta parte no es necesario
     public enum AccionMVC {
-        
+
         btnAñadirProveedor,
         btnModificarProveedor,
         btnEliminarProveedor,
         btnAñadirArticuloProveedor,
         btnModificarArticuloProveedor,
         btnBorrarArticuloProveedor
-        
+
     }
-    
+
     public ControladorCompras(Interface vista) {
         this.vista = vista;
     }
-    
+
     public void iniciar() {
         try {
             this.vista.jComboBuscar.addItem(comboBuscar);
@@ -54,48 +55,48 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
         } catch (Exception e) {
         }
-         /*-----COMPRAS-----*/
+        /*-----COMPRAS-----*/
         this.vista.btnAñadirProveedor.setActionCommand("btnAñadirProveedor");
         this.vista.btnAñadirProveedor.addActionListener(this);
-        
+
         this.vista.btnModificarProveedor.setActionCommand("btnModificarProveedor");
         this.vista.btnModificarProveedor.addActionListener(this);
-        
+
         this.vista.btnEliminarProveedor.setActionCommand("btnEliminarProveedor");
         this.vista.btnEliminarProveedor.addActionListener(this);
-        
+
         this.vista.tableProveedores.addMouseListener(this);
-         /*-----ALMACEN-----*/
+        /*-----ALMACEN-----*/
         this.vista.btnBuscar.setActionCommand("btnBuscar");
         this.vista.btnBuscar.addActionListener(this);
     }
-    
+
     public void actionPerformed(ActionEvent e) {
         //Captura en String el comando accionado por el usuario
         String comand = e.getActionCommand();
-        
+
         /*-----COMPRAS-----*/
         //dependiendo del comand realizara una accion u otra
         if (comand.equals("btnAñadirProveedor")) {
-            
+
             try {
                 //obtenemos los datos de los jTextField
                 String dni = (String) this.vista.txtNIFProveedores.getText();
                 String nombre = (String) this.vista.txtNombreProveedores.getText();
                 String apellidos = (String) this.vista.txtApellidosProveedores.getText();
                 int telefono = Integer.parseInt(this.vista.txtTelefonoProveedor.getText());
-                
+
                 if (dni != null & nombre != null && telefono > 600000000) {
-                    
+
                     modelo.InsertarProveedores(dni, nombre, apellidos, telefono);
-                    
+
                 } else {
-                    
+
                     JOptionPane.showMessageDialog(vista, "Los campos con asteriscos(*) son obligatorios");
                 }
             } catch (Exception ex) {
             }
-            
+
         } else if (comand.equals("btnModificarProveedor")) {
             try {
                 this.vista.tableProveedores.getSelectedRow();
@@ -114,60 +115,61 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     this.vista.txtApellidosProveedores.setText("");
                     this.vista.txtTelefonoProveedor.setText("");
                 }
-                
+
             } catch (Exception ex) {
             }
             /*-----ALMACEN-----*/
-        }else if(comand.equals("btnBuscar")){
-            String box = (String) this.vista.jComboBuscar.getSelectedItem();
-            String variBusqueda  = this.vista.txtBuscar.getText();
-            if(box.equals("DNI")){
-               
-            }else if(box.equals("Nombre")){
-              
-            }
+        } else if (comand.equals("btnBuscar")) {
+           
+            String variBusqueda = this.vista.txtBuscar.getText();
+            if (this.vista.jComboBuscar.getSelectedItem().equals("DNI")) {
                 
-            
+
+            } else if (this.vista.jComboBuscar.getSelectedItem().equals("Nombre")) {
+
+            }
+
         }
-         
+
     }
-    
+
     public void mouseClicked(MouseEvent e) {
     }
-    
+
     public void mousePressed(MouseEvent e) {
     }
-    
+
     public void mouseReleased(MouseEvent e) {
     }
-    
+
     public void mouseEntered(MouseEvent e) {
     }
-    
+
     public void mouseExited(MouseEvent e) {
     }
-     /*-----COMPRAS-----*/
+    /*-----COMPRAS-----*/
+
     private void tableProveedoresMouseClicked(java.awt.event.MouseEvent evt) {
         fila = this.vista.tableProveedores.getSelectedRow();
         String dni = (String) this.vista.tableProveedores.getValueAt(fila, 0);
         String nombre = (String) this.vista.tableProveedores.getValueAt(fila, 1);
         String apellidos = (String) this.vista.tableProveedores.getValueAt(fila, 2);
         String telefono = (String) this.vista.tableProveedores.getValueAt(fila, 3);
-        
+
         this.vista.txtNIFProveedores.setText(dni);
         this.vista.txtNombreProveedores.setText(nombre);
         this.vista.txtApellidosProveedores.setText(apellidos);
         this.vista.txtTelefonoProveedor.setText(telefono);
-        
-    }
-     /*-----ALMACEN-----*/
-    private void jComboVisualizarItemStateChanged(java.awt.event.ItemEvent evt) {                                                  
-       if(this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")){
-           
-       }else if(this.vista.jComboVisualizar.getSelectedItem().equals("Factura")){
-           
-       }
-    }                                                 
 
-    
+    }
+    /*-----ALMACEN-----*/
+
+    private void jComboVisualizarItemStateChanged(java.awt.event.ItemEvent evt) {
+        if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
+            this.vista.tableVisualizar.setModel(this.modelo.getTablaPedido());
+        } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
+            this.vista.tableVisualizar.setModel(this.modelo.getTablaFactura());
+        }
+    }
+
 }

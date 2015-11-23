@@ -445,7 +445,7 @@ public class Interface extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        txtTelefonoCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#########"))));
+        txtTelefonoCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat(""))));
 
         btnAñadirCliente.setText("Añadir");
 
