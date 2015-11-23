@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -14,18 +10,13 @@ import modelo.ModeloCompras;
 import modelo.ModeloVentas;
 import vista.Interface;
 
-/**
- *
- * @author usuario
- */
+
 public class ControladorCompras implements ActionListener, MouseListener {
 
     Interface vista;
     ModeloCompras modelo = new ModeloCompras();
     int fila = -1;
-    String[] comboBuscar = {"-Seleccionar-", "DNI", "Nombre"};
-    String[] comboVisualizar = {"-Seleccionar", "Pedido", "Factura"};
-
+    
     //en esta parte no es necesario
     public enum AccionMVC {
 
@@ -44,9 +35,8 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     public void iniciar() {
         try {
-            this.vista.jComboBuscar.addItem(comboBuscar);
-            this.vista.jComboVisualizar.addItem(comboVisualizar);
-            //this.vista.jTable.setModel(this.modelo.());
+           
+            this.vista.tableProveedores.setModel(this.modelo.getTablaProveedores());
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
