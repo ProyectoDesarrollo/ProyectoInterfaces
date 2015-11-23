@@ -88,10 +88,10 @@ public class ControladorVentas implements ActionListener,MouseListener{
     switch(AccionMVC.valueOf(e.getActionCommand())) {
         
         case btnAñadirPedido:   
-            
-            
-            
+          
             try {
+                
+                               
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -258,7 +258,22 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.txtDireccionCliente.setText(direccion);
         this.vista.txtTelefonoCliente.setText(telefono);
         this.vista.txtTarjetaCliente.setText(tarjeta);
-    }  
+    }
+    
+    private void tablePedidoBuscarArticuloMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+         
+        fila=this.vista.tablePedidoBuscarArticulo.getSelectedRow();
+        String id= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 0);
+        String nombre= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 1);
+        String cantidad= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 2);
+        String precio= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 3);
+                  
+        this.vista.txtDNICliente.setText(id);
+        this.vista.txtNombreCliente.setText(nombre);
+        this.vista.txtApellidosCliente.setText(cantidad);
+        this.vista.txtDireccionCliente.setText(precio);
+        
+    }
     
     public void mouseClicked(MouseEvent e) {}
 
