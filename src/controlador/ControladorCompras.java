@@ -63,23 +63,25 @@ public class ControladorCompras implements ActionListener, MouseListener {
         this.vista.btnEliminarProveedor.addActionListener(this);
 
         this.vista.tableProveedores.addMouseListener(this);
+        
         /*-----ALMACEN-----*/
         this.vista.btnBuscar.setActionCommand("btnBuscar");
         this.vista.btnBuscar.addActionListener(this);
 
+        //controlamos lo que ocurra en el jComboBox Visualizar
         this.vista.jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
-
+                    //LLamada a los paneles              
                     vista.pPanelVisualizarPedido.setVisible(true);
                     vista.pPanelVisualizarInicial.setVisible(false);
                     vista.pPanelVisualizarFactura.setVisible(false);
                     
 
                 } else if (vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
-
+                    //LLamada a los paneles     
                     vista.pPanelVisualizarPedido.setVisible(false);
                     vista.pPanelVisualizarInicial.setVisible(false);
                     vista.pPanelVisualizarFactura.setVisible(true);
@@ -182,6 +184,6 @@ public class ControladorCompras implements ActionListener, MouseListener {
         this.vista.txtTelefonoProveedor.setText(telefono);
 
     }
-    /*-----ALMACEN-----*/
-
+   
+ /*-----ALMACEN-----*/
 }

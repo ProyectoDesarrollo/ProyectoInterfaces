@@ -224,6 +224,7 @@ public class ControladorInicio implements ActionListener, MouseListener {
 
                 try {
 
+                    this.vista.jComboVisualizar.setSelectedIndex(0);
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(false);

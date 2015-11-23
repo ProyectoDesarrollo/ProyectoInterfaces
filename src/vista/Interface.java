@@ -586,10 +586,10 @@ public class Interface extends javax.swing.JFrame {
         );
         pPanelVisualizarFacturaLayout.setVerticalGroup(
             pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
         );
 
-        jPanelVisualizar.add(pPanelVisualizarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 580, -1));
+        jPanelVisualizar.add(pPanelVisualizarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, 440));
 
         pPanelVisualizarPedido.setPreferredSize(new java.awt.Dimension(0, 452));
         pPanelVisualizarPedido.setVerifyInputWhenFocusTarget(false);
@@ -615,10 +615,10 @@ public class Interface extends javax.swing.JFrame {
         );
         pPanelVisualizarPedidoLayout.setVerticalGroup(
             pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
         );
 
-        jPanelVisualizar.add(pPanelVisualizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, -1));
+        jPanelVisualizar.add(pPanelVisualizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, 440));
 
         pPanelVisualizarInicial.setPreferredSize(new java.awt.Dimension(0, 452));
 
@@ -630,10 +630,10 @@ public class Interface extends javax.swing.JFrame {
         );
         pPanelVisualizarInicialLayout.setVerticalGroup(
             pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
 
-        jPanelVisualizar.add(pPanelVisualizarInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, -1));
+        jPanelVisualizar.add(pPanelVisualizarInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, 440));
 
         getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
