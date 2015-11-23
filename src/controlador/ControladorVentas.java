@@ -183,11 +183,24 @@ public class ControladorVentas implements ActionListener,MouseListener{
             break;
             
         case btnBorrarCliente:
+            
             try {
                 
+                this.vista.tableClientes.getSelectedRow();
+                if(this.vista.tableClientes.getSelectedRow()<0){
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila");
+                }else{
+                    fila=this.vista.tableClientes.getSelectedRow();                                          
+                    String dni= (String) this.vista.tableClientes.getValueAt(fila, 0);
+                    this.modelo.EliminarClientes(dni);
+                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
+                    JOptionPane.showMessageDialog(null, "Eliminado");
+                }
+                
             } catch (Exception ex) {
-                ex.printStackTrace();
+                    ex.printStackTrace();
             }
+            
             break;
             
         case btnAñadirPresupuesto:
