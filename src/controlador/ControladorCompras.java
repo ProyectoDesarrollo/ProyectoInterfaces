@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JOptionPane;
@@ -17,8 +18,8 @@ public class ControladorCompras implements ActionListener, MouseListener {
     String tabla;
     int pedido = 1;
     int factura = 2;
-    String [] comboBuscar = {"-Seleccionar-","DNI","Nombre"};
-    String [] comboVisualizar={"-Seleccionar-","Pedido","Factura"};
+    String[] comboBuscar = {"-Seleccionar-", "DNI", "Nombre"};
+    String[] comboVisualizar = {"-Seleccionar-", "Pedido", "Factura"};
 
     //en esta parte no es necesario
     public enum AccionMVC {
@@ -66,7 +67,28 @@ public class ControladorCompras implements ActionListener, MouseListener {
         this.vista.btnBuscar.setActionCommand("btnBuscar");
         this.vista.btnBuscar.addActionListener(this);
 
-        this.vista.jComboVisualizar.addActionListener(this);
+        this.vista.jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
+
+                    vista.pPanelVisualizarPedido.setVisible(true);
+                    vista.pPanelVisualizarInicial.setVisible(false);
+                    vista.pPanelVisualizarFactura.setVisible(false);
+                    
+
+                } else if (vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
+
+                    vista.pPanelVisualizarPedido.setVisible(false);
+                    vista.pPanelVisualizarInicial.setVisible(false);
+                    vista.pPanelVisualizarFactura.setVisible(true);
+                    
+
+                }
+            }
+
+        });
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -161,21 +183,5 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     }
     /*-----ALMACEN-----*/
-
-    private void jComboVisualizarPropertyChange(java.beans.PropertyChangeEvent evt) { 
-        // TODO add your handling code here:
-
-        if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
-            this.vista.pPanelVisualizarPedido.setVisible(true);
-            this.vista.pPanelVisualizarInicial.setVisible(false);
-            this.vista.pPanelVisualizarFactura.setVisible(false);
-        } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
-
-            this.vista.pPanelVisualizarPedido.setVisible(true);
-            this.vista.pPanelVisualizarInicial.setVisible(false);
-            this.vista.pPanelVisualizarFactura.setVisible(false);
-
-        }
-    }
 
 }
