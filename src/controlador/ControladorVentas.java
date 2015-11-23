@@ -25,7 +25,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
     ModeloVentas modelo = new ModeloVentas();
     int fila =-1;
     int fila1=-1;
-    ArrayList <String> ListaPedido = new ArrayList<>(); 
+    ArrayList <Articulo> ListaPedido; 
     
     public enum AccionMVC{
         btnAñadirPedido,
@@ -49,6 +49,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         
         try {
             
+            ListaPedido= new ArrayList();
             this.vista.jPanelPrincipal.setVisible(true);
             this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
             this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
@@ -87,9 +88,6 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnBorrarPresupuesto.setActionCommand( "btnEliminarPresupuesto" );
         this.vista.btnBorrarPresupuesto.addActionListener(this);
         
-        /*this.vista.tableClientes.addMouseListener(this);
-        this.vista.tablePedidoBuscarArticulo.addMouseListener(this);*/
-        
         this.vista.tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableClientesMouseClicked(evt);
@@ -109,13 +107,13 @@ public class ControladorVentas implements ActionListener,MouseListener{
           
             try {
                 
-                ArrayList<Articulo> ListaPedido = new ArrayList<Articulo>();
-
                 String id = this.vista.txtIDPedido.getText();
                 String nombre = this.vista.txtNombreArticuloPedido.getText();
+                String cantidad= String.valueOf(this.vista.txtCantidadPedido.getValue());
                 String precio = this.vista.txtPrecio.getText();
+                
                     
-                ListaPedido.add(new Articulo(id, nombre, precio));         
+                ListaPedido.add(new Articulo(id, nombre, cantidad, precio));         
                 this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));                
                 
                 
