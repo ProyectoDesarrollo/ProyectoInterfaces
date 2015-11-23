@@ -24,6 +24,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
     Interface vista;
     ModeloVentas modelo = new ModeloVentas();
     int fila =-1;
+    int fila1=-1;
     ArrayList <String> ListaPedido = new ArrayList<>(); 
     
     public enum AccionMVC{
@@ -87,6 +88,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnBorrarPresupuesto.addActionListener(this);
         
         this.vista.tableClientes.addMouseListener(this);
+        this.vista.tablePedidoBuscarArticulo.addMouseListener(this);
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -275,11 +277,11 @@ public class ControladorVentas implements ActionListener,MouseListener{
     
     private void tablePedidoBuscarArticuloMouseClicked(java.awt.event.MouseEvent evt) {                                                   
          
-        fila=this.vista.tablePedidoBuscarArticulo.getSelectedRow();
-        String id= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 0);
-        String nombre= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 1);
-        String cantidad= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 2);
-        String precio= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 3);
+        fila1=this.vista.tablePedidoBuscarArticulo.getSelectedRow();
+        String id= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila1, 0);
+        String nombre= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila1, 1);
+        String cantidad= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila1, 2);
+        String precio= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila1, 3);
                   
         this.vista.txtIDPedido.setText(id);
         this.vista.txtNombreArticuloPedido.setText(nombre);
