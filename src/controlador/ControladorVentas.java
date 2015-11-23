@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 import modelo.ModeloVentas;
 import vista.Interface;
 
@@ -20,6 +21,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
 
     Interface vista;
     ModeloVentas modelo;
+    int fila =-1;
     
     public enum AccionMVC{
         btnAñadirPedido,
@@ -123,9 +125,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
             break;
             
         case btnAñadirCliente:
+            
             try {
-                
-                
+                           
                 String dni= this.vista.txtDNICliente.getText();
                 String nombre= this.vista.txtNombreCliente.getText();
                 String apellidos= this.vista.txtApellidosCliente.getText();
@@ -134,19 +136,50 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 int telefono= Integer.parseInt(this.vista.txtTelefonoCliente.getText());
                 this.modelo.InsertarCliente(dni, nombre, apellidos, direccion, telefono, tarjeta);
                 this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
-                
+                this.vista.txtDNICliente.setText("");
+                this.vista.txtNombreCliente.setText("");
+                this.vista.txtApellidosCliente.setText("");
+                this.vista.txtDireccionCliente.setText("");
+                this.vista.txtTarjetaCliente.setText("");
+                this.vista.txtTelefonoCliente.setText("");                         
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
             
         case btnModificarCliente:
+            
             try {
+                
+                this.vista.tableClientes.getSelectedRow();
+                if(this.vista.tableClientes.getSelectedRow()<0){
+                    JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila1");
+
+                }else{
+                        
+                    String dni=this.vista.txtDNICliente.getText();
+                    String nombre=this.vista.txtNombreCliente.getText();
+                    String apellidos=this.vista.txtApellidosCliente.getText();                                           
+                    int telefono= Integer.parseInt(this.vista.txtTelefonoCliente.getText());
+                    String direccion=this.vista.txtDireccionCliente.getText();
+                    int tarjeta= Integer.parseInt(this.vista.txtTarjetaCliente.getText());  
+                                         
+                    this.modelo.modificarCliente(dni, nombre, apellidos, direccion, telefono, tarjeta);
+                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
+                    this.vista.txtDNICliente.setText(" ");
+                    this.vista.txtNombreCliente.setText(" ");
+                    this.vista.txtApellidosCliente.setText(" ");
+                    this.vista.txtDireccionCliente.setText(" ");
+                    this.vista.txtTelefonoCliente.setText(" ");
+                    this.vista.txtTarjetaCliente.setText(" ");
+                }
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
             
         case btnBorrarCliente:
@@ -184,7 +217,25 @@ public class ControladorVentas implements ActionListener,MouseListener{
     
     }
     }
-
+    
+    private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+         
+        fila=this.vista.tableClientes.getSelectedRow();
+        String dni= (String) this.vista.tableClientes.getValueAt(fila, 0);
+        String nombre= (String) this.vista.tableClientes.getValueAt(fila, 1);
+        String apellidos= (String) this.vista.tableClientes.getValueAt(fila, 2);
+        String direccion= (String) this.vista.tableClientes.getValueAt(fila, 3);
+        String telefono= (String) this.vista.tableClientes.getValueAt(fila, 4);
+        String tarjeta= (String) this.vista.tableClientes.getValueAt(fila, 5);
+            
+        this.vista.txtDNICliente.setText(dni);
+        this.vista.txtNombreCliente.setText(nombre);
+        this.vista.txtApellidosCliente.setText(apellidos);
+        this.vista.txtDireccionCliente.setText(direccion);
+        this.vista.txtTelefonoCliente.setText(telefono);
+        this.vista.txtTarjetaCliente.setText(tarjeta);
+    }  
+    
     public void mouseClicked(MouseEvent e) {}
 
     public void mousePressed(MouseEvent e) {}
