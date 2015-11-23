@@ -87,8 +87,19 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnBorrarPresupuesto.setActionCommand( "btnEliminarPresupuesto" );
         this.vista.btnBorrarPresupuesto.addActionListener(this);
         
-        this.vista.tableClientes.addMouseListener(this);
-        this.vista.tablePedidoBuscarArticulo.addMouseListener(this);
+        /*this.vista.tableClientes.addMouseListener(this);
+        this.vista.tablePedidoBuscarArticulo.addMouseListener(this);*/
+        
+        this.vista.tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableClientesMouseClicked(evt);
+            }
+        });
+        this.vista.tablePedidoBuscarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePedidoBuscarArticuloMouseClicked(evt);
+            }
+        });
     }
     
     public void actionPerformed(ActionEvent e) {
