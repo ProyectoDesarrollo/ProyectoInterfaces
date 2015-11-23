@@ -133,6 +133,23 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
+    public boolean InsertarArticulo (String id, String nombre , int stock, double precio) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Articulos ( ID ,Nombre ,Stock ,Precio )"
+                    + "VALUES ( '" + id + "','" + nombre + "', '" + stock + "', '" + precio + "') ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
+    
     public boolean InsertarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
             //Consulta para insertar 
         
@@ -198,6 +215,27 @@ public class ModeloVentas extends DatabaseSQLite{
         }
         return res;
     }
+    
+    public void modificarArticulo (String id, String nombre , int stock, int precio) {
+        
+        String q="Update Articulos set ID='"+nombre+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"' where ID='"+id+"';";
+        
+        try {
+            
+            //Se mete en la base de datos
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();            
+
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        }catch(Exception e){
+            
+            JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
+        }  
+    }
+    
     
     public void modificarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
         
