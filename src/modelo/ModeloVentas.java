@@ -26,7 +26,6 @@ public class ModeloVentas extends DatabaseSQLite{
             
         };
         
-        int registros = 0;
         String[] columNames = {"ID", "Nombre", "Cantidad", "Precio"};
         Object[][] data = new String[d.size()][4];
         

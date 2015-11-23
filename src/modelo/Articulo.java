@@ -12,8 +12,6 @@ public class Articulo {
         this.precio = p;
         
     }
-
-    public Articulo(String id, String nombre, String precio) {}
     
     public void setID (String i) {
         
