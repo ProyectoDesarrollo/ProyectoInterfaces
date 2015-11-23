@@ -59,7 +59,7 @@ public class Interface extends javax.swing.JFrame {
         btnModificarPedido = new javax.swing.JButton();
         btnCrearFactura = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
         jPanelClientes = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tableClientes = new javax.swing.JTable();
@@ -322,6 +322,8 @@ public class Interface extends javax.swing.JFrame {
 
         jLabel15.setText("Precio :");
 
+        txtPrecio.setEditable(false);
+
         javax.swing.GroupLayout pDatosPedidoLayout = new javax.swing.GroupLayout(pDatosPedido);
         pDatosPedido.setLayout(pDatosPedidoLayout);
         pDatosPedidoLayout.setHorizontalGroup(
@@ -339,7 +341,7 @@ public class Interface extends javax.swing.JFrame {
                     .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(txtIDPedido)
                         .addComponent(txtNombreArticuloPedido)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
+                        .addComponent(txtPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)))
                 .addGap(80, 80, 80)
                 .addComponent(jPanelBuscar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(pDatosPedidoLayout.createSequentialGroup()
@@ -368,7 +370,7 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(txtNombreArticuloPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))
                         .addGap(18, 18, 18)
                         .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1085,8 +1087,8 @@ public class Interface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnArticulos;
-    private javax.swing.JButton btnArticulosDisponibles;
-    private javax.swing.JButton btnArticulosStock;
+    public javax.swing.JButton btnArticulosDisponibles;
+    public javax.swing.JButton btnArticulosStock;
     public javax.swing.JButton btnAñadirCliente;
     public javax.swing.JButton btnAñadirPedido;
     public javax.swing.JButton btnAñadirPresupuesto;
@@ -1111,7 +1113,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnVisualizar;
     public javax.swing.JComboBox jComboBuscar;
     public javax.swing.JComboBox jComboVisualizar;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
+    public javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1173,11 +1175,10 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     public javax.swing.JTable jTablePresupuestoCarrito;
-    private javax.swing.JTextArea jTextArea2;
+    public javax.swing.JTextArea jTextArea2;
     public javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
     public javax.swing.JTable tableClientes;
@@ -1189,21 +1190,22 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextField txtApellidosCliente;
     public javax.swing.JTextField txtApellidosPedido;
     public javax.swing.JTextField txtApellidosProveedores;
-    private javax.swing.JSpinner txtCantidadPedido;
-    private javax.swing.JSpinner txtCantidad_Pedido1;
+    public javax.swing.JSpinner txtCantidadPedido;
+    public javax.swing.JSpinner txtCantidad_Pedido1;
     public javax.swing.JFormattedTextField txtDNICliente;
     public javax.swing.JFormattedTextField txtDNIPedido;
     public javax.swing.JTextField txtDireccionCliente;
     public javax.swing.JTextField txtDireccionPedido;
-    private javax.swing.JTextField txtIDPedido;
-    private javax.swing.JTextField txtID_Pedido1;
+    public javax.swing.JTextField txtIDPedido;
+    public javax.swing.JTextField txtID_Pedido1;
     public javax.swing.JTextField txtNIFProveedores;
-    private javax.swing.JTextField txtNombreArticuloPedido;
+    public javax.swing.JTextField txtNombreArticuloPedido;
     public javax.swing.JTextField txtNombreCliente;
     public javax.swing.JTextField txtNombrePedido;
-    private javax.swing.JTextField txtNombrePresupuesto;
+    public javax.swing.JTextField txtNombrePresupuesto;
     public javax.swing.JTextField txtNombreProveedores;
-    private javax.swing.JTextField txtNombre_Articulo_Pedido1;
+    public javax.swing.JTextField txtNombre_Articulo_Pedido1;
+    public javax.swing.JTextField txtPrecio;
     public javax.swing.JFormattedTextField txtTarjetaCliente;
     public javax.swing.JTextField txtTarjetaPedido;
     public javax.swing.JFormattedTextField txtTelefonoCliente;
