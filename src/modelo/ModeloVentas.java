@@ -71,7 +71,7 @@ public class ModeloVentas extends DatabaseSQLite{
     public boolean InsertarProveedores (String nif, String nombre , String apellidos, int telefono) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Profesores ( DNI ,Nombre ,Apellidos ,Domicilio ,Telefono ) "
+        String q=" INSERT INTO Proveedores ( DNI ,Nombre ,Apellidos ,Domicilio ,Telefono ) "
                     + "VALUES ( '" + nif + "','" + nombre + "', '" + apellidos + "', " + telefono + " ) ";
             //se ejecuta la consulta
         try {
@@ -139,7 +139,7 @@ public class ModeloVentas extends DatabaseSQLite{
 
     public void modificarProveedor (String nif, String nombre , String apellidos, int telefono) {
         
-        String q="Update Profesores set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Telefono='"+telefono+"' where NIF='"+nif+"';";
+        String q="Update Proveedores set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Telefono='"+telefono+"' where NIF='"+nif+"';";
         
         try {
             
