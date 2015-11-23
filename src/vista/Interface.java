@@ -625,6 +625,11 @@ public class Interface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tableProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableProveedoresMouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(tableProveedores);
 
         jLabel27.setText("CIF / NIF:");
@@ -1044,6 +1049,10 @@ public class Interface extends javax.swing.JFrame {
     private void txtDNIPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDNIPedidoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDNIPedidoActionPerformed
+
+    private void tableProveedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableProveedoresMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tableProveedoresMouseClicked
 
     /**
      * @param args the command line arguments
