@@ -98,6 +98,11 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 tablePedidoBuscarArticuloMouseClicked(evt);
             }
         });
+        this.vista.tablePedidoCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePedidoCarritoMouseClicked(evt);
+            }
+        });      
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -146,6 +151,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
         case btnCrearFactura:
             
             try {
+                
+                
+                
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -291,6 +299,20 @@ public class ControladorVentas implements ActionListener,MouseListener{
         String nombre= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila1, 1);
         String cantidad= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila1, 2);
         String precio= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila1, 3);
+                  
+        this.vista.txtIDPedido.setText(id);
+        this.vista.txtNombreArticuloPedido.setText(nombre);
+        this.vista.txtPrecio.setText(precio);
+        
+    }
+    
+    private void tablePedidoCarritoMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+         
+        fila1=this.vista.tablePedidoCarrito.getSelectedRow();
+        String id= (String) this.vista.tablePedidoCarrito.getValueAt(fila1, 0);
+        String nombre= (String) this.vista.tablePedidoCarrito.getValueAt(fila1, 1);
+        String cantidad= (String) this.vista.tablePedidoCarrito.getValueAt(fila1, 2);
+        String precio= (String) this.vista.tablePedidoCarrito.getValueAt(fila1, 3);
                   
         this.vista.txtIDPedido.setText(id);
         this.vista.txtNombreArticuloPedido.setText(nombre);
