@@ -153,7 +153,7 @@ public class ModeloVentas extends DatabaseSQLite{
     public boolean InsertarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Alumnos ( DNI ,Nombre ,Apellidos ,Domicilio ,Acceso ,Telefono ) "
+        String q=" INSERT INTO Clientes ( DNI ,Nombre ,Apellidos ,Direccion ,Telefono, Tarjeta ) "
                     + "VALUES ( '" + dni + "','" + nombre + "', '" + apellidos + "','" + direccion + "', '" + telefono + "', " + tarjeta + " ) ";
             //se ejecuta la consulta
         try {
@@ -170,7 +170,7 @@ public class ModeloVentas extends DatabaseSQLite{
     public boolean InsertarProveedores (String nif, String nombre , String apellidos, int telefono) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Proveedores ( Nif ,Nombre ,Apellidos ,Domicilio ,Telefono ) "
+        String q=" INSERT INTO Proveedores ( Nif ,Nombre ,Apellidos ,Telefono ) "
                     + "VALUES ( '" + nif + "','" + nombre + "', '" + apellidos + "', " + telefono + " ) ";
             //se ejecuta la consulta
         try {

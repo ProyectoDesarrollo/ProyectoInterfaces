@@ -12,6 +12,8 @@ public class Articulo {
         this.precio = p;
         
     }
+
+    public Articulo(String id, String nombre, String precio) {}
     
     public void setID (String i) {
         
@@ -62,16 +64,3 @@ public class Articulo {
     }
     
 }
-
-/*        
-                ArrayList<Articulo> datos = new ArrayList<Articulo>();
-
-                nom = this.vista.txtINombre.getText();
-                ape = this.vista.txtIApellidos.getText();
-                dni = this.vista.txtIDNI.getText();
-                ed = this.vista.txtIEdad.getText();
-                
-                datos.add(new Persona(nom, ape, dni, ed));
-                
-                this.vista.Tabla.setModel(this.modelo.getTabla(datos));
-*/

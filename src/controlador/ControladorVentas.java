@@ -9,7 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import modelo.Articulo;
 import modelo.ModeloVentas;
 import vista.Interface;
 
@@ -22,6 +24,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
     Interface vista;
     ModeloVentas modelo = new ModeloVentas();
     int fila =-1;
+    ArrayList <String> ListaPedido = new ArrayList<>(); 
     
     public enum AccionMVC{
         btnAñadirPedido,
@@ -46,7 +49,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
         try {
             
             this.vista.jPanelPrincipal.setVisible(true);
-            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());           
+            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
+            this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
+            
             
         } catch (Exception e) {
         }
@@ -91,7 +96,15 @@ public class ControladorVentas implements ActionListener,MouseListener{
           
             try {
                 
-                               
+                ArrayList<Articulo> ListaPedido = new ArrayList<Articulo>();
+
+                String id = this.vista.txtIDPedido.getText();
+                String nombre = this.vista.txtNombreArticuloPedido.getText();
+                String precio = this.vista.txtPrecio.getText();
+                    
+                ListaPedido.add(new Articulo(id, nombre, precio));         
+                this.vista.Tabla.setModel(this.modelo.get(ListaPedido));                
+                
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -268,10 +281,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
         String cantidad= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 2);
         String precio= (String) this.vista.tablePedidoBuscarArticulo.getValueAt(fila, 3);
                   
-        this.vista.txtDNICliente.setText(id);
-        this.vista.txtNombreCliente.setText(nombre);
-        this.vista.txtApellidosCliente.setText(cantidad);
-        this.vista.txtDireccionCliente.setText(precio);
+        this.vista.txtIDPedido.setText(id);
+        this.vista.txtNombreArticuloPedido.setText(nombre);
+        this.vista.txtPrecio.setText(precio);
         
     }
     
