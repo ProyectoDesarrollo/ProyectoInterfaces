@@ -15,6 +15,10 @@ public class ControladorCompras implements ActionListener, MouseListener {
     ModeloCompras modelo = new ModeloCompras();
     int fila = -1;
     String tabla;
+    int pedido = 1;
+    int factura = 2;
+    String [] comboBuscar = {"-Seleccionar-","DNI","Nombre"};
+    String [] comboVisualizar={"-Seleccionar-","Pedido","Factura"};
 
     //en esta parte no es necesario
     public enum AccionMVC {
@@ -38,9 +42,13 @@ public class ControladorCompras implements ActionListener, MouseListener {
             this.vista.tableProveedores.setModel(this.modelo.getTablaProveedores());
             this.vista.tablaVisualizarFactura.setModel(this.modelo.getTablaFactura());
             this.vista.tablaVisualizarPedido.setModel(this.modelo.getTablaPedido());
-            //this.vista.jTable.setModel(this.modelo.());
-            //this.vista.jTable.setModel(this.modelo.());
+            this.vista.jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(comboBuscar));
+            this.vista.jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(comboVisualizar));
+            this.vista.jComboBuscar.setSelectedIndex(0);
+            this.vista.jComboVisualizar.setSelectedIndex(0);
 
+            //this.vista.jTable.setModel(this.modelo.());
+            //this.vista.jTable.setModel(this.modelo.());
         } catch (Exception e) {
         }
         /*-----COMPRAS-----*/
@@ -57,6 +65,8 @@ public class ControladorCompras implements ActionListener, MouseListener {
         /*-----ALMACEN-----*/
         this.vista.btnBuscar.setActionCommand("btnBuscar");
         this.vista.btnBuscar.addActionListener(this);
+
+        this.vista.jComboVisualizar.addActionListener(this);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -137,6 +147,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
     /*-----COMPRAS-----*/
 
     private void tableProveedoresMouseClicked(java.awt.event.MouseEvent evt) {
+
         fila = this.vista.tableProveedores.getSelectedRow();
         String dni = (String) this.vista.tableProveedores.getValueAt(fila, 0);
         String nombre = (String) this.vista.tableProveedores.getValueAt(fila, 1);
@@ -151,16 +162,15 @@ public class ControladorCompras implements ActionListener, MouseListener {
     }
     /*-----ALMACEN-----*/
 
-    private void jComboVisualizarActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void jComboVisualizarPropertyChange(java.beans.PropertyChangeEvent evt) { 
         // TODO add your handling code here:
-            
-        String item = (String)this.vista.jComboVisualizar.getSelectedItem();
-        if (item == "Pedido"){
+
+        if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
             this.vista.pPanelVisualizarPedido.setVisible(true);
             this.vista.pPanelVisualizarInicial.setVisible(false);
             this.vista.pPanelVisualizarFactura.setVisible(false);
-        } else if (item == "Factura") {
-            
+        } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
+
             this.vista.pPanelVisualizarPedido.setVisible(true);
             this.vista.pPanelVisualizarInicial.setVisible(false);
             this.vista.pPanelVisualizarFactura.setVisible(false);
