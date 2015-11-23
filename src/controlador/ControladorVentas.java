@@ -46,13 +46,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         try {
             
             this.vista.jPanelPrincipal.setVisible(true);
-            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-            
-            //this.vista.jTable.setModel(this.modelo.());
-            //this.vista.jTable.setModel(this.modelo.());
-            //this.vista.jTable.setModel(this.modelo.());
-            //this.vista.jTable.setModel(this.modelo.());
-            //this.vista.jTable.setModel(this.modelo.());
+            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());           
             
         } catch (Exception e) {
         }
@@ -87,41 +81,50 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnBorrarPresupuesto.setActionCommand( "btnEliminarPresupuesto" );
         this.vista.btnBorrarPresupuesto.addActionListener(this);
         
+        this.vista.tableClientes.addMouseListener(this);
     }
     
     public void actionPerformed(ActionEvent e) {
     switch(AccionMVC.valueOf(e.getActionCommand())) {
         
-        case btnAñadirPedido:           
+        case btnAñadirPedido:   
+            
             try {
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
         
         case btnModificarPedido:
+            
             try {
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
             
         case btnBorrarPedido:
+            
             try {
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
             
         case btnCrearFactura:
+            
             try {
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
             
         case btnAñadirCliente:
@@ -155,7 +158,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 
                 this.vista.tableClientes.getSelectedRow();
                 if(this.vista.tableClientes.getSelectedRow()<0){
-                    JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila1");
+                    JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila");
 
                 }else{
                         
@@ -204,27 +207,33 @@ public class ControladorVentas implements ActionListener,MouseListener{
             break;
             
         case btnAñadirPresupuesto:
+            
             try {
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
             
         case btnModificarPresupuesto:
+            
             try {
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
             
         case btnBorrarPresupuesto:
+            
             try {
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+            
             break;
         
     
