@@ -575,7 +575,9 @@ public class Interface extends javax.swing.JFrame {
         pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
         pPanelVisualizarFacturaLayout.setHorizontalGroup(
             pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+            .addGroup(pPanelVisualizarFacturaLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         pPanelVisualizarFacturaLayout.setVerticalGroup(
             pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -604,14 +606,14 @@ public class Interface extends javax.swing.JFrame {
         pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
         pPanelVisualizarPedidoLayout.setHorizontalGroup(
             pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
         );
         pPanelVisualizarPedidoLayout.setVerticalGroup(
             pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
         );
 
-        jPanelVisualizar.add(pPanelVisualizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 580, -1));
+        jPanelVisualizar.add(pPanelVisualizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, -1));
 
         pPanelVisualizarInicial.setPreferredSize(new java.awt.Dimension(0, 452));
 
@@ -619,14 +621,14 @@ public class Interface extends javax.swing.JFrame {
         pPanelVisualizarInicial.setLayout(pPanelVisualizarInicialLayout);
         pPanelVisualizarInicialLayout.setHorizontalGroup(
             pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
         pPanelVisualizarInicialLayout.setVerticalGroup(
             pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 452, Short.MAX_VALUE)
         );
 
-        jPanelVisualizar.add(pPanelVisualizarInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 580, -1));
+        jPanelVisualizar.add(pPanelVisualizarInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, -1));
 
         getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
