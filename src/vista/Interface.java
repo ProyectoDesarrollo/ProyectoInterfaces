@@ -79,13 +79,18 @@ public class Interface extends javax.swing.JFrame {
         btnBorrarCliente = new javax.swing.JButton();
         txtTarjetaCliente = new javax.swing.JFormattedTextField();
         jPanelVisualizar = new javax.swing.JPanel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tableVisualizar = new javax.swing.JTable();
         jComboVisualizar = new javax.swing.JComboBox();
         txtBuscar = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         jComboBuscar = new javax.swing.JComboBox();
         jLabel26 = new javax.swing.JLabel();
+        pPanelVisualizarFactura = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaVisualizarPedido = new javax.swing.JTable();
+        pPanelVisualizarPedido = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tablaVisualizarFactura = new javax.swing.JTable();
+        pPanelVisualizarInicial = new javax.swing.JPanel();
         jPanelPagos = new javax.swing.JPanel();
         jPanelProveedores = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -525,8 +530,35 @@ public class Interface extends javax.swing.JFrame {
         getContentPane().add(jPanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
         jPanelVisualizar.setPreferredSize(new java.awt.Dimension(600, 650));
+        jPanelVisualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        tableVisualizar.setModel(new javax.swing.table.DefaultTableModel(
+        jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "Pedido", "Factura" }));
+        jComboVisualizar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboVisualizarItemStateChanged(evt);
+            }
+        });
+        jComboVisualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboVisualizarPropertyChange(evt);
+            }
+        });
+        jPanelVisualizar.add(jComboVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 42, 176, 50));
+        jPanelVisualizar.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 159, 254, -1));
+
+        btnBuscar.setText("Buscar");
+        jPanelVisualizar.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 158, 106, -1));
+
+        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "DNI", "Nombre" }));
+        jPanelVisualizar.add(jComboBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(282, 159, 93, -1));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel26.setText("Elija el tipo de busqueda :");
+        jPanelVisualizar.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
+
+        pPanelVisualizarFactura.setPreferredSize(new java.awt.Dimension(0, 452));
+
+        tablaVisualizarPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -537,59 +569,64 @@ public class Interface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane8.setViewportView(tableVisualizar);
+        jScrollPane3.setViewportView(tablaVisualizarPedido);
 
-        jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "Pedido", "Factura" }));
-        jComboVisualizar.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboVisualizarItemStateChanged(evt);
+        javax.swing.GroupLayout pPanelVisualizarFacturaLayout = new javax.swing.GroupLayout(pPanelVisualizarFactura);
+        pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
+        pPanelVisualizarFacturaLayout.setHorizontalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+        );
+        pPanelVisualizarFacturaLayout.setVerticalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+        );
+
+        jPanelVisualizar.add(pPanelVisualizarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 580, -1));
+
+        pPanelVisualizarPedido.setPreferredSize(new java.awt.Dimension(0, 452));
+        pPanelVisualizarPedido.setVerifyInputWhenFocusTarget(false);
+
+        tablaVisualizarFactura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
+        ));
+        jScrollPane8.setViewportView(tablaVisualizarFactura);
 
-        btnBuscar.setText("Buscar");
-
-        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "DNI", "Nombre" }));
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel26.setText("Elija el tipo de busqueda :");
-
-        javax.swing.GroupLayout jPanelVisualizarLayout = new javax.swing.GroupLayout(jPanelVisualizar);
-        jPanelVisualizar.setLayout(jPanelVisualizarLayout);
-        jPanelVisualizarLayout.setHorizontalGroup(
-            jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelVisualizarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                    .addGroup(jPanelVisualizarLayout.createSequentialGroup()
-                        .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel26)
-                            .addGroup(jPanelVisualizarLayout.createSequentialGroup()
-                                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 129, Short.MAX_VALUE)))
-                .addContainerGap())
+        javax.swing.GroupLayout pPanelVisualizarPedidoLayout = new javax.swing.GroupLayout(pPanelVisualizarPedido);
+        pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
+        pPanelVisualizarPedidoLayout.setHorizontalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
         );
-        jPanelVisualizarLayout.setVerticalGroup(
-            jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel26)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscar)
-                    .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+        pPanelVisualizarPedidoLayout.setVerticalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
         );
+
+        jPanelVisualizar.add(pPanelVisualizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 580, -1));
+
+        pPanelVisualizarInicial.setPreferredSize(new java.awt.Dimension(0, 452));
+
+        javax.swing.GroupLayout pPanelVisualizarInicialLayout = new javax.swing.GroupLayout(pPanelVisualizarInicial);
+        pPanelVisualizarInicial.setLayout(pPanelVisualizarInicialLayout);
+        pPanelVisualizarInicialLayout.setHorizontalGroup(
+            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+        pPanelVisualizarInicialLayout.setVerticalGroup(
+            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 452, Short.MAX_VALUE)
+        );
+
+        jPanelVisualizar.add(pPanelVisualizarInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 580, -1));
 
         getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
 
@@ -1056,6 +1093,10 @@ public class Interface extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboVisualizarItemStateChanged
 
+    private void jComboVisualizarPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jComboVisualizarPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboVisualizarPropertyChange
+
     /**
      * @param args the command line arguments
      */
@@ -1172,6 +1213,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
@@ -1186,12 +1228,16 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextArea jTextArea2;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
+    public javax.swing.JPanel pPanelVisualizarFactura;
+    public javax.swing.JPanel pPanelVisualizarInicial;
+    public javax.swing.JPanel pPanelVisualizarPedido;
+    public javax.swing.JTable tablaVisualizarFactura;
+    public javax.swing.JTable tablaVisualizarPedido;
     public javax.swing.JTable tableClientes;
     public javax.swing.JTable tablePedidoBuscarArticulo;
     public javax.swing.JTable tablePedidoCarrito;
     public javax.swing.JTable tablePresuspuestoBuscarArticulo;
     public javax.swing.JTable tableProveedores;
-    public javax.swing.JTable tableVisualizar;
     public javax.swing.JTextField txtApellidosCliente;
     public javax.swing.JTextField txtApellidosPedido;
     public javax.swing.JTextField txtApellidosProveedores;

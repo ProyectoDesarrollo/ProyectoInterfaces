@@ -1,4 +1,3 @@
-
 package controlador;
 
 import java.awt.event.ActionEvent;
@@ -10,13 +9,13 @@ import modelo.ModeloCompras;
 import modelo.ModeloVentas;
 import vista.Interface;
 
-
 public class ControladorCompras implements ActionListener, MouseListener {
 
     Interface vista;
     ModeloCompras modelo = new ModeloCompras();
     int fila = -1;
-    
+    String tabla;
+
     //en esta parte no es necesario
     public enum AccionMVC {
 
@@ -35,11 +34,10 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     public void iniciar() {
         try {
-           
+
             this.vista.tableProveedores.setModel(this.modelo.getTablaProveedores());
-            //this.vista.jTable.setModel(this.modelo.());
-            //this.vista.jTable.setModel(this.modelo.());
-            //this.vista.jTable.setModel(this.modelo.());
+            this.vista.tablaVisualizarFactura.setModel(this.modelo.getTablaFactura());
+            this.vista.tablaVisualizarPedido.setModel(this.modelo.getTablaPedido());
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
 
@@ -110,10 +108,9 @@ public class ControladorCompras implements ActionListener, MouseListener {
             }
             /*-----ALMACEN-----*/
         } else if (comand.equals("btnBuscar")) {
-           
+
             String variBusqueda = this.vista.txtBuscar.getText();
             if (this.vista.jComboBuscar.getSelectedItem().equals("DNI")) {
-                
 
             } else if (this.vista.jComboBuscar.getSelectedItem().equals("Nombre")) {
 
@@ -154,11 +151,17 @@ public class ControladorCompras implements ActionListener, MouseListener {
     }
     /*-----ALMACEN-----*/
 
-    private void jComboVisualizarItemStateChanged(java.awt.event.ItemEvent evt) {
+    private void jComboVisualizarPropertyChange(java.beans.PropertyChangeEvent evt) {
         if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
-            this.vista.tableVisualizar.setModel(this.modelo.getTablaPedido());
+            this.vista.pPanelVisualizarPedido.setVisible(true);
+            this.vista.pPanelVisualizarInicial.setVisible(false);
+            this.vista.pPanelVisualizarFactura.setVisible(false);
         } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
-            this.vista.tableVisualizar.setModel(this.modelo.getTablaFactura());
+            
+            this.vista.pPanelVisualizarPedido.setVisible(true);
+            this.vista.pPanelVisualizarInicial.setVisible(false);
+            this.vista.pPanelVisualizarFactura.setVisible(false);
+
         }
     }
 
