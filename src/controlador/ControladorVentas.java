@@ -20,7 +20,7 @@ import vista.Interface;
 public class ControladorVentas implements ActionListener,MouseListener{
 
     Interface vista;
-    ModeloVentas modelo;
+    ModeloVentas modelo = new ModeloVentas();
     int fila =-1;
     
     public enum AccionMVC{
@@ -88,6 +88,8 @@ public class ControladorVentas implements ActionListener,MouseListener{
     switch(AccionMVC.valueOf(e.getActionCommand())) {
         
         case btnAñadirPedido:   
+            
+            
             
             try {
                 
