@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,6 +12,50 @@ public class ModeloVentas extends DatabaseSQLite{
     
     
     public ModeloVentas() {}
+    
+    public DefaultTableModel getTabla(ArrayList <Articulo> d) {
+    
+        DefaultTableModel tableModel = new DefaultTableModel () {
+            
+            @Override
+            public boolean isCellEditable (int row, int column) {
+                
+                return false;
+                
+            }
+            
+        };
+        
+        int registros = 0;
+        String[] columNames = {"ID", "Nombre", "Cantidad", "Precio"};
+        Object[][] data = new String[d.size()][4];
+        
+        try {
+            
+            int i = 0;
+            
+            for (Articulo a: d) {
+                
+                data[i][0] = a.getID();
+                data[i][1] = a.getNombre();
+                data[i][2] = a.getCantidad();
+                data[i][3] = a.getPrecio();
+                
+                i++;
+                
+            }
+            
+            tableModel.setDataVector(data, columNames);
+            
+        } catch (Exception e) {
+            
+            e.printStackTrace();
+            
+        }
+        
+        return tableModel;
+        
+    }
     
     public DefaultTableModel getTablaArticulos(){
         
