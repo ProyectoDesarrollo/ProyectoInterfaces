@@ -16,7 +16,7 @@ public class DatabaseSQLite {
         
         try{
             Class.forName("org.sqlite.JDBC");
-            conexion=DriverManager.getConnection("jdbc:sqlite:DatabaseProyectoInterfaces.db3");
+            conexion=DriverManager.getConnection("jdbc:sqlite:db/Datos.db");
        }catch(SQLException ex){
             System.err.println("No se ha conectado"+ex.getMessage());
        }catch(ClassNotFoundException e){
