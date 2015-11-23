@@ -68,17 +68,17 @@ public class Interface extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        txtNombreCliente = new javax.swing.JTextField();
+        txtApellidosCliente = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
-        jFormattedTextField3 = new javax.swing.JFormattedTextField();
+        txtDireccionCliente = new javax.swing.JTextField();
+        txtDNICliente = new javax.swing.JFormattedTextField();
+        txtTelefonoCliente = new javax.swing.JFormattedTextField();
         btnAñadirCliente = new javax.swing.JButton();
         btnModificarCliente = new javax.swing.JButton();
         btnBorrarCliente = new javax.swing.JButton();
-        jFormattedTextField4 = new javax.swing.JFormattedTextField();
+        txtTarjetaCliente = new javax.swing.JFormattedTextField();
         jPanelVisualizar = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tableVisualizar = new javax.swing.JTable();
@@ -443,12 +443,12 @@ public class Interface extends javax.swing.JFrame {
         jLabel25.setText("NºTarjeta:");
 
         try {
-            jFormattedTextField2.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########-U")));
+            txtDNICliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#########-U")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        jFormattedTextField3.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#########"))));
+        txtTelefonoCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#########"))));
 
         btnAñadirCliente.setText("Añadir");
 
@@ -456,7 +456,7 @@ public class Interface extends javax.swing.JFrame {
 
         btnBorrarCliente.setText("Borrar");
 
-        jFormattedTextField4.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#### #### #### ####"))));
+        txtTarjetaCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#### #### #### ####"))));
 
         javax.swing.GroupLayout jPanelClientesLayout = new javax.swing.GroupLayout(jPanelClientes);
         jPanelClientes.setLayout(jPanelClientesLayout);
@@ -473,9 +473,9 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(jLabel22))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField2)
-                            .addComponent(jFormattedTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
+                            .addComponent(txtApellidosCliente)
+                            .addComponent(txtNombreCliente)
+                            .addComponent(txtDNICliente, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE))
                         .addGap(8, 8, 8)
                         .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -483,9 +483,9 @@ public class Interface extends javax.swing.JFrame {
                             .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(18, 18, 18)
                         .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField4)
-                            .addComponent(jFormattedTextField3)
-                            .addComponent(jFormattedTextField4)))
+                            .addComponent(txtDireccionCliente)
+                            .addComponent(txtTelefonoCliente)
+                            .addComponent(txtTarjetaCliente)))
                     .addGroup(jPanelClientesLayout.createSequentialGroup()
                         .addComponent(btnAñadirCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
@@ -503,20 +503,20 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20)
                     .addComponent(jLabel23)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDireccionCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDNICliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel21)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24)
-                    .addComponent(jFormattedTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefonoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtApellidosCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel25)
-                    .addComponent(jFormattedTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTarjetaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(120, 120, 120)
                 .addGroup(jPanelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAñadirCliente)
@@ -1096,9 +1096,6 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JComboBox jComboBuscar;
     public javax.swing.JComboBox jComboVisualizar;
     private javax.swing.JFormattedTextField jFormattedTextField1;
-    public javax.swing.JFormattedTextField jFormattedTextField2;
-    public javax.swing.JFormattedTextField jFormattedTextField3;
-    public javax.swing.JFormattedTextField jFormattedTextField4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1163,9 +1160,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
     public javax.swing.JTextField jTextField1;
-    public javax.swing.JTextField jTextField2;
-    public javax.swing.JTextField jTextField3;
-    public javax.swing.JTextField jTextField4;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
     public javax.swing.JTable tableClientes;
@@ -1174,21 +1168,27 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTable tablePresuspuestoBuscarArticulo;
     public javax.swing.JTable tableProveedores;
     public javax.swing.JTable tableVisualizar;
+    public javax.swing.JTextField txtApellidosCliente;
     public javax.swing.JTextField txtApellidosPedido;
     public javax.swing.JTextField txtApellidosProveedores;
     private javax.swing.JSpinner txtCantidadPedido;
     private javax.swing.JSpinner txtCantidad_Pedido1;
+    public javax.swing.JFormattedTextField txtDNICliente;
     public javax.swing.JFormattedTextField txtDNIPedido;
+    public javax.swing.JTextField txtDireccionCliente;
     public javax.swing.JTextField txtDireccionPedido;
     private javax.swing.JTextField txtIDPedido;
     private javax.swing.JTextField txtID_Pedido1;
     public javax.swing.JFormattedTextField txtNIFProveedores;
     private javax.swing.JTextField txtNombreArticuloPedido;
+    public javax.swing.JTextField txtNombreCliente;
     public javax.swing.JTextField txtNombrePedido;
     private javax.swing.JTextField txtNombrePresupuesto;
     public javax.swing.JTextField txtNombreProveedores;
     private javax.swing.JTextField txtNombre_Articulo_Pedido1;
+    public javax.swing.JFormattedTextField txtTarjetaCliente;
     public javax.swing.JTextField txtTarjetaPedido;
+    public javax.swing.JFormattedTextField txtTelefonoCliente;
     public javax.swing.JTextField txtTelefonoPedido;
     public javax.swing.JFormattedTextField txtTelefonoProveedor;
     // End of variables declaration//GEN-END:variables

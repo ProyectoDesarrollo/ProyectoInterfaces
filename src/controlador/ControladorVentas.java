@@ -67,14 +67,14 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnCrearFactura.setActionCommand( "btnCrearFactura" );
         this.vista.btnCrearFactura.addActionListener(this);
         
-        /*this.vista.btnAñadirCliente.setActionCommand( "btnAñadirCliente" );
+        this.vista.btnAñadirCliente.setActionCommand( "btnAñadirCliente" );
         this.vista.btnAñadirCliente.addActionListener(this);
         
         this.vista.btnModificarCliente.setActionCommand( "btnModificarCliente" );
         this.vista.btnModificarCliente.addActionListener(this);
         
         this.vista.btnBorrarCliente.setActionCommand( "btnEliminarCliente" );
-        this.vista.btnBorrarCliente.addActionListener(this);*/
+        this.vista.btnBorrarCliente.addActionListener(this);
         
         this.vista.btnAñadirPresupuesto.setActionCommand( "btnAñadirPresupuesto" );
         this.vista.btnAñadirPresupuesto.addActionListener(this);
@@ -91,43 +91,90 @@ public class ControladorVentas implements ActionListener,MouseListener{
     switch(AccionMVC.valueOf(e.getActionCommand())) {
         
         case btnAñadirPedido:           
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
         
         case btnModificarPedido:
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
-        
-        case btnBorrarPedido:
             
+        case btnBorrarPedido:
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
             
         case btnCrearFactura:
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
             
         case btnAñadirCliente:
-            
+            try {
+                
+                String nombre= this.vista.txtNombreCliente.getText();
+                String dni= this.vista.txtDNICliente.getText();
+                String apellidos= this.vista.txtApellidosCliente.getText();
+                String direccion= this.vista.txtDireccionCliente.getText();
+                int tarjeta= Integer.parseInt(this.vista.txtTarjetaCliente.getText());                          
+                int telefono= Integer.parseInt(this.vista.txtTelefonoCliente.getText());
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
             
         case btnModificarCliente:
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
             
         case btnBorrarCliente:
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
             
         case btnAñadirPresupuesto:
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
             
         case btnModificarPresupuesto:
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
             
         case btnBorrarPresupuesto:
-            
+            try {
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             break;
         
     
