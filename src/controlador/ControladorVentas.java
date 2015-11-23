@@ -103,7 +103,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 String precio = this.vista.txtPrecio.getText();
                     
                 ListaPedido.add(new Articulo(id, nombre, precio));         
-                this.vista.Tabla.setModel(this.modelo.get(ListaPedido));                
+                //this.vista.Tabla.setModel(this.modelo.getTabla(ListaPedido));                
                 
                 
             } catch (Exception ex) {
