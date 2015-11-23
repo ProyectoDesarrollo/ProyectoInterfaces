@@ -9,7 +9,7 @@ public class Database {
     private String db = "dam11_Proyecto_Interfaces";
     private String usr = "dam11";
     private String pass = "123568000";
-    private String url = "jdbc:mysql://80.59.2.251:3306/" + db;
+    private String url = "jdbc:mysql://88.26.202.39:3306/" + db;
     private Connection conn = null;
     
     public Database () {

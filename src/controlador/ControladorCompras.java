@@ -9,29 +9,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
+import modelo.ModeloVentas;
 import vista.Interface;
 
 /**
  *
  * @author usuario
  */
-public class ControladorCompras implements ActionListener,MouseListener{
+public class ControladorCompras implements ActionListener, MouseListener {
 
     Interface vista;
+    ModeloVentas modelo;
+    int fila = -1;
 
-    
-    
-    public enum AccionMVC{
+    public enum AccionMVC {
+
         btnAñadirProveedor,
         btnModificarProveedor,
-        btnBorrarProveedor,
+        btnEliminarProveedor,
         btnAñadirArticuloProveedor,
         btnModificarArticuloProveedor,
         btnBorrarArticuloProveedor
 
     }
-    
-    public void iniciar(){
+
+    public ControladorCompras(Interface vista) {
+        this.vista = vista;
+    }
+
+    public void iniciar() {
         try {
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
@@ -39,69 +46,53 @@ public class ControladorCompras implements ActionListener,MouseListener{
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
-            
+
         } catch (Exception e) {
         }
-        
-        /*this.vista.btnAñadirProveedor.setActionCommand( "btnAñadirProveedor" );
+
+        this.vista.btnAñadirProveedor.setActionCommand("btnAñadirProveedor");
         this.vista.btnAñadirProveedor.addActionListener(this);
-        
-        this.vista.btnModificarProveedor.setActionCommand( "btnModificarProveedor" );
+
+        this.vista.btnModificarProveedor.setActionCommand("btnModificarProveedor");
         this.vista.btnModificarProveedor.addActionListener(this);
-        
-        this.vista.btnBorrarProveedor.setActionCommand( "btnEliminarProveedor" );
-        this.vista.btnBorrarProveedor.addActionListener(this);
-        
-        this.vista.btnAñadirArticuloProveedor.setActionCommand( "btnAñadirArticuloProveedor" );
-        this.vista.btnAñadirArticuloProveedor.addActionListener(this);
-        
-        this.vista.btnModificarArticuloProveedor.setActionCommand( "btnModificarArticuloProveedor" );
-        this.vista.btnModificarArticuloProveedor.addActionListener(this);
-        
-        this.vista.btnBorrarArticuloProveedor.setActionCommand( "btnEliminarArticuloProveedor" );
-        this.vista.btnBorrarArticuloProveedor.addActionListener(this);*/
+
+        this.vista.btnEliminarProveedor.setActionCommand("btnEliminarProveedor");
+        this.vista.btnEliminarProveedor.addActionListener(this);
+
     }
-    
-    /*public void actionPerformed(ActionEvent e) {
-    switch(ControladorVentas.AccionMVC.valueOf(e.getActionCommand())) {
-        
-        case btnAñadirProveedor:           
+
+    public void actionPerformed(ActionEvent e) {
+        //Captura en String el comando accionado por el usuario
+        String comand = e.getActionCommand();
+        if (comand.equals("btnAñadirProveedor")) {
+            String dni = (String) this.vista.txtNIFProveedores.getText();
+            String nombre =(String) this.vista.txtNombreProveedores.getText();
+            String apellidos = (String)this.vista.txtApellidosProveedores.getText();
+            int telefono = Integer.parseInt(this.vista.txtTelefonoProveedor.getText());
             
-            break;
-        
-        case btnModificarProveedor:
-            
-            break;
-        
-        case btnBorrarProveedor:
-            
-            break;
-            
-        case btnAñadirArticuloProveedor:           
-            
-            break;
-        
-        case btnModificarArticuloProveedor:
-            
-            break;
-        
-        case btnBorrarArticuloProveedor:
-            
-            break;
+            if(dni != null & nombre != null && telefono > 600000000   ){
+                
+                modelo.InsertarProveedores(dni, nombre, apellidos, telefono);
+                
+            }else{
+                JOptionPane.showMessageDialog(vista,"Los campos con asteriscos(*) son obligatorios");
+            }
+        }
     }
-    }*/
-    
-    public void actionPerformed(ActionEvent e) {}
-    
-    public void mouseClicked(MouseEvent e) {}
 
-    public void mousePressed(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+    }
 
-    public void mouseReleased(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {
+    }
 
-    public void mouseEntered(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {
+    }
 
-    public void mouseExited(MouseEvent e) {}
-    
-    
+    public void mouseEntered(MouseEvent e) {
+    }
+
+    public void mouseExited(MouseEvent e) {
+    }
+
 }

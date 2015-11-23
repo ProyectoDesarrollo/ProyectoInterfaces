@@ -37,7 +37,9 @@ public class ControladorInicio implements ActionListener,MouseListener{
             
             
             controladorVentas= new ControladorVentas(vista);
-            controladorVentas.iniciar();            
+            controladorVentas.iniciar(); 
+            controladorCompras = new ControladorCompras(vista);
+            controladorCompras.iniciar();
             
             this.vista.setVisible(true);
             this.vista.jPanelPresupuestos.setVisible(false);
