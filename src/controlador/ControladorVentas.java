@@ -76,7 +76,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnModificarCliente.setActionCommand( "btnModificarCliente" );
         this.vista.btnModificarCliente.addActionListener(this);
         
-        this.vista.btnBorrarCliente.setActionCommand( "btnEliminarCliente" );
+        this.vista.btnBorrarCliente.setActionCommand( "btnBorrarCliente" );
         this.vista.btnBorrarCliente.addActionListener(this);
         
         this.vista.btnAñadirPresupuesto.setActionCommand( "btnAñadirPresupuesto" );
@@ -171,12 +171,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
                     
                     fila=this.vista.tablePedidoCarrito.getSelectedRow();
                     ListaPedido.remove(fila);
-                    this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));
-                    JOptionPane.showMessageDialog(null, "Eliminado");
-                   
+                    this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));                   
                 
-                }
-                
+                }          
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -261,13 +258,16 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 
                 this.vista.tableClientes.getSelectedRow();
                 if(this.vista.tableClientes.getSelectedRow()<0){
+                    
                     JOptionPane.showMessageDialog(null, "Seleccione una fila");
+                    
                 }else{
+                    
                     fila=this.vista.tableClientes.getSelectedRow();                                          
                     String dni= (String) this.vista.tableClientes.getValueAt(fila, 0);
                     this.modelo.EliminarClientes(dni);
                     this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
-                    JOptionPane.showMessageDialog(null, "Eliminado");
+                    
                 }
                 
             } catch (Exception ex) {

@@ -283,7 +283,7 @@ public class ModeloVentas extends DatabaseSQLite{
     
     public void modificarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
         
-        String q="Update Cliente set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Direccion='"+direccion+"', Telefono='"+telefono+"',, Tarjeta='"+tarjeta+"' where DNI='"+dni+"';";
+        String q="Update Clientes set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Direccion='"+direccion+"', Telefono='"+telefono+"', Tarjeta='"+tarjeta+"' where DNI='"+dni+"';";
         
         try {
             
