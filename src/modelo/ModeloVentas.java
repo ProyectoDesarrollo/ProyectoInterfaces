@@ -177,11 +177,11 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
-    public boolean InsertarArticulo (String id, String nombre , int stock, double precio) {
+    public boolean InsertarArticulo (String id, String nombre , int stock, double precio, int iva) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Articulos ( ID ,Nombre ,Stock ,Precio )"
-                    + "VALUES ( '" + id + "','" + nombre + "', '" + stock + "', '" + precio + "') ";
+        String q=" INSERT INTO Articulos ( ID ,Nombre ,Stock ,Precio, IVA )"
+                    + "VALUES ( '" + id + "','" + nombre + "', '" + stock + "', '" + precio + "','" + iva + "') ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -260,9 +260,9 @@ public class ModeloVentas extends DatabaseSQLite{
         return res;
     }
     
-    public void modificarArticulo (String id, String nombre , int stock, int precio) {
+    public void modificarArticulo (String id, String nombre , int stock, double precio, int iva) {
         
-        String q="Update Articulos set ID='"+nombre+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"' where ID='"+id+"';";
+        String q="Update Articulos set ID='"+nombre+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"', IVA='"+iva+"' where ID='"+id+"';";
         
         try {
             

@@ -57,6 +57,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
             this.vista.jPanelPrincipal.setVisible(true);
             this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
             this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
+            this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
             this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
             
             
@@ -128,7 +129,13 @@ public class ControladorVentas implements ActionListener,MouseListener{
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablePresupuestoCarritoMouseClicked(evt);
             }
-        });      
+        });
+        this.vista.tablaArticulosAlmacen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaArticulosAlmacenMouseClicked(evt);
+            }
+        });
+        
     }
     
     public void actionPerformed(ActionEvent e) {
@@ -381,8 +388,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 String id= this.vista.txtIDAlmacen.getText();
                 String nombre= this.vista.txtNombreAlmacen.getText();
                 int stock= Integer.parseInt(this.vista.txtStockAlmacen.getText());                     
-                int precio= Integer.parseInt(this.vista.txtPrecioAlmacen.getText());
-                this.modelo.InsertarArticulo(id, nombre, stock, precio);
+                double precio= Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
+                int iva= Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
+                this.modelo.InsertarArticulo(id, nombre, stock, precio, iva);
                 this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
                 this.vista.txtIDAlmacen.setText("");
                 this.vista.txtNombreAlmacen.setText("");
@@ -409,10 +417,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
                     String id = this.vista.txtIDAlmacen.getText();
                     String nombre = this.vista.txtNombreAlmacen.getText();
                     int stock = Integer.parseInt(this.vista.txtStockAlmacen.getText());                     
-                    int precio = Integer.parseInt(this.vista.txtPrecioAlmacen.getText());
-                                         
-                    this.modelo.modificarArticulo(id, nombre, stock, precio);
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaClientes());
+                    double precio = Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
+                    int iva= Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
+                    this.modelo.modificarArticulo(id, nombre, stock, precio, iva);
                     this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
                     this.vista.txtIDAlmacen.setText("");
                     this.vista.txtNombreAlmacen.setText("");
@@ -499,6 +506,20 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.txtIDPresupuesto.setText(id);
         this.vista.txtNombreArticuloPresupuesto.setText(nombre);
         this.vista.txtPrecioPresupuesto.setText(precio);
+        
+    }
+    
+    private void tablaArticulosAlmacenMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+         
+        fila1=this.vista.tablaArticulosAlmacen.getSelectedRow();
+        String id= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 0);
+        String nombre= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 1);
+        String cantidad= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 2);
+        String precio= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 3);
+                  
+        this.vista.txtIDAlmacen.setText(id);
+        this.vista.txtNombreAlmacen.setText(nombre);
+        this.vista.txtPrecioAlmacen.setText(precio);
         
     }
     
