@@ -384,19 +384,16 @@ public class ControladorVentas implements ActionListener,MouseListener{
         case btnAñadirAlmacen:   
           
             try {
-                
-                String id= this.vista.txtIDAlmacen.getText();
+                             
                 String nombre= this.vista.txtNombreAlmacen.getText();
                 int stock= Integer.parseInt(this.vista.txtStockAlmacen.getText());                     
                 double precio= Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
                 int iva= Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
-                this.modelo.InsertarArticulo(id, nombre, stock, precio, iva);
-                this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
-                this.vista.txtIDAlmacen.setText("");
+                this.modelo.InsertarArticulo(nombre, stock, precio, iva);
+                this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());               
                 this.vista.txtNombreAlmacen.setText("");
                 this.vista.txtStockAlmacen.setText("");
-                this.vista.txtPrecioAlmacen.setText("");                     
-                
+                this.vista.txtPrecioAlmacen.setText("");                                     
                 
             } catch (Exception ex) {
                 ex.printStackTrace();

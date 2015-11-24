@@ -177,11 +177,11 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
-    public boolean InsertarArticulo (String id, String nombre , int stock, double precio, int iva) {
+    public boolean InsertarArticulo (String nombre , int stock, double precio, int iva) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Articulos ( ID ,Nombre ,Stock ,Precio, IVA )"
-                    + "VALUES ( '" + id + "','" + nombre + "', '" + stock + "', '" + precio + "','" + iva + "') ";
+        String q=" INSERT INTO Articulos ( Nombre ,Stock ,Precio, IVA )"
+                    + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + iva + "') ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
