@@ -38,7 +38,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
         btnBorrarCliente,
         btnAñadirPresupuesto,
         btnModificarPresupuesto,
-        btnBorrarPresupuesto
+        btnBorrarPresupuesto,
+        btnAñadirAlmacen,
+        btnModificarAlmacen
     }
     
     public ControladorVentas(Interface vista){
@@ -91,6 +93,12 @@ public class ControladorVentas implements ActionListener,MouseListener{
         
         this.vista.btnBorrarPresupuesto.setActionCommand( "btnBorrarPresupuesto" );
         this.vista.btnBorrarPresupuesto.addActionListener(this);
+        
+        this.vista.btnAñadirAlmacen.setActionCommand( "btnAñadirAlmacen" );
+        this.vista.btnAñadirAlmacen.addActionListener(this);
+        
+        this.vista.btnModificarAlmacen.setActionCommand( "btnModificarAlmacen" );
+        this.vista.btnModificarAlmacen.addActionListener(this);
         
         this.vista.tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -366,7 +374,57 @@ public class ControladorVentas implements ActionListener,MouseListener{
             
             break;
         
-    
+        case btnAñadirAlmacen:   
+          
+            try {
+                
+                String id= this.vista.txtIDAlmacen.getText();
+                String nombre= this.vista.txtNombreAlmacen.getText();
+                int stock= Integer.parseInt(this.vista.txtStockAlmacen.getText());                     
+                int precio= Integer.parseInt(this.vista.txtPrecioAlmacen.getText());
+                this.modelo.InsertarArticulo(id, nombre, stock, precio);
+                this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
+                this.vista.txtIDAlmacen.setText("");
+                this.vista.txtNombreAlmacen.setText("");
+                this.vista.txtStockAlmacen.setText("");
+                this.vista.txtPrecioAlmacen.setText("");                     
+                
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            
+            break;
+        
+        case btnModificarAlmacen:
+            
+            try {
+                
+                this.vista.tablaArticulosAlmacen.getSelectedRow();
+                if(this.vista.tablaArticulosAlmacen.getSelectedRow()<0){
+                    JOptionPane.showMessageDialog(null, "No ha seleccionado ninguna fila");
+
+                }else{
+                        
+                    String id = this.vista.txtIDAlmacen.getText();
+                    String nombre = this.vista.txtNombreAlmacen.getText();
+                    int stock = Integer.parseInt(this.vista.txtStockAlmacen.getText());                     
+                    int precio = Integer.parseInt(this.vista.txtPrecioAlmacen.getText());
+                                         
+                    this.modelo.modificarArticulo(id, nombre, stock, precio);
+                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaClientes());
+                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
+                    this.vista.txtIDAlmacen.setText("");
+                    this.vista.txtNombreAlmacen.setText("");
+                    this.vista.txtStockAlmacen.setText("");
+                    this.vista.txtPrecioAlmacen.setText("");
+                }
+                
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            
+            break;
     }
     }
     
