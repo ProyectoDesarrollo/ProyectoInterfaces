@@ -288,7 +288,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 String precio = this.vista.txtPrecioPresupuesto.getText();
                 
                     
-                //ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));         
+                ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));         
                 this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto)); 
                 
             } catch (Exception ex) {
@@ -397,6 +397,34 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.txtIDPedido.setText(id);
         this.vista.txtNombreArticuloPedido.setText(nombre);
         this.vista.txtPrecio.setText(precio);
+        
+    }
+    
+    private void tablePresupuestoBuscarArticuloMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+         
+        fila1=this.vista.tablePresuspuestoBuscarArticulo.getSelectedRow();
+        String id= (String) this.vista.tablePresuspuestoBuscarArticulo.getValueAt(fila1, 0);
+        String nombre= (String) this.vista.tablePresuspuestoBuscarArticulo.getValueAt(fila1, 1);
+        String cantidad= (String) this.vista.tablePresuspuestoBuscarArticulo.getValueAt(fila1, 2);
+        String precio= (String) this.vista.tablePresuspuestoBuscarArticulo.getValueAt(fila1, 3);
+                  
+        this.vista.txtIDPresupuesto.setText(id);
+        this.vista.txtNombreArticuloPresupuesto.setText(nombre);
+        this.vista.txtPrecioPresupuesto.setText(precio);
+        
+    }
+    
+    private void tablePresupuestoCarritoMouseClicked(java.awt.event.MouseEvent evt) {                                                   
+         
+        fila1=this.vista.tablePresupuestoCarrito.getSelectedRow();
+        String id= (String) this.vista.tablePresupuestoCarrito.getValueAt(fila1, 0);
+        String nombre= (String) this.vista.tablePresupuestoCarrito.getValueAt(fila1, 1);
+        String cantidad= (String) this.vista.tablePresupuestoCarrito.getValueAt(fila1, 2);
+        String precio= (String) this.vista.tablePresupuestoCarrito.getValueAt(fila1, 3);
+                  
+        this.vista.txtIDPresupuesto.setText(id);
+        this.vista.txtNombreArticuloPresupuesto.setText(nombre);
+        this.vista.txtPrecioPresupuesto.setText(precio);
         
     }
     
