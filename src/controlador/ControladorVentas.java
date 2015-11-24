@@ -288,7 +288,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 String precio = this.vista.txtPrecioPresupuesto.getText();
                 
                     
-                ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));         
+                //ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));         
                 this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto)); 
                 
             } catch (Exception ex) {
@@ -304,7 +304,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 String id = this.vista.txtIDPresupuesto.getText();
                 String nombre = this.vista.txtNombreArticuloPresupuesto.getText();
                 String cantidad= String.valueOf(this.vista.txtCantidadPresupuesto.getValue());
-                //String precio = this.vista.txtPrecioPresupuesto.getText();
+                String precio = this.vista.txtPrecioPresupuesto.getText();
                 
                 
                 this.vista.tablePresupuestoCarrito.getSelectedRow();
