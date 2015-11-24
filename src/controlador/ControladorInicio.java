@@ -28,6 +28,8 @@ public class ControladorInicio implements ActionListener, MouseListener {
     }
 
     public ControladorInicio(Interface vista) {
+        
+        modelo = new ModeloVentas();
         this.vista = vista;
     }
 

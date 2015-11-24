@@ -27,9 +27,59 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jSlider1 = new javax.swing.JSlider();
-        jPanel4 = new javax.swing.JPanel();
+        jComboVisualizar = new javax.swing.JComboBox();
+        pPanelVisualizarFactura = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaVisualizarPedido = new javax.swing.JTable();
+        pPanelVisualizarInicial = new javax.swing.JPanel();
+        pPanelVisualizarPedido = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tablaVisualizarFactura = new javax.swing.JTable();
+        jComboBuscar = new javax.swing.JComboBox();
+        btnBuscar = new javax.swing.JButton();
+        jLabel26 = new javax.swing.JLabel();
+        txtBuscar = new javax.swing.JTextField();
+        jPanelBotones = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        btnPresupuestos = new javax.swing.JButton();
+        btnPedido = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
+        jSeparator3 = new javax.swing.JSeparator();
+        jLabel2 = new javax.swing.JLabel();
+        btnPagos = new javax.swing.JButton();
+        btnProveedores = new javax.swing.JButton();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel3 = new javax.swing.JLabel();
+        btnArticulos = new javax.swing.JButton();
+        btnVisualizar = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
+        btnSalir = new javax.swing.JButton();
+        jPanelPrincipal = new javax.swing.JPanel();
+        jPanelPresupuestos = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        txtNombrePresupuesto = new javax.swing.JTextField();
+        txtTelefonoPresuspuesto = new javax.swing.JFormattedTextField();
+        pDatosPedido1 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tablePresupuestoCarrito = new javax.swing.JTable();
+        btnBorrarPresupuesto = new javax.swing.JButton();
+        btnImprimirPresupuesto = new javax.swing.JButton();
+        txtBuscadorPresupuesto = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        txtCantidadPresupuesto = new javax.swing.JSpinner();
+        txtIDPresupuesto = new javax.swing.JTextField();
+        txtPrecioPresupuesto = new javax.swing.JTextField();
+        txtNombreArticuloPresupuesto = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        btnAñadirPresupuesto = new javax.swing.JButton();
+        btnModificarPresupuesto = new javax.swing.JButton();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tablePresuspuestoBuscarArticulo = new javax.swing.JTable();
         jPanelPedido = new javax.swing.JPanel();
         pDatosClientes = new javax.swing.JPanel();
         txtDNIPedido = new javax.swing.JFormattedTextField();
@@ -81,19 +131,6 @@ public class Interface extends javax.swing.JFrame {
         btnModificarCliente = new javax.swing.JButton();
         btnBorrarCliente = new javax.swing.JButton();
         txtTarjetaCliente = new javax.swing.JFormattedTextField();
-        jPanelVisualizar = new javax.swing.JPanel();
-        jComboVisualizar = new javax.swing.JComboBox();
-        txtBuscar = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
-        jComboBuscar = new javax.swing.JComboBox();
-        jLabel26 = new javax.swing.JLabel();
-        pPanelVisualizarFactura = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablaVisualizarPedido = new javax.swing.JTable();
-        pPanelVisualizarPedido = new javax.swing.JPanel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tablaVisualizarFactura = new javax.swing.JTable();
-        pPanelVisualizarInicial = new javax.swing.JPanel();
         jPanelPagos = new javax.swing.JPanel();
         jPanelProveedores = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -127,75 +164,360 @@ public class Interface extends javax.swing.JFrame {
         txtPrecioAlmacen = new javax.swing.JTextField();
         txtIDAlmacen = new javax.swing.JTextField();
         cbxStockAlmacen = new javax.swing.JCheckBox();
-        jPanelBotones = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        btnPresupuestos = new javax.swing.JButton();
-        btnPedido = new javax.swing.JButton();
-        btnClientes = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JSeparator();
-        jLabel2 = new javax.swing.JLabel();
-        btnPagos = new javax.swing.JButton();
-        btnProveedores = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel3 = new javax.swing.JLabel();
-        btnArticulos = new javax.swing.JButton();
-        btnVisualizar = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
-        btnSalir = new javax.swing.JButton();
-        jPanelPrincipal = new javax.swing.JPanel();
-        jPanelPresupuestos = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        txtNombrePresupuesto = new javax.swing.JTextField();
-        txtTelefonoPresuspuesto = new javax.swing.JFormattedTextField();
-        pDatosPedido1 = new javax.swing.JPanel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tablePresupuestoCarrito = new javax.swing.JTable();
-        btnBorrarPresupuesto = new javax.swing.JButton();
-        btnImprimirPresupuesto = new javax.swing.JButton();
-        txtBuscadorPresupuesto = new javax.swing.JTextField();
-        jLabel40 = new javax.swing.JLabel();
-        txtCantidadPresupuesto = new javax.swing.JSpinner();
-        txtIDPresupuesto = new javax.swing.JTextField();
-        txtPrecioPresupuesto = new javax.swing.JTextField();
-        txtNombreArticuloPresupuesto = new javax.swing.JTextField();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        btnAñadirPresupuesto = new javax.swing.JButton();
-        btnModificarPresupuesto = new javax.swing.JButton();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        tablePresuspuestoBuscarArticulo = new javax.swing.JTable();
+        jPanelVisualizar = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+        jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "Pedido", "Factura" }));
+        jComboVisualizar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboVisualizarItemStateChanged(evt);
+            }
+        });
+        jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboVisualizarActionPerformed(evt);
+            }
+        });
+        jComboVisualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboVisualizarPropertyChange(evt);
+            }
+        });
+
+        pPanelVisualizarFactura.setPreferredSize(new java.awt.Dimension(0, 452));
+
+        tablaVisualizarPedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaVisualizarPedido);
+
+        javax.swing.GroupLayout pPanelVisualizarFacturaLayout = new javax.swing.GroupLayout(pPanelVisualizarFactura);
+        pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
+        pPanelVisualizarFacturaLayout.setHorizontalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPanelVisualizarFacturaLayout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+        pPanelVisualizarFacturaLayout.setVerticalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        pPanelVisualizarInicial.setPreferredSize(new java.awt.Dimension(0, 452));
+
+        javax.swing.GroupLayout pPanelVisualizarInicialLayout = new javax.swing.GroupLayout(pPanelVisualizarInicial);
+        pPanelVisualizarInicial.setLayout(pPanelVisualizarInicialLayout);
+        pPanelVisualizarInicialLayout.setHorizontalGroup(
+            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+        pPanelVisualizarInicialLayout.setVerticalGroup(
+            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
+
+        pPanelVisualizarPedido.setPreferredSize(new java.awt.Dimension(0, 452));
+        pPanelVisualizarPedido.setVerifyInputWhenFocusTarget(false);
+
+        tablaVisualizarFactura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(tablaVisualizarFactura);
+
+        javax.swing.GroupLayout pPanelVisualizarPedidoLayout = new javax.swing.GroupLayout(pPanelVisualizarPedido);
+        pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
+        pPanelVisualizarPedidoLayout.setHorizontalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
+        );
+        pPanelVisualizarPedidoLayout.setVerticalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+        );
+
+        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "DNI", "Nombre" }));
+
+        btnBuscar.setText("Buscar");
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel26.setText("Elija el tipo de busqueda :");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelBotones.setLayout(new java.awt.GridLayout(0, 1));
+
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Ventas");
+        jLabel1.setOpaque(true);
+        jPanelBotones.add(jLabel1);
+
+        btnPresupuestos.setText("Presupuesto");
+        jPanelBotones.add(btnPresupuestos);
+
+        btnPedido.setText("Pedido/ Cobros");
+        jPanelBotones.add(btnPedido);
+
+        btnClientes.setText("Clientes");
+        jPanelBotones.add(btnClientes);
+
+        jSeparator3.setMaximumSize(new java.awt.Dimension(20, 10));
+        jSeparator3.setMinimumSize(new java.awt.Dimension(20, 10));
+        jSeparator3.setPreferredSize(new java.awt.Dimension(20, 10));
+        jPanelBotones.add(jSeparator3);
+
+        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Compras");
+        jLabel2.setOpaque(true);
+        jPanelBotones.add(jLabel2);
+
+        btnPagos.setText("Pagos");
+        jPanelBotones.add(btnPagos);
+
+        btnProveedores.setText("Proveedores");
+        jPanelBotones.add(btnProveedores);
+        jPanelBotones.add(jSeparator2);
+
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Almacen");
+        jLabel3.setOpaque(true);
+        jPanelBotones.add(jLabel3);
+
+        btnArticulos.setText("Artículos");
+        jPanelBotones.add(btnArticulos);
+
+        btnVisualizar.setText("Visualizar");
+        jPanelBotones.add(btnVisualizar);
+        jPanelBotones.add(jSeparator1);
+
+        btnSalir.setText("Salir");
+        jPanelBotones.add(btnSalir);
+
+        getContentPane().add(jPanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 690));
+
+        jPanelPrincipal.setMinimumSize(new java.awt.Dimension(0, 0));
+        jPanelPrincipal.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
+        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
+        jPanelPrincipalLayout.setHorizontalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 750, Short.MAX_VALUE)
+        );
+        jPanelPrincipalLayout.setVerticalGroup(
+            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 690, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 750, 690));
+
+        jPanelPresupuestos.setMinimumSize(new java.awt.Dimension(0, 0));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Cliente (Opcional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+
+        jLabel13.setText("Nombre: ");
+
+        jLabel14.setText("Teléfono: ");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(txtNombrePresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14)
+                .addGap(18, 18, 18)
+                .addComponent(txtTelefonoPresuspuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(txtNombrePresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(txtTelefonoPresuspuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        pDatosPedido1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Presupuesto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+
+        tablePresupuestoCarrito.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Cantidad", "Precio"
+            }
+        ));
+        jScrollPane5.setViewportView(tablePresupuestoCarrito);
+
+        btnBorrarPresupuesto.setText("Borrar Articulo");
+
+        btnImprimirPresupuesto.setText("Crear Factura");
+
+        jLabel40.setText("Cantidad:");
+
+        txtIDPresupuesto.setEnabled(false);
+
+        txtPrecioPresupuesto.setEditable(false);
+
+        txtNombreArticuloPresupuesto.setEnabled(false);
+
+        jLabel41.setText("Precio:");
+
+        jLabel42.setText("Artículo:");
+
+        jLabel43.setText("ID:");
+
+        jLabel44.setText("Buscador:");
+
+        btnAñadirPresupuesto.setText("Añadir");
+
+        btnModificarPresupuesto.setText("Modificar");
+
+        tablePresuspuestoBuscarArticulo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane11.setViewportView(tablePresuspuestoBuscarArticulo);
+
+        javax.swing.GroupLayout pDatosPedido1Layout = new javax.swing.GroupLayout(pDatosPedido1);
+        pDatosPedido1.setLayout(pDatosPedido1Layout);
+        pDatosPedido1Layout.setHorizontalGroup(
+            pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pDatosPedido1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDatosPedido1Layout.createSequentialGroup()
+                        .addComponent(btnBorrarPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnImprimirPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pDatosPedido1Layout.createSequentialGroup()
+                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pDatosPedido1Layout.createSequentialGroup()
+                                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jLabel41)
+                                    .addComponent(jLabel42)
+                                    .addComponent(jLabel43))
+                                .addGap(18, 18, 18)
+                                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtIDPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(btnModificarPresupuesto)
+                                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(txtNombreArticuloPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtCantidadPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtPrecioPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                            .addComponent(btnAñadirPresupuesto))
+                        .addGap(31, 31, 31)
+                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pDatosPedido1Layout.createSequentialGroup()
+                                .addComponent(jLabel44)
+                                .addGap(18, 18, 18)
+                                .addComponent(txtBuscadorPresupuesto))
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+        pDatosPedido1Layout.setVerticalGroup(
+            pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDatosPedido1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBuscadorPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtIDPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel43)
+                    .addComponent(jLabel44))
+                .addGap(18, 18, 18)
+                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pDatosPedido1Layout.createSequentialGroup()
+                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNombreArticuloPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42))
+                        .addGap(18, 18, 18)
+                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtPrecioPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel41))
+                        .addGap(18, 18, 18)
+                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCantidadPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel40))
+                        .addGap(18, 18, 18)
+                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAñadirPresupuesto)
+                            .addComponent(btnModificarPresupuesto)))
+                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnImprimirPresupuesto)
+                    .addComponent(btnBorrarPresupuesto))
+                .addGap(14, 14, 14))
+        );
+
+        javax.swing.GroupLayout jPanelPresupuestosLayout = new javax.swing.GroupLayout(jPanelPresupuestos);
+        jPanelPresupuestos.setLayout(jPanelPresupuestosLayout);
+        jPanelPresupuestosLayout.setHorizontalGroup(
+            jPanelPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPresupuestosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pDatosPedido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanelPresupuestosLayout.setVerticalGroup(
+            jPanelPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPresupuestosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(pDatosPedido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanelPresupuestos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 740, 690));
 
         pDatosClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Cliente", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
@@ -555,114 +877,6 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
 
-        jPanelVisualizar.setPreferredSize(new java.awt.Dimension(600, 650));
-        jPanelVisualizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "Pedido", "Factura" }));
-        jComboVisualizar.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboVisualizarItemStateChanged(evt);
-            }
-        });
-        jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboVisualizarActionPerformed(evt);
-            }
-        });
-        jComboVisualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jComboVisualizarPropertyChange(evt);
-            }
-        });
-        jPanelVisualizar.add(jComboVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 42, 176, 50));
-        jPanelVisualizar.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 159, 254, -1));
-
-        btnBuscar.setText("Buscar");
-        jPanelVisualizar.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(385, 158, 106, -1));
-
-        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "DNI", "Nombre" }));
-        jPanelVisualizar.add(jComboBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(275, 159, 100, -1));
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel26.setText("Elija el tipo de busqueda :");
-        jPanelVisualizar.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 14, -1, -1));
-
-        pPanelVisualizarFactura.setPreferredSize(new java.awt.Dimension(0, 452));
-
-        tablaVisualizarPedido.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tablaVisualizarPedido);
-
-        javax.swing.GroupLayout pPanelVisualizarFacturaLayout = new javax.swing.GroupLayout(pPanelVisualizarFactura);
-        pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
-        pPanelVisualizarFacturaLayout.setHorizontalGroup(
-            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPanelVisualizarFacturaLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        pPanelVisualizarFacturaLayout.setVerticalGroup(
-            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-        );
-
-        jPanelVisualizar.add(pPanelVisualizarFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, 440));
-
-        pPanelVisualizarPedido.setPreferredSize(new java.awt.Dimension(0, 452));
-        pPanelVisualizarPedido.setVerifyInputWhenFocusTarget(false);
-
-        tablaVisualizarFactura.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane8.setViewportView(tablaVisualizarFactura);
-
-        javax.swing.GroupLayout pPanelVisualizarPedidoLayout = new javax.swing.GroupLayout(pPanelVisualizarPedido);
-        pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
-        pPanelVisualizarPedidoLayout.setHorizontalGroup(
-            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-        );
-        pPanelVisualizarPedidoLayout.setVerticalGroup(
-            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-        );
-
-        jPanelVisualizar.add(pPanelVisualizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, 440));
-
-        pPanelVisualizarInicial.setPreferredSize(new java.awt.Dimension(0, 452));
-
-        javax.swing.GroupLayout pPanelVisualizarInicialLayout = new javax.swing.GroupLayout(pPanelVisualizarInicial);
-        pPanelVisualizarInicial.setLayout(pPanelVisualizarInicialLayout);
-        pPanelVisualizarInicialLayout.setHorizontalGroup(
-            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
-        );
-        pPanelVisualizarInicialLayout.setVerticalGroup(
-            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
-        );
-
-        jPanelVisualizar.add(pPanelVisualizarInicial, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 187, 590, 440));
-
-        getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
-
         jPanelPagos.setPreferredSize(new java.awt.Dimension(600, 650));
 
         javax.swing.GroupLayout jPanelPagosLayout = new javax.swing.GroupLayout(jPanelPagos);
@@ -887,260 +1101,18 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
 
-        jPanelBotones.setLayout(new java.awt.GridLayout(0, 1));
-
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Ventas");
-        jLabel1.setOpaque(true);
-        jPanelBotones.add(jLabel1);
-
-        btnPresupuestos.setText("Presupuesto");
-        jPanelBotones.add(btnPresupuestos);
-
-        btnPedido.setText("Pedido/ Cobros");
-        jPanelBotones.add(btnPedido);
-
-        btnClientes.setText("Clientes");
-        jPanelBotones.add(btnClientes);
-
-        jSeparator3.setMaximumSize(new java.awt.Dimension(20, 10));
-        jSeparator3.setMinimumSize(new java.awt.Dimension(20, 10));
-        jSeparator3.setPreferredSize(new java.awt.Dimension(20, 10));
-        jPanelBotones.add(jSeparator3);
-
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Compras");
-        jLabel2.setOpaque(true);
-        jPanelBotones.add(jLabel2);
-
-        btnPagos.setText("Pagos");
-        jPanelBotones.add(btnPagos);
-
-        btnProveedores.setText("Proveedores");
-        jPanelBotones.add(btnProveedores);
-        jPanelBotones.add(jSeparator2);
-
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Almacen");
-        jLabel3.setOpaque(true);
-        jPanelBotones.add(jLabel3);
-
-        btnArticulos.setText("Artículos");
-        jPanelBotones.add(btnArticulos);
-
-        btnVisualizar.setText("Visualizar");
-        jPanelBotones.add(btnVisualizar);
-        jPanelBotones.add(jSeparator1);
-
-        btnSalir.setText("Salir");
-        jPanelBotones.add(btnSalir);
-
-        getContentPane().add(jPanelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 220, 690));
-
-        jPanelPrincipal.setMinimumSize(new java.awt.Dimension(0, 0));
-        jPanelPrincipal.setPreferredSize(new java.awt.Dimension(600, 650));
-
-        javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
-        jPanelPrincipal.setLayout(jPanelPrincipalLayout);
-        jPanelPrincipalLayout.setHorizontalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 750, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanelVisualizarLayout = new javax.swing.GroupLayout(jPanelVisualizar);
+        jPanelVisualizar.setLayout(jPanelVisualizarLayout);
+        jPanelVisualizarLayout.setHorizontalGroup(
+            jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 720, Short.MAX_VALUE)
         );
-        jPanelPrincipalLayout.setVerticalGroup(
-            jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 690, Short.MAX_VALUE)
+        jPanelVisualizarLayout.setVerticalGroup(
+            jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 750, 690));
-
-        jPanelPresupuestos.setMinimumSize(new java.awt.Dimension(0, 0));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Cliente (Opcional)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
-
-        jLabel13.setText("Nombre: ");
-
-        jLabel14.setText("Teléfono: ");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addGap(18, 18, 18)
-                .addComponent(txtNombrePresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel14)
-                .addGap(18, 18, 18)
-                .addComponent(txtTelefonoPresuspuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(txtNombrePresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(txtTelefonoPresuspuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        pDatosPedido1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Presupuesto", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
-
-        tablePresupuestoCarrito.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "ID", "Nombre", "Cantidad", "Precio"
-            }
-        ));
-        jScrollPane5.setViewportView(tablePresupuestoCarrito);
-
-        btnBorrarPresupuesto.setText("Borrar Articulo");
-
-        btnImprimirPresupuesto.setText("Crear Factura");
-
-        jLabel40.setText("Cantidad:");
-
-        txtIDPresupuesto.setEnabled(false);
-
-        txtPrecioPresupuesto.setEditable(false);
-
-        txtNombreArticuloPresupuesto.setEnabled(false);
-
-        jLabel41.setText("Precio:");
-
-        jLabel42.setText("Artículo:");
-
-        jLabel43.setText("ID:");
-
-        jLabel44.setText("Buscador:");
-
-        btnAñadirPresupuesto.setText("Añadir");
-
-        btnModificarPresupuesto.setText("Modificar");
-
-        tablePresuspuestoBuscarArticulo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane11.setViewportView(tablePresuspuestoBuscarArticulo);
-
-        javax.swing.GroupLayout pDatosPedido1Layout = new javax.swing.GroupLayout(pDatosPedido1);
-        pDatosPedido1.setLayout(pDatosPedido1Layout);
-        pDatosPedido1Layout.setHorizontalGroup(
-            pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pDatosPedido1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDatosPedido1Layout.createSequentialGroup()
-                        .addComponent(btnBorrarPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnImprimirPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(pDatosPedido1Layout.createSequentialGroup()
-                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pDatosPedido1Layout.createSequentialGroup()
-                                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel40)
-                                    .addComponent(jLabel41)
-                                    .addComponent(jLabel42)
-                                    .addComponent(jLabel43))
-                                .addGap(18, 18, 18)
-                                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtIDPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(btnModificarPresupuesto)
-                                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtNombreArticuloPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCantidadPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtPrecioPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                            .addComponent(btnAñadirPresupuesto))
-                        .addGap(31, 31, 31)
-                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pDatosPedido1Layout.createSequentialGroup()
-                                .addComponent(jLabel44)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtBuscadorPresupuesto))
-                            .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addContainerGap())
-        );
-        pDatosPedido1Layout.setVerticalGroup(
-            pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDatosPedido1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtBuscadorPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIDPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel43)
-                    .addComponent(jLabel44))
-                .addGap(18, 18, 18)
-                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(pDatosPedido1Layout.createSequentialGroup()
-                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombreArticuloPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel42))
-                        .addGap(18, 18, 18)
-                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPrecioPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel41))
-                        .addGap(18, 18, 18)
-                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtCantidadPresupuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel40))
-                        .addGap(18, 18, 18)
-                        .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnAñadirPresupuesto)
-                            .addComponent(btnModificarPresupuesto)))
-                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(pDatosPedido1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnImprimirPresupuesto)
-                    .addComponent(btnBorrarPresupuesto))
-                .addGap(14, 14, 14))
-        );
-
-        javax.swing.GroupLayout jPanelPresupuestosLayout = new javax.swing.GroupLayout(jPanelPresupuestos);
-        jPanelPresupuestos.setLayout(jPanelPresupuestosLayout);
-        jPanelPresupuestosLayout.setHorizontalGroup(
-            jPanelPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPresupuestosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pDatosPedido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        jPanelPresupuestosLayout.setVerticalGroup(
-            jPanelPresupuestosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPresupuestosLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(pDatosPedido1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanelPresupuestos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 740, 690));
+        getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -1278,9 +1250,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     public javax.swing.JPanel jPanelArticulos;
     public javax.swing.JPanel jPanelBotones;
     public javax.swing.JPanel jPanelClientes;
@@ -1302,7 +1272,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSlider jSlider1;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
     private javax.swing.JPanel pDatosPedido1;
