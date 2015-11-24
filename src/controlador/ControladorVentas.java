@@ -57,7 +57,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
             this.vista.jPanelPrincipal.setVisible(true);
             this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
             this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-            this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
+            this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
             this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
             
             
@@ -391,7 +391,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 String nif= this.vista.txtNIFAlmacen.getText();
                 int iva= Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
                 this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
-                this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());               
+                this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());               
                 this.vista.txtNombreAlmacen.setText("");
                 this.vista.txtStockAlmacen.setText("");
                 this.vista.txtPrecioAlmacen.setText("");
@@ -421,11 +421,11 @@ public class ControladorVentas implements ActionListener,MouseListener{
                     String nif= this.vista.txtNIFAlmacen.getText();
                     int iva= Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
                     this.modelo.modificarArticulo(id, nombre, stock, precio, nif, iva);
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
-                    this.vista.txtIDAlmacen.setText("");
+                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen()); 
                     this.vista.txtNombreAlmacen.setText("");
                     this.vista.txtStockAlmacen.setText("");
                     this.vista.txtPrecioAlmacen.setText("");
+                    this.vista.txtNIFAlmacen.setText("");
                     this.vista.txtIVAAlmacen.setValue(0);
                 }
                 
@@ -516,12 +516,18 @@ public class ControladorVentas implements ActionListener,MouseListener{
         fila1=this.vista.tablaArticulosAlmacen.getSelectedRow();
         String id= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 0);
         String nombre= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 1);
-        String cantidad= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 2);
+        String stock= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 2);
         String precio= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 3);
+        String nif= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 4);
+        String iva= (String) this.vista.tablaArticulosAlmacen.getValueAt(fila1, 5);
                   
         this.vista.txtIDAlmacen.setText(id);
         this.vista.txtNombreAlmacen.setText(nombre);
+        this.vista.txtStockAlmacen.setText(stock);
         this.vista.txtPrecioAlmacen.setText(precio);
+        this.vista.txtNIFAlmacen.setText(nif);
+        this.vista.txtIVAAlmacen.setValue(0);
+        
         
     }
     

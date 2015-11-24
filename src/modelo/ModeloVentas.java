@@ -115,7 +115,7 @@ public class ModeloVentas extends DatabaseSQLite{
       Object[][] data = new String[registros][6];
       try{
           //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID, Nombre, Stock, Precio, NIF, IVA FROM Articulos");
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID, Nombre, Stock, Precio, NIF_Proveedor, IVA FROM Articulos");
          ResultSet res = pstm.executeQuery();
          int i=0;
          while(res.next()){
@@ -123,8 +123,8 @@ public class ModeloVentas extends DatabaseSQLite{
                 data[i][1] = res.getString("Nombre");
                 data[i][2] = res.getString("Stock");
                 data[i][3] = res.getString("Precio");
-                data[i][2] = res.getString("NIF");
-                data[i][3] = res.getString("IVA");
+                data[i][4] = res.getString("NIF_Proveedor");
+                data[i][5] = res.getString("IVA");
             i++;
          }
          res.close();
@@ -221,7 +221,7 @@ public class ModeloVentas extends DatabaseSQLite{
     public boolean InsertarArticulo (String nombre , int stock, double precio, String nif, int iva) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Articulos ( Nombre ,Stock ,Precio, NIF,  IVA )"
+        String q=" INSERT INTO Articulos ( Nombre ,Stock ,Precio, NIF_Proveedor,  IVA )"
                     + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + nif + "','" + iva + "') ";
             //se ejecuta la consulta
         try {
@@ -303,7 +303,7 @@ public class ModeloVentas extends DatabaseSQLite{
     
     public void modificarArticulo (String id, String nombre , int stock, double precio, String nif ,int iva) {
         
-        String q="Update Articulos set ID='"+nombre+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"',NIF='"+nif+"', IVA='"+iva+"' where ID='"+id+"';";
+        String q="Update Articulos set ID='"+id+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"',NIF_Proveedor='"+nif+"', IVA='"+iva+"' where ID='"+id+"';";
         
         try {
             
