@@ -61,7 +61,7 @@ public class Interface extends javax.swing.JFrame {
         txtPrecio = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         tablePedidoBuscarArticulo = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
+        txtBuscadorArticulos = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
         jPanelClientes = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -369,7 +369,7 @@ public class Interface extends javax.swing.JFrame {
                             .addGroup(pDatosPedidoLayout.createSequentialGroup()
                                 .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtBuscadorArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pDatosPedidoLayout.createSequentialGroup()
@@ -406,7 +406,7 @@ public class Interface extends javax.swing.JFrame {
                     .addComponent(jPanelBuscar_Articulo_Pedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pDatosPedidoLayout.createSequentialGroup()
                         .addGroup(pDatosPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtBuscadorArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel34))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
@@ -1266,7 +1266,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSlider jSlider1;
     public javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
     public javax.swing.JPanel pPanelVisualizarFactura;
@@ -1283,6 +1282,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextField txtApellidosCliente;
     public javax.swing.JTextField txtApellidosPedido;
     public javax.swing.JTextField txtApellidosProveedores;
+    private javax.swing.JTextField txtBuscadorArticulos;
     public javax.swing.JTextField txtBuscar;
     public javax.swing.JSpinner txtCantidadPedido;
     public javax.swing.JSpinner txtCantidadPresupuesto;
