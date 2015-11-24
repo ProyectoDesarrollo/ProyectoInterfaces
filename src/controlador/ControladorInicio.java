@@ -99,10 +99,9 @@ public class ControladorInicio implements ActionListener, MouseListener {
                     this.vista.pPanelVisualizarPedido.setVisible(false);
                     this.vista.pPanelVisualizarInicial.setVisible(false);
                     this.vista.pPanelVisualizarFactura.setVisible(false);
-                    this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
+                    
                     this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
-                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
+                    
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -127,10 +126,7 @@ public class ControladorInicio implements ActionListener, MouseListener {
                     this.vista.pPanelVisualizarInicial.setVisible(false);
                     this.vista.pPanelVisualizarFactura.setVisible(false);
                     this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
-                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
-
+                    
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -153,9 +149,6 @@ public class ControladorInicio implements ActionListener, MouseListener {
                     this.vista.pPanelVisualizarPedido.setVisible(false);
                     this.vista.pPanelVisualizarInicial.setVisible(false);
                     this.vista.pPanelVisualizarFactura.setVisible(false);
-                    this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
                     this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
 
                 } catch (Exception ex) {
@@ -180,10 +173,6 @@ public class ControladorInicio implements ActionListener, MouseListener {
                     this.vista.pPanelVisualizarPedido.setVisible(false);
                     this.vista.pPanelVisualizarInicial.setVisible(false);
                     this.vista.pPanelVisualizarFactura.setVisible(false);
-                    this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
-                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -207,10 +196,6 @@ public class ControladorInicio implements ActionListener, MouseListener {
                     this.vista.pPanelVisualizarPedido.setVisible(false);
                     this.vista.pPanelVisualizarInicial.setVisible(false);
                     this.vista.pPanelVisualizarFactura.setVisible(false);
-                    this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
-                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -234,10 +219,8 @@ public class ControladorInicio implements ActionListener, MouseListener {
                     this.vista.pPanelVisualizarPedido.setVisible(false);
                     this.vista.pPanelVisualizarInicial.setVisible(false);
                     this.vista.pPanelVisualizarFactura.setVisible(false);
-                    this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
                     this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
-                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
+                    
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -261,10 +244,6 @@ public class ControladorInicio implements ActionListener, MouseListener {
                     this.vista.pPanelVisualizarPedido.setVisible(false);
                     this.vista.pPanelVisualizarInicial.setVisible(true);
                     this.vista.pPanelVisualizarFactura.setVisible(false);
-                    this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
-                    this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
