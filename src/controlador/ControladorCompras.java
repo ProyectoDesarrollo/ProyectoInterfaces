@@ -109,9 +109,9 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
             try {
                 //obtenemos los datos de los jTextField
-                String dni = (String) this.vista.txtNIFProveedores.getText();
-                String nombre = (String) this.vista.txtNombreProveedores.getText();
-                String apellidos = (String) this.vista.txtApellidosProveedores.getText();
+                String dni =  this.vista.txtNIFProveedores.getText();
+                String nombre =  this.vista.txtNombreProveedores.getText();
+                String apellidos =  this.vista.txtApellidosProveedores.getText();
                 int telefono = Integer.parseInt(this.vista.txtTelefonoProveedor.getText());
                 //llamamos al metodo  insertar
                 this.modelo.InsertarProveedores(dni, nombre, apellidos, telefono);
