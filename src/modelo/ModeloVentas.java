@@ -95,6 +95,47 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
+    public DefaultTableModel getTablaAlmacen(){
+        
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0; // Indica la cantidad de filas de la tabla.
+      String[] columNames = {"ID", "Nombre", "Stock", "Precio", "NIF", "IVA"}; // Indica el nombre de las columnas de la tabla.
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Articulos");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+      Object[][] data = new String[registros][6];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID, Nombre, Stock, Precio, NIF, IVA FROM Articulos");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                data[i][0] = res.getString("ID");
+                data[i][1] = res.getString("Nombre");
+                data[i][2] = res.getString("Stock");
+                data[i][3] = res.getString("Precio");
+                data[i][2] = res.getString("NIF");
+                data[i][3] = res.getString("IVA");
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+    }
+    
     public DefaultTableModel getTablaClientes(){
         
       DefaultTableModel tablemodel = new DefaultTableModel();
@@ -177,11 +218,11 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
-    public boolean InsertarArticulo (String nombre , int stock, double precio, int iva) {
+    public boolean InsertarArticulo (String nombre , int stock, double precio, String nif, int iva) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Articulos ( Nombre ,Stock ,Precio, IVA )"
-                    + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + iva + "') ";
+        String q=" INSERT INTO Articulos ( Nombre ,Stock ,Precio, NIF,  IVA )"
+                    + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + nif + "','" + iva + "') ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -260,9 +301,9 @@ public class ModeloVentas extends DatabaseSQLite{
         return res;
     }
     
-    public void modificarArticulo (String id, String nombre , int stock, double precio, int iva) {
+    public void modificarArticulo (String id, String nombre , int stock, double precio, String nif ,int iva) {
         
-        String q="Update Articulos set ID='"+nombre+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"', IVA='"+iva+"' where ID='"+id+"';";
+        String q="Update Articulos set ID='"+nombre+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"',NIF='"+nif+"', IVA='"+iva+"' where ID='"+id+"';";
         
         try {
             

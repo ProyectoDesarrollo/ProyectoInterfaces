@@ -388,12 +388,15 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 String nombre= this.vista.txtNombreAlmacen.getText();
                 int stock= Integer.parseInt(this.vista.txtStockAlmacen.getText());                     
                 double precio= Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
+                String nif= this.vista.txtNIFAlmacen.getText();
                 int iva= Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
-                this.modelo.InsertarArticulo(nombre, stock, precio, iva);
+                this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
                 this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());               
                 this.vista.txtNombreAlmacen.setText("");
                 this.vista.txtStockAlmacen.setText("");
-                this.vista.txtPrecioAlmacen.setText("");                                     
+                this.vista.txtPrecioAlmacen.setText("");
+                this.vista.txtNIFAlmacen.setText("");
+                this.vista.txtIVAAlmacen.setValue(0);
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -415,13 +418,15 @@ public class ControladorVentas implements ActionListener,MouseListener{
                     String nombre = this.vista.txtNombreAlmacen.getText();
                     int stock = Integer.parseInt(this.vista.txtStockAlmacen.getText());                     
                     double precio = Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
+                    String nif= this.vista.txtNIFAlmacen.getText();
                     int iva= Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
-                    this.modelo.modificarArticulo(id, nombre, stock, precio, iva);
+                    this.modelo.modificarArticulo(id, nombre, stock, precio, nif, iva);
                     this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaArticulos());
                     this.vista.txtIDAlmacen.setText("");
                     this.vista.txtNombreAlmacen.setText("");
                     this.vista.txtStockAlmacen.setText("");
                     this.vista.txtPrecioAlmacen.setText("");
+                    this.vista.txtIVAAlmacen.setValue(0);
                 }
                 
             } catch (Exception ex) {
