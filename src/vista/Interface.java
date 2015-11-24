@@ -27,18 +27,6 @@ public class Interface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboVisualizar = new javax.swing.JComboBox();
-        pPanelVisualizarFactura = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tablaVisualizarPedido = new javax.swing.JTable();
-        pPanelVisualizarInicial = new javax.swing.JPanel();
-        pPanelVisualizarPedido = new javax.swing.JPanel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tablaVisualizarFactura = new javax.swing.JTable();
-        jComboBuscar = new javax.swing.JComboBox();
-        btnBuscar = new javax.swing.JButton();
-        jLabel26 = new javax.swing.JLabel();
-        txtBuscar = new javax.swing.JTextField();
         jPanelBotones = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnPresupuestos = new javax.swing.JButton();
@@ -165,101 +153,22 @@ public class Interface extends javax.swing.JFrame {
         txtIDAlmacen = new javax.swing.JTextField();
         cbxStockAlmacen = new javax.swing.JCheckBox();
         jPanelVisualizar = new javax.swing.JPanel();
+        jComboVisualizar = new javax.swing.JComboBox();
+        jLabel26 = new javax.swing.JLabel();
+        btnBuscar = new javax.swing.JButton();
+        jComboBuscar = new javax.swing.JComboBox();
+        txtBuscar = new javax.swing.JTextField();
+        pPanelVisualizarInicial = new javax.swing.JPanel();
+        pPanelVisualizarPedido = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tablaVisualizarFactura = new javax.swing.JTable();
+        pPanelVisualizarFactura = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tablaVisualizarPedido = new javax.swing.JTable();
+        btnImprimir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-
-        jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "Pedido", "Factura" }));
-        jComboVisualizar.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboVisualizarItemStateChanged(evt);
-            }
-        });
-        jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboVisualizarActionPerformed(evt);
-            }
-        });
-        jComboVisualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent evt) {
-                jComboVisualizarPropertyChange(evt);
-            }
-        });
-
-        pPanelVisualizarFactura.setPreferredSize(new java.awt.Dimension(0, 452));
-
-        tablaVisualizarPedido.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tablaVisualizarPedido);
-
-        javax.swing.GroupLayout pPanelVisualizarFacturaLayout = new javax.swing.GroupLayout(pPanelVisualizarFactura);
-        pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
-        pPanelVisualizarFacturaLayout.setHorizontalGroup(
-            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pPanelVisualizarFacturaLayout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 590, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        pPanelVisualizarFacturaLayout.setVerticalGroup(
-            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-        );
-
-        pPanelVisualizarInicial.setPreferredSize(new java.awt.Dimension(0, 452));
-
-        javax.swing.GroupLayout pPanelVisualizarInicialLayout = new javax.swing.GroupLayout(pPanelVisualizarInicial);
-        pPanelVisualizarInicial.setLayout(pPanelVisualizarInicialLayout);
-        pPanelVisualizarInicialLayout.setHorizontalGroup(
-            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
-        );
-        pPanelVisualizarInicialLayout.setVerticalGroup(
-            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
-        );
-
-        pPanelVisualizarPedido.setPreferredSize(new java.awt.Dimension(0, 452));
-        pPanelVisualizarPedido.setVerifyInputWhenFocusTarget(false);
-
-        tablaVisualizarFactura.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane8.setViewportView(tablaVisualizarFactura);
-
-        javax.swing.GroupLayout pPanelVisualizarPedidoLayout = new javax.swing.GroupLayout(pPanelVisualizarPedido);
-        pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
-        pPanelVisualizarPedidoLayout.setHorizontalGroup(
-            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
-        );
-        pPanelVisualizarPedidoLayout.setVerticalGroup(
-            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
-        );
-
-        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "DNI", "Nombre" }));
-
-        btnBuscar.setText("Buscar");
-
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel26.setText("Elija el tipo de busqueda :");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1101,15 +1010,166 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelArticulos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
 
+        jPanelVisualizar.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Visualizar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
+
+        jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "Pedido", "Factura" }));
+        jComboVisualizar.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboVisualizarItemStateChanged(evt);
+            }
+        });
+        jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboVisualizarActionPerformed(evt);
+            }
+        });
+        jComboVisualizar.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jComboVisualizarPropertyChange(evt);
+            }
+        });
+
+        jLabel26.setText("Tabla:");
+
+        btnBuscar.setText("Buscar");
+
+        jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Seleccionar-", "DNI", "Nombre" }));
+
+        pPanelVisualizarInicial.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        pPanelVisualizarInicial.setPreferredSize(new java.awt.Dimension(0, 452));
+
+        javax.swing.GroupLayout pPanelVisualizarInicialLayout = new javax.swing.GroupLayout(pPanelVisualizarInicial);
+        pPanelVisualizarInicial.setLayout(pPanelVisualizarInicialLayout);
+        pPanelVisualizarInicialLayout.setHorizontalGroup(
+            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        pPanelVisualizarInicialLayout.setVerticalGroup(
+            pPanelVisualizarInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 500, Short.MAX_VALUE)
+        );
+
+        tablaVisualizarFactura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(tablaVisualizarFactura);
+
+        javax.swing.GroupLayout pPanelVisualizarPedidoLayout = new javax.swing.GroupLayout(pPanelVisualizarPedido);
+        pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
+        pPanelVisualizarPedidoLayout.setHorizontalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 688, Short.MAX_VALUE)
+            .addGroup(pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE))
+        );
+        pPanelVisualizarPedidoLayout.setVerticalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 505, Short.MAX_VALUE)
+            .addGroup(pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))
+        );
+
+        pPanelVisualizarFactura.setPreferredSize(new java.awt.Dimension(0, 452));
+
+        tablaVisualizarPedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tablaVisualizarPedido);
+
+        javax.swing.GroupLayout pPanelVisualizarFacturaLayout = new javax.swing.GroupLayout(pPanelVisualizarFactura);
+        pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
+        pPanelVisualizarFacturaLayout.setHorizontalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+        );
+        pPanelVisualizarFacturaLayout.setVerticalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
+        );
+
+        btnImprimir.setText("Imprimir");
+
         javax.swing.GroupLayout jPanelVisualizarLayout = new javax.swing.GroupLayout(jPanelVisualizar);
         jPanelVisualizar.setLayout(jPanelVisualizarLayout);
         jPanelVisualizarLayout.setHorizontalGroup(
             jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 720, Short.MAX_VALUE)
+            .addGroup(jPanelVisualizarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pPanelVisualizarInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, 452, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
+                        .addComponent(jLabel26)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboVisualizar, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelVisualizarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pPanelVisualizarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelVisualizarLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pPanelVisualizarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .addContainerGap()))
+            .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
+                    .addContainerGap(538, Short.MAX_VALUE)
+                    .addComponent(btnImprimir, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         jPanelVisualizarLayout.setVerticalGroup(
             jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGroup(jPanelVisualizarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboVisualizar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel26))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnBuscar)
+                    .addComponent(jComboBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(pPanelVisualizarInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 504, Short.MAX_VALUE)
+                .addGap(52, 52, 52))
+            .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
+                    .addContainerGap(90, Short.MAX_VALUE)
+                    .addComponent(pPanelVisualizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(51, Short.MAX_VALUE)))
+            .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
+                    .addContainerGap(90, Short.MAX_VALUE)
+                    .addComponent(pPanelVisualizarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(51, Short.MAX_VALUE)))
+            .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
+                    .addContainerGap(612, Short.MAX_VALUE)
+                    .addComponent(btnImprimir)
+                    .addContainerGap()))
         );
 
         getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
@@ -1194,6 +1254,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCrearFactura;
     public javax.swing.JButton btnEliminarProveedor;
+    private javax.swing.JButton btnImprimir;
     public javax.swing.JButton btnImprimirPresupuesto;
     public javax.swing.JButton btnModificarAlmacen;
     public javax.swing.JButton btnModificarCliente;
