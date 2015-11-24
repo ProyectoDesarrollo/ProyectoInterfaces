@@ -111,7 +111,7 @@ public class Interface extends javax.swing.JFrame {
         txtNIFProveedores = new javax.swing.JFormattedTextField();
         jPanelArticulos = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tablaArticulosAlmacen = new javax.swing.JTable();
         btnModificarAlmacen = new javax.swing.JButton();
         btnAñadirAlmacen = new javax.swing.JButton();
         txtIVAAlmacen = new javax.swing.JSpinner();
@@ -784,7 +784,7 @@ public class Interface extends javax.swing.JFrame {
         jPanelArticulos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Almacén", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         jPanelArticulos.setPreferredSize(new java.awt.Dimension(600, 650));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaArticulosAlmacen.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -795,7 +795,7 @@ public class Interface extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane10.setViewportView(jTable1);
+        jScrollPane10.setViewportView(tablaArticulosAlmacen);
 
         btnModificarAlmacen.setText("Modificar");
 
@@ -1210,7 +1210,7 @@ public class Interface extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btnArticulos;
-    private javax.swing.JButton btnAñadirAlmacen;
+    public javax.swing.JButton btnAñadirAlmacen;
     public javax.swing.JButton btnAñadirCliente;
     public javax.swing.JButton btnAñadirPedido;
     public javax.swing.JButton btnAñadirPresupuesto;
@@ -1223,7 +1223,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnCrearFactura;
     public javax.swing.JButton btnEliminarProveedor;
     public javax.swing.JButton btnImprimirPresupuesto;
-    private javax.swing.JButton btnModificarAlmacen;
+    public javax.swing.JButton btnModificarAlmacen;
     public javax.swing.JButton btnModificarCliente;
     public javax.swing.JButton btnModificarPedido;
     public javax.swing.JButton btnModificarPresupuesto;
@@ -1234,7 +1234,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnProveedores;
     public javax.swing.JButton btnSalir;
     public javax.swing.JButton btnVisualizar;
-    private javax.swing.JCheckBox cbxStockAlmacen;
+    public javax.swing.JCheckBox cbxStockAlmacen;
     public javax.swing.JComboBox jComboBuscar;
     public javax.swing.JComboBox jComboVisualizar;
     private javax.swing.JLabel jLabel1;
@@ -1303,13 +1303,13 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSlider jSlider1;
-    public javax.swing.JTable jTable1;
     private javax.swing.JPanel pDatosClientes;
     private javax.swing.JPanel pDatosPedido;
     private javax.swing.JPanel pDatosPedido1;
     public javax.swing.JPanel pPanelVisualizarFactura;
     public javax.swing.JPanel pPanelVisualizarInicial;
     public javax.swing.JPanel pPanelVisualizarPedido;
+    public javax.swing.JTable tablaArticulosAlmacen;
     public javax.swing.JTable tablaVisualizarFactura;
     public javax.swing.JTable tablaVisualizarPedido;
     public javax.swing.JTable tableClientes;
@@ -1330,13 +1330,13 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JFormattedTextField txtDNIPedido;
     public javax.swing.JTextField txtDireccionCliente;
     public javax.swing.JTextField txtDireccionPedido;
-    private javax.swing.JTextField txtIDAlmacen;
+    public javax.swing.JTextField txtIDAlmacen;
     public javax.swing.JTextField txtIDPedido;
     public javax.swing.JTextField txtIDPresupuesto;
-    private javax.swing.JSpinner txtIVAAlmacen;
-    private javax.swing.JTextField txtNIFAlmacen;
+    public javax.swing.JSpinner txtIVAAlmacen;
+    public javax.swing.JTextField txtNIFAlmacen;
     public javax.swing.JFormattedTextField txtNIFProveedores;
-    private javax.swing.JTextField txtNombreAlmacen;
+    public javax.swing.JTextField txtNombreAlmacen;
     public javax.swing.JTextField txtNombreArticuloPedido;
     public javax.swing.JTextField txtNombreArticuloPresupuesto;
     public javax.swing.JTextField txtNombreCliente;
@@ -1344,9 +1344,9 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextField txtNombrePresupuesto;
     public javax.swing.JTextField txtNombreProveedores;
     public javax.swing.JTextField txtPrecio;
-    private javax.swing.JTextField txtPrecioAlmacen;
+    public javax.swing.JTextField txtPrecioAlmacen;
     public javax.swing.JTextField txtPrecioPresupuesto;
-    private javax.swing.JTextField txtStockAlmacen;
+    public javax.swing.JTextField txtStockAlmacen;
     public javax.swing.JFormattedTextField txtTarjetaCliente;
     public javax.swing.JTextField txtTarjetaPedido;
     public javax.swing.JFormattedTextField txtTelefonoCliente;
