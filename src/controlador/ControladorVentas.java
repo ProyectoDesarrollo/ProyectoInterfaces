@@ -25,7 +25,8 @@ public class ControladorVentas implements ActionListener,MouseListener{
     ModeloVentas modelo = new ModeloVentas();
     int fila =-1;
     int fila1=-1;
-    ArrayList <Articulo> ListaPedido; 
+    ArrayList <Articulo> ListaPedido;
+    ArrayList <Articulo> ListaPresupuesto;
     
     public enum AccionMVC{
         btnAñadirPedido,
@@ -50,6 +51,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         try {
             
             ListaPedido= new ArrayList();
+            ListaPresupuesto= new ArrayList();
             this.vista.jPanelPrincipal.setVisible(true);
             this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
             this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
@@ -280,6 +282,15 @@ public class ControladorVentas implements ActionListener,MouseListener{
             
             try {
                 
+                String id = this.vista.txtIDPresupuesto.getText();
+                String nombre = this.vista.txtNombreArticuloPresupuesto.getText();
+                String cantidad= String.valueOf(this.vista.txtCantidadPresupuesto.getValue());
+                String precio = this.vista.txtPrecioPresupuesto.getText();
+                
+                    
+                ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));         
+                this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto)); 
+                
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -290,6 +301,26 @@ public class ControladorVentas implements ActionListener,MouseListener{
             
             try {
                 
+                String id = this.vista.txtIDPresupuesto.getText();
+                String nombre = this.vista.txtNombreArticuloPresupuesto.getText();
+                String cantidad= String.valueOf(this.vista.txtCantidadPresupuesto.getValue());
+                //String precio = this.vista.txtPrecioPresupuesto.getText();
+                
+                
+                this.vista.tablePresupuestoCarrito.getSelectedRow();
+                
+                if(this.vista.tablePresupuestoCarrito.getSelectedRow()<0){
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila");
+                    
+                }else{
+                    
+                    fila=this.vista.tablePresupuestoCarrito.getSelectedRow();
+                    ListaPresupuesto.set(fila, new Articulo(id, nombre, cantidad, precio));
+                    this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto)); 
+                   
+                
+                }
+                
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -299,6 +330,19 @@ public class ControladorVentas implements ActionListener,MouseListener{
         case btnBorrarPresupuesto:
             
             try {
+                
+                this.vista.tablePresupuestoCarrito.getSelectedRow();
+                
+                if(this.vista.tablePresupuestoCarrito.getSelectedRow()<0){
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila");
+                    
+                }else{
+                    
+                    fila=this.vista.tablePresupuestoCarrito.getSelectedRow();
+                    ListaPresupuesto.remove(fila);
+                    this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));                   
+                
+                }
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
