@@ -64,7 +64,7 @@ public class ControladorVentas implements ActionListener,MouseListener{
         this.vista.btnModificarPedido.setActionCommand( "btnModificarPedido" );
         this.vista.btnModificarPedido.addActionListener(this);
         
-        this.vista.btnBorrarPedido.setActionCommand( "btnEliminarPedido" );
+        this.vista.btnBorrarPedido.setActionCommand( "btnBorrarPedido" );
         this.vista.btnBorrarPedido.addActionListener(this);
         
         this.vista.btnCrearFactura.setActionCommand( "btnCrearFactura" );
@@ -132,6 +132,26 @@ public class ControladorVentas implements ActionListener,MouseListener{
             
             try {
                 
+                String id = this.vista.txtIDPedido.getText();
+                String nombre = this.vista.txtNombreArticuloPedido.getText();
+                String cantidad= String.valueOf(this.vista.txtCantidadPedido.getValue());
+                String precio = this.vista.txtPrecio.getText();
+                
+                
+                this.vista.tablePedidoCarrito.getSelectedRow();
+                
+                if(this.vista.tablePedidoCarrito.getSelectedRow()<0){
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila");
+                    
+                }else{
+                    
+                    fila=this.vista.tablePedidoCarrito.getSelectedRow();
+                    ListaPedido.set(fila, new Articulo(id, nombre, cantidad, precio));
+                    this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido)); 
+                   
+                
+                }
+                
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -141,6 +161,22 @@ public class ControladorVentas implements ActionListener,MouseListener{
         case btnBorrarPedido:
             
             try {
+                
+                this.vista.tablePedidoCarrito.getSelectedRow();
+                
+                if(this.vista.tablePedidoCarrito.getSelectedRow()<0){
+                    JOptionPane.showMessageDialog(null, "Seleccione una fila");
+                    
+                }else{
+                    
+                    fila=this.vista.tablePedidoCarrito.getSelectedRow();
+                    ListaPedido.remove(fila);
+                    this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));
+                    JOptionPane.showMessageDialog(null, "Eliminado");
+                   
+                
+                }
+                
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
