@@ -54,7 +54,9 @@ public class ControladorVentas implements ActionListener,MouseListener{
             ListaPresupuesto= new ArrayList();
             this.vista.jPanelPrincipal.setVisible(true);
             this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
+            this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.getTablaArticulos());
             this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
+            
             
             
         } catch (Exception e) {
@@ -95,14 +97,28 @@ public class ControladorVentas implements ActionListener,MouseListener{
                 tableClientesMouseClicked(evt);
             }
         });
+        
         this.vista.tablePedidoBuscarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablePedidoBuscarArticuloMouseClicked(evt);
             }
         });
+        
         this.vista.tablePedidoCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablePedidoCarritoMouseClicked(evt);
+            }
+        });      
+        
+        this.vista.tablePresuspuestoBuscarArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePresupuestoBuscarArticuloMouseClicked(evt);
+            }
+        });
+        
+        this.vista.tablePresupuestoCarrito.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablePresupuestoCarritoMouseClicked(evt);
             }
         });      
     }
