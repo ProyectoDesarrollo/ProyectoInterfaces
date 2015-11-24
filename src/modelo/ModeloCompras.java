@@ -58,7 +58,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0; // Indica la cantidad de filas de la tabla.
-        String[] columNames = {"ID", "DNI_Cliente", "FECHA"}; // Indica el nombre de las columnas de la tabla.
+        String[] columNames = {"ID Pedido", "DNI Cliente", "FECHA"}; // Indica el nombre de las columnas de la tabla.
         //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
         //para formar la matriz de datos
         try {
@@ -97,7 +97,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0; // Indica la cantidad de filas de la tabla.
-        String[] columNames = {"ID", "ID_Pedido", "Precio_Total"}; // Indica el nombre de las columnas de la tabla.
+        String[] columNames = {"ID Factura", "ID Pedido", "Precio_Total"}; // Indica el nombre de las columnas de la tabla.
         //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
         //para formar la matriz de datos
         try {
