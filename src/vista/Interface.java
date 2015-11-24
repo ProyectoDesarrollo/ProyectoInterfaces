@@ -1283,7 +1283,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextField txtDireccionPedido;
     public javax.swing.JTextField txtIDPedido;
     public javax.swing.JTextField txtIDPresupuesto;
-    private javax.swing.JFormattedTextField txtNIFProveedores;
+    public javax.swing.JFormattedTextField txtNIFProveedores;
     public javax.swing.JTextField txtNombreArticuloPedido;
     public javax.swing.JTextField txtNombreArticuloPresupuesto;
     public javax.swing.JTextField txtNombreCliente;
