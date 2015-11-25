@@ -134,6 +134,12 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 tablaArticulosAlmacenMouseClicked(evt);
             }
         });
+        this.vista.txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                Buscar(evt);
+            }
+        });
+        
 
     }
 
@@ -519,7 +525,36 @@ public class ControladorVentas implements ActionListener, MouseListener {
         this.vista.txtIVAAlmacen.setValue(0);
 
     }
+    /*--------METODOS PARA CONTROLAR LA ESCRITURA---------*/
 
+    //Para letras
+    public void soloLetras(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if ((c < 'A') || (c > 'Z') && (c < 'a') || (c > 'z')) {
+            evt.consume();
+
+        }
+
+    }
+
+    //Para Numeros
+    public void soloNumeros(java.awt.event.KeyEvent evt) {
+        char c = evt.getKeyChar();
+        if ((c < '0') || (c > '9')) {
+            evt.consume();
+        }
+    }
+    
+    private void Buscar(java.awt.event.KeyEvent evt) {  
+        
+        String seleccion= this.vista.txtBuscar.getText();
+        String seleccion1=String.valueOf(seleccion.toLowerCase());
+             
+        //this.vista.tableClientes.setModel(this.modelo.buscar(seleccion1, busqueda));
+        
+    }
+    
+    /*--------------------------------------AUTOGENERADO--------------------------------------*/
     public void mouseClicked(MouseEvent e) {
     }
 

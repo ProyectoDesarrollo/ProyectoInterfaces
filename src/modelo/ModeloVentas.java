@@ -273,9 +273,111 @@ public class ModeloVentas extends DatabaseSQLite{
             JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
         }  
     }
-
-   
     
+    public DefaultTableModel buscarCliente(String buscar){
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos=0;
+        String[] columNames = {"DNI", "Nombre", "Apellidos", "Direccion", "Telefono", "Tarjeta"};
+        
+        try{ //Se prepara la cantidad de coches exitentes para montar la tabla.
+            
+            PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Clientes where Nombre like '%"+buscar+"%'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos=res.getInt("total");
+            res.close();
+            
+            
+        }catch(SQLException e){            
+            System.err.println( e.getMessage() );
+        }
+        
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][6];
+        
+        try{
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Clientes where Nombre like '%"+buscar+"%'");
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            
+            while(res.next()){ //y llenamos los datos en la matriz
+                data[i][0] = res.getString( "dni" );
+                data[i][1] = res.getString( "nombre" );
+                data[i][2] = res.getString( "apellidos" );
+                data[i][3] = res.getString( "direccion" );
+                data[i][4] = res.getString( "telefono" );
+                data[i][5] = res.getString( "tarjeta" );
+                i++;
+            }
+            
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames );            
+            
+        }catch(SQLException e){
+                
+            System.err.println( e.getMessage() );
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        }catch(Exception e){
+            
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+    
+    public DefaultTableModel buscarArticulo(String buscar){
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos=0;
+        String[] columNames = {"ID", "Nombre", "Stock", "Precio"};
+        
+        try{ //Se prepara la cantidad de coches exitentes para montar la tabla.
+            
+            PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Articulos where Nombre like '%"+buscar+"%'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos=res.getInt("total");
+            res.close();
+            
+            
+        }catch(SQLException e){            
+            System.err.println( e.getMessage() );
+        }
+        
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][4];
+        
+        try{
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Articulos where Nombre like '%"+buscar+"%'");
+            ResultSet res = pstm.executeQuery();
+            int i=0;
+            
+            while(res.next()){ //y llenamos los datos en la matriz
+                data[i][0] = res.getString( "ID" );
+                data[i][1] = res.getString( "Nombre" );
+                data[i][2] = res.getString( "Stock" );
+                data[i][3] = res.getString( "Precio" );
+                i++;
+            }
+            
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames );            
+            
+        }catch(SQLException e){
+                
+            System.err.println( e.getMessage() );
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        }catch(Exception e){
+            
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+}
+       
+
     
     /*public String getDescripcion(int i) {
         
@@ -302,4 +404,3 @@ public class ModeloVentas extends DatabaseSQLite{
         
     }
     */
-}
