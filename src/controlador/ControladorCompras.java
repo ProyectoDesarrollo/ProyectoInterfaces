@@ -227,16 +227,21 @@ public class ControladorCompras implements ActionListener, MouseListener {
         if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DNI"
                 || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
+            
             this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarPedido(buscar));
+            
         } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DID_Factura"
                 || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
+            
             this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarFactura(buscar));
-        }else if(this.vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-") 
-                ){
+            
+        } else if (this.vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-")) {
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar las tablas");
-        }else if( this.vista.jComboBuscar.getSelectedItem() == "-Seleccionar-"){
+        } else if (this.vista.jComboBuscar.getSelectedItem() == "-Seleccionar-") {
+            
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar la Columna");
+            
         }
 
     }
