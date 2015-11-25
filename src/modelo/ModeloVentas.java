@@ -107,9 +107,9 @@ public class ModeloVentas extends DatabaseSQLite{
             String ape= res.getString("Apellidos");
             String dir= res.getString("Direccion");
             String telf= res.getString("Telefono");
-            String tar= res.getString("Tarjeta");
-  
+            String tar= res.getString("Tarjeta");  
          }
+         
          res.close();
          }catch(SQLException e){
             System.err.println( e.getMessage() );
