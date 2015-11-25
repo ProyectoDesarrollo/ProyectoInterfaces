@@ -167,7 +167,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     int stk = this.modelo.getStock(Integer.parseInt(id));
                     int cnt = Integer.parseInt(cantidad);
 	
-                    if (stk > cnt && cnt > 0) {
+                    if (stk >= cnt && cnt > 0) {
 		
                         int c = 0;
 		
@@ -202,21 +202,6 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     ex.printStackTrace();
                 }
                 
-                /*
-                try {
-
-                    String id = this.vista.txtIDPedido.getText();
-                    String nombre = this.vista.txtNombreArticuloPedido.getText();
-                    String cantidad = String.valueOf(this.vista.txtCantidadPedido.getValue());
-                    String precio = this.vista.txtPrecio.getText();
-
-                    ListaPedido.add(new Articulo(id, nombre, cantidad, precio));
-                    this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));
-
-                } catch (Exception ex) {
-                    ex.printStackTrace();
-                }
-                */
                 break;
 
             case btnModificarPedido:
