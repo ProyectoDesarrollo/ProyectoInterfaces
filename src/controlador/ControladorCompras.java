@@ -122,7 +122,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 soloNumeros(evt);
-                Buscar(evt);
+                BuscarVisualizar(evt);
             }
         });
 
@@ -222,7 +222,9 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     /*-----ALMACEN-----*/
     /*----------------------------------------------------METODO BUSCAR-----------------------------------------------*/
-    private void Buscar(java.awt.event.KeyEvent evt) {
+    
+    //Buscar facturas y pedidos
+    private void BuscarVisualizar(java.awt.event.KeyEvent evt) {
         String buscar = this.vista.txtBuscadorArticulos.getText();
         if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DNI"
@@ -244,6 +246,18 @@ public class ControladorCompras implements ActionListener, MouseListener {
             
         }
 
+    }
+    
+    //Buscar Proveedores
+    private void BuscarProveedores(java.awt.event.KeyEvent evt) {                 
+        String buscar= this.vista.txtBuscadorClientes.getText();
+        this.vista.tableClientes.setModel(this.modelo.buscarProveedores(buscar));       
+    }
+    
+    //buscar en articulos
+    private void BuscarArticulo(java.awt.event.KeyEvent evt) {                 
+        String buscar= this.vista.txtBuscadorClientes.getText();
+        this.vista.tableClientes.setModel(this.modelo.buscarArticulo(buscar));       
     }
     /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
 

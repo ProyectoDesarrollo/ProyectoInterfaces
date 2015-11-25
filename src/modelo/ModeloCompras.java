@@ -132,7 +132,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
     /*--------------------INSERT--------------------*/
     public boolean InsertarProveedores(String nif, String nombre, String apellidos, int telefono) {
-            //Consulta para insertar 
+        //Consulta para insertar 
 
         String q = " INSERT INTO Proveedores ( Nif ,Nombre ,Apellidos ,Telefono ) "
                 + "VALUES ( '" + nif + "','" + nombre + "', '" + apellidos + "', " + telefono + " ) ";
@@ -188,12 +188,14 @@ public class ModeloCompras extends DatabaseSQLite {
 
     /*--------------------LOOK FOR--------------------*/
     /*-----COMPRAS-----*/
+    
+    //Metodo buscar en proveedores
     public DefaultTableModel buscarProveedores(String buscar) {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int productos = 0;
         String[] columNames = {"NIF", "Nombre", "Apellidos", "Telefono"};//Columnas tablas
 
-        try { 
+        try {
 
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Proveedores where Nombre like '%" + buscar + "%'");
             ResultSet res = pstm.executeQuery();
@@ -236,14 +238,16 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-    
+
     /*-----ALMACEN-----*/
-     public DefaultTableModel buscarPedido(String buscar) {
+    
+    //Metodo buscar en Pedido
+    public DefaultTableModel buscarPedido(String buscar) {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int productos = 0;
         String[] columNames = {"ID Pedido", "DNI Cliente", "FECHA"};//Columnas tablas
 
-        try { 
+        try {
 
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedidos where (ID like '%" + buscar + "%')or (DNI_Cliente like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
@@ -286,13 +290,14 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-     
-      public DefaultTableModel buscarFactura(String buscar) {
+
+    //Metodo buscar en factura
+    public DefaultTableModel buscarFactura(String buscar) {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int productos = 0;
         String[] columNames = {"ID Factura", "ID Pedido", "FECHA"};//Columnas tablas
 
-        try { 
+        try {
 
             PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Facturas where (ID_Pedido like '%" + buscar + "%')or (ID like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
@@ -318,6 +323,57 @@ public class ModeloCompras extends DatabaseSQLite {
                 data[i][1] = res.getString("ID_Pedido");
                 data[i][2] = res.getString("Precio_Total");
 
+                i++;
+            }
+
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+    
+    
+    //Metodo buscar en Articulo
+    public DefaultTableModel buscarArticulo(String buscar) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos = 0;
+        String[] columNames = {"ID", "Nombre", "Stock", "Precio"};
+
+        try {
+
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Articulos where Nombre like '%" + buscar + "%'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos = res.getInt("total");
+            res.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][4];
+
+        try {
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Articulos where Nombre like '%" + buscar + "%'");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+
+            while (res.next()) { //y llenamos los datos en la matriz
+                data[i][0] = res.getString("ID");
+                data[i][1] = res.getString("Nombre");
+                data[i][2] = res.getString("Stock");
+                data[i][3] = res.getString("Precio");
                 i++;
             }
 
