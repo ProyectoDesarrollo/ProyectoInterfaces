@@ -281,7 +281,7 @@ public class ModeloVentas extends DatabaseSQLite{
         
         try{ 
             
-            PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Clientes where Nombre like '%"+buscar+"%'");
+            PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Clientes where (Nombre like '%"+buscar+"%') || (DNI like '%"+buscar+"%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos=res.getInt("total");
@@ -297,17 +297,17 @@ public class ModeloVentas extends DatabaseSQLite{
         
         try{
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Clientes where Nombre like '%"+buscar+"%' || DNI like '%"+buscar+"%'" );
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Clientes where (Nombre like '%"+buscar+"%' ) ||( DNI like '%"+buscar+"%')" );
             ResultSet res = pstm.executeQuery();
             int i=0;
             
             while(res.next()){ //y llenamos los datos en la matriz
-                data[i][0] = res.getString( "dni" );
-                data[i][1] = res.getString( "nombre" );
-                data[i][2] = res.getString( "apellidos" );
-                data[i][3] = res.getString( "direccion" );
-                data[i][4] = res.getString( "telefono" );
-                data[i][5] = res.getString( "tarjeta" );
+                data[i][0] = res.getString( "Dni" );
+                data[i][1] = res.getString( "Nombre" );
+                data[i][2] = res.getString( "Apellidos" );
+                data[i][3] = res.getString( "Direccion" );
+                data[i][4] = res.getString( "Telefono" );
+                data[i][5] = res.getString( "Tarjeta" );
                 i++;
             }
             
