@@ -122,6 +122,10 @@ public class Interface extends javax.swing.JFrame {
         txtBuscadorClientes = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jPanelPagos = new javax.swing.JPanel();
+        txtBuscadorPagos = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tablePagos = new javax.swing.JTable();
         jPanelProveedores = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         tableProveedores = new javax.swing.JTable();
@@ -813,20 +817,51 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
 
+        jPanelPagos.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Zona Pagos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         jPanelPagos.setPreferredSize(new java.awt.Dimension(600, 650));
+
+        jLabel32.setText("Buscador:");
+
+        tablePagos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tablePagos);
 
         javax.swing.GroupLayout jPanelPagosLayout = new javax.swing.GroupLayout(jPanelPagos);
         jPanelPagos.setLayout(jPanelPagosLayout);
         jPanelPagosLayout.setHorizontalGroup(
             jPanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPagosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .addGroup(jPanelPagosLayout.createSequentialGroup()
+                        .addComponent(jLabel32)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtBuscadorPagos)))
+                .addContainerGap())
         );
         jPanelPagosLayout.setVerticalGroup(
             jPanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 630, Short.MAX_VALUE)
+            .addGroup(jPanelPagosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPagosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtBuscadorPagos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
+                .addGap(57, 57, 57)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(409, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanelPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 630, 630));
+        getContentPane().add(jPanelPagos, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
 
         jPanelProveedores.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Zona Proveedores", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         jPanelProveedores.setPreferredSize(new java.awt.Dimension(600, 650));
@@ -1346,6 +1381,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
@@ -1380,6 +1416,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
@@ -1397,6 +1434,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTable tablaVisualizarFactura;
     public javax.swing.JTable tablaVisualizarPedido;
     public javax.swing.JTable tableClientes;
+    public javax.swing.JTable tablePagos;
     public javax.swing.JTable tablePedidoBuscarArticulo;
     public javax.swing.JTable tablePedidoCarrito;
     public javax.swing.JTable tablePresupuestoCarrito;
@@ -1408,6 +1446,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextField txtBuscadorAlmacen;
     public javax.swing.JTextField txtBuscadorArticulos;
     public javax.swing.JTextField txtBuscadorClientes;
+    public javax.swing.JTextField txtBuscadorPagos;
     private javax.swing.JTextField txtBuscadorPresupuesto;
     public javax.swing.JTextField txtBuscadorProveedores;
     public javax.swing.JTextField txtBuscar;
