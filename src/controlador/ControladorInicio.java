@@ -110,7 +110,7 @@ public class ControladorInicio implements ActionListener, MouseListener {
                 }
 
                 break;
-
+               
             case btnPedido:
 
                 try {

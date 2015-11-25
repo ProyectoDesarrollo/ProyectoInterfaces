@@ -156,7 +156,52 @@ public class ControladorVentas implements ActionListener, MouseListener {
         switch (AccionMVC.valueOf(e.getActionCommand())) {
 
             case btnAñadirPedido:
+                
+                try {
 
+                    String id = this.vista.txtIDPedido.getText();
+                    String nombre = this.vista.txtNombreArticuloPedido.getText();
+                    String cantidad = String.valueOf(this.vista.txtCantidadPedido.getValue());
+                    String precio = this.vista.txtPrecio.getText();
+	
+                    int stk = this.modelo.getStock(id);
+	
+                    if (stk > cantidad && cantidad > 0) {
+		
+                        int c = 0;
+		
+                        for (Object o: ListaPedido) {
+			
+                            if (o.getID() == ID) {
+				
+				c++;
+				
+                            }
+			
+                        }
+		
+                        if (c > 0) {
+			
+                            JOptionPane.showMessageDialog(vista, "Este artículo ya se encuentra en la lista. Eliminelo de la lista si desea cambiar la cantidad.")
+			
+                        } else {
+			
+                            ListaPedido.add(new Articulo(id, nombre, cantidad, precio));
+                            this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));
+			
+                        }
+		
+                    } else {
+		
+                        JOptionPane.showMessageDialog(vista, "Cantidad indicada incorrecta.");
+		
+                    }
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+                
+                /*
                 try {
 
                     String id = this.vista.txtIDPedido.getText();
@@ -170,7 +215,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-
+                */
                 break;
 
             case btnModificarPedido:
