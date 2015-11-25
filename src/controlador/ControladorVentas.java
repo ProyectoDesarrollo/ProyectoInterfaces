@@ -364,21 +364,52 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 break;
 
             case btnAñadirPresupuesto:
-
+                
                 try {
 
                     String id = this.vista.txtIDPresupuesto.getText();
                     String nombre = this.vista.txtNombreArticuloPresupuesto.getText();
                     String cantidad = String.valueOf(this.vista.txtCantidadPresupuesto.getValue());
                     String precio = this.vista.txtPrecioPresupuesto.getText();
-
-                    ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));
-                    this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));
+	
+                    int stk = this.modelo.getStock(Integer.parseInt(id));
+                    int cnt = Integer.parseInt(cantidad);
+	
+                    if (stk >= cnt && cnt > 0) {
+		
+                        int c = 0;
+		
+                        for (Articulo a: ListaPresupuesto) {
+			
+                            if (Integer.parseInt(a.getID()) == Integer.parseInt(id)) {
+				
+				c++;
+				
+                            }
+			
+                        }
+		
+                        if (c > 0) {
+			
+                            JOptionPane.showMessageDialog(vista, "Este artículo ya se encuentra en la lista. Eliminelo de la lista si desea cambiar la cantidad.");
+			
+                        } else {
+			
+                            ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));
+                            this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));
+			
+                        }
+		
+                    } else {
+		
+                        JOptionPane.showMessageDialog(vista, "Cantidad indicada incorrecta.");
+		
+                    }
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-
+                
                 break;
 
             case btnModificarPresupuesto:
@@ -390,16 +421,27 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     String cantidad = String.valueOf(this.vista.txtCantidadPresupuesto.getValue());
                     String precio = this.vista.txtPrecioPresupuesto.getText();
 
-                    this.vista.tablePresupuestoCarrito.getSelectedRow();
-
                     if (this.vista.tablePresupuestoCarrito.getSelectedRow() < 0) {
+                        
                         JOptionPane.showMessageDialog(null, "Seleccione una fila");
 
                     } else {
 
                         fila = this.vista.tablePresupuestoCarrito.getSelectedRow();
-                        ListaPresupuesto.set(fila, new Articulo(id, nombre, cantidad, precio));
-                        this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));
+                        
+                        int stk = this.modelo.getStock(Integer.parseInt(id));
+                        int cnt = Integer.parseInt(cantidad);
+                        
+                        if (stk >= cnt && cnt > 0) {
+                        
+                            ListaPresupuesto.set(fila, new Articulo(id, nombre, cantidad, precio));
+                            this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));
+                        
+                        } else {
+                            
+                            JOptionPane.showMessageDialog(vista, "Cantidad indicada incorrecta.");
+                            
+                        }
 
                     }
 
