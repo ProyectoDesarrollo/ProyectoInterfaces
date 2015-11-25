@@ -257,8 +257,8 @@ public class ControladorVentas implements ActionListener, MouseListener {
                         String dni = this.vista.txtDNICliente.getText();
                         String nombre = this.vista.txtNombreCliente.getText();
                         String apellidos = this.vista.txtApellidosCliente.getText();
-                        int telefono = Integer.parseInt(this.vista.txtTelefonoCliente.getText());
                         String direccion = this.vista.txtDireccionCliente.getText();
+                        int telefono = Integer.parseInt(this.vista.txtTelefonoCliente.getText());
                         int tarjeta = Integer.parseInt(this.vista.txtTarjetaCliente.getText());
 
                         this.modelo.modificarCliente(dni, nombre, apellidos, direccion, telefono, tarjeta);
@@ -442,6 +442,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
         this.vista.txtDireccionCliente.setText(direccion);
         this.vista.txtTelefonoCliente.setText(telefono);
         this.vista.txtTarjetaCliente.setText(tarjeta);
+        
     }
 
     private void tablePedidoBuscarArticuloMouseClicked(java.awt.event.MouseEvent evt) {

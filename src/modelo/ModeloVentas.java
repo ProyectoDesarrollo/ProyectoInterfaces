@@ -201,7 +201,7 @@ public class ModeloVentas extends DatabaseSQLite{
             //Consulta para insertar 
         
         String q=" INSERT INTO Clientes ( DNI ,Nombre ,Apellidos ,Direccion ,Telefono, Tarjeta ) "
-                    + "VALUES ( '" + dni + "','" + nombre + "', '" + apellidos + "','" + direccion + "', '" + telefono + "', " + tarjeta + " ) ";
+                    + "VALUES ( '" + dni + "','" + nombre + "', '" + apellidos + "','" + direccion + "', " + telefono + ", " + tarjeta + " ) ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
@@ -254,9 +254,9 @@ public class ModeloVentas extends DatabaseSQLite{
     }
     
     
-    public void modificarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
+    public void modificarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, long tarjeta) {
         
-        String q="Update Clientes set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Direccion='"+direccion+"', Telefono='"+telefono+"', Tarjeta='"+tarjeta+"' where DNI='"+dni+"';";
+        String q="Update Clientes set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Direccion='"+direccion+"', Telefono="+telefono+", Tarjeta="+tarjeta+" where DNI='"+dni+"';";
         
         try {
             
