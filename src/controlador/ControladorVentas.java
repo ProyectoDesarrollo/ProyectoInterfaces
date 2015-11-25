@@ -164,15 +164,16 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     String cantidad = String.valueOf(this.vista.txtCantidadPedido.getValue());
                     String precio = this.vista.txtPrecio.getText();
 	
-                    int stk = this.modelo.getStock(id);
+                    int stk = this.modelo.getStock(Integer.parseInt(id));
+                    int cnt = Integer.parseInt(cantidad);
 	
-                    if (stk > cantidad && cantidad > 0) {
+                    if (stk > cnt && cnt > 0) {
 		
                         int c = 0;
 		
-                        for (Object o: ListaPedido) {
+                        for (Articulo a: ListaPedido) {
 			
-                            if (o.getID() == ID) {
+                            if (Integer.parseInt(a.getID()) == Integer.parseInt(id)) {
 				
 				c++;
 				
@@ -182,7 +183,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 		
                         if (c > 0) {
 			
-                            JOptionPane.showMessageDialog(vista, "Este artículo ya se encuentra en la lista. Eliminelo de la lista si desea cambiar la cantidad.")
+                            JOptionPane.showMessageDialog(vista, "Este artículo ya se encuentra en la lista. Eliminelo de la lista si desea cambiar la cantidad.");
 			
                         } else {
 			
