@@ -279,7 +279,7 @@ public class ModeloVentas extends DatabaseSQLite{
         int productos=0;
         String[] columNames = {"DNI", "Nombre", "Apellidos", "Direccion", "Telefono", "Tarjeta"};
         
-        try{ //Se prepara la cantidad de coches exitentes para montar la tabla.
+        try{ 
             
             PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Clientes where Nombre like '%"+buscar+"%'");
             ResultSet res = pstm.executeQuery();
@@ -297,7 +297,7 @@ public class ModeloVentas extends DatabaseSQLite{
         
         try{
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Clientes where Nombre like '%"+buscar+"%'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Clientes where Nombre like '%"+buscar+"%' || DNI like '%"+buscar+"%'" );
             ResultSet res = pstm.executeQuery();
             int i=0;
             
@@ -331,7 +331,7 @@ public class ModeloVentas extends DatabaseSQLite{
         int productos=0;
         String[] columNames = {"ID", "Nombre", "Stock", "Precio"};
         
-        try{ //Se prepara la cantidad de coches exitentes para montar la tabla.
+        try{
             
             PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Articulos where Nombre like '%"+buscar+"%'");
             ResultSet res = pstm.executeQuery();
