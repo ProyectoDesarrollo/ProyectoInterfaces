@@ -20,8 +20,8 @@ public class ControladorCompras implements ActionListener, MouseListener {
     String tabla;
     int pedido = 1;
     int factura = 2;
-    String[] comboBuscarFactura = {"-Seleccionar-", "ID Pedido", "DNI"};
-    String[] comboBuscarPedido = {"-Seleccionar-", "ID Factura", "ID Pedido"};
+    String[] comboBuscarPedido = {"-Seleccionar-", "ID Pedido", "DNI"};
+    String[] comboBuscarFactura = {"-Seleccionar-", "ID Factura", "ID Pedido"};
     String[] comboVisualizar = {"-Seleccionar-", "Pedido", "Factura"};
     private TableRowSorter filtro;
 

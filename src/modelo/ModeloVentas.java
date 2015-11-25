@@ -178,45 +178,7 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
-    public DefaultTableModel getTablaProveedores(){
-        
-      DefaultTableModel tablemodel = new DefaultTableModel();
-      int registros = 0; // Indica la cantidad de filas de la tabla.
-      //String nif, String nombre , String apellidos, int telefono
-      String[] columNames = {"NIF", "Nombre", "Apellidos", "Telefono"}; // Indica el nombre de las columnas de la tabla.
-      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
-      //para formar la matriz de datos
-      try{
-         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Proveedores");
-         ResultSet res = pstm.executeQuery();
-         res.next();
-         registros = res.getInt("total");
-         res.close();
-      }catch(SQLException e){
-         System.err.println( e.getMessage() );
-      }
-    //se crea una matriz con tantas filas y columnas que necesite
-      Object[][] data = new String[registros][4];
-      try{
-          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF, Nombre, Apellidos, Telefono FROM Proveedores");
-         ResultSet res = pstm.executeQuery();
-         int i=0;
-         while(res.next()){
-                data[i][0] = res.getString("NIF");
-                data[i][1] = res.getString("Nombre");
-                data[i][2] = res.getString("Apellidos");
-                data[i][3] = res.getString("Telefono");
-            i++;
-         }
-         res.close();
-         //se añade la matriz de datos en el DefaultTableModel
-         tablemodel.setDataVector(data, columNames );
-         }catch(SQLException e){
-            System.err.println( e.getMessage() );
-        }
-        return tablemodel;
-    }
+  
     
     public boolean InsertarArticulo (String nombre , int stock, double precio, String nif, int iva) {
             //Consulta para insertar 
@@ -252,22 +214,7 @@ public class ModeloVentas extends DatabaseSQLite{
             return false;      
     }
     
-    public boolean InsertarProveedores (String nif, String nombre , String apellidos, int telefono) {
-            //Consulta para insertar 
-        
-        String q=" INSERT INTO Proveedores ( Nif ,Nombre ,Apellidos ,Telefono ) "
-                    + "VALUES ( '" + nif + "','" + nombre + "', '" + apellidos + "', " + telefono + " ) ";
-            //se ejecuta la consulta
-        try {
-            PreparedStatement pstm = this.getConexion().prepareStatement(q);
-            pstm.execute();
-            pstm.close();
-            return true;
-        }catch(SQLException e){
-            System.err.println( e.getMessage() );
-        }
-            return false;      
-    }
+   
     
     public boolean EliminarClientes( String dni ){
          boolean res=false;
@@ -285,22 +232,7 @@ public class ModeloVentas extends DatabaseSQLite{
         return res;
     }
     
-    public boolean EliminarProveedores( String nif ){
-         boolean res=false;
-        //se arma la consulta
-        String q = " DELETE FROM Proveedores WHERE  NIF='" + nif + "' " ;
-        //se ejecuta la consulta
-         try {
-            PreparedStatement pstm = this.getConexion().prepareStatement(q);
-            pstm.execute();
-            pstm.close();
-            res=true;
-         }catch(SQLException e){
-            System.err.println( e.getMessage() );
-        }
-        return res;
-    }
-    
+  
     public void modificarArticulo (String id, String nombre , int stock, double precio, String nif ,int iva) {
         
         String q="Update Articulos set ID='"+id+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"',NIF_Proveedor='"+nif+"', IVA='"+iva+"' where ID='"+id+"';";
@@ -342,25 +274,7 @@ public class ModeloVentas extends DatabaseSQLite{
         }  
     }
 
-    public void modificarProveedor (String nif, String nombre , String apellidos, int telefono) {
-        
-        String q="Update Proveedores set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Telefono='"+telefono+"' where NIF='"+nif+"';";
-        
-        try {
-            
-            //Se mete en la base de datos
-            PreparedStatement pstm1 = this.getConexion().prepareStatement(q);
-            pstm1.execute();
-            pstm1.close();            
-
-        }catch(SQLException e){
-            System.err.println( e.getMessage() );
-            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
-        }catch(Exception e){
-            
-            JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
-        }  
-    }
+   
     
     
     /*public String getDescripcion(int i) {
