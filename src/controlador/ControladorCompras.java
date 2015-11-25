@@ -88,6 +88,13 @@ public class ControladorCompras implements ActionListener, MouseListener {
             }
 
         });
+        this.vista.txtBuscadorProveedores.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BuscarProveedores(evt);
+            }
+
+        });
 
         /*-----ALMACEN-----*/
         this.vista.btnBuscar.setActionCommand("btnBuscar");
@@ -124,6 +131,13 @@ public class ControladorCompras implements ActionListener, MouseListener {
                 soloNumeros(evt);
                 BuscarVisualizar(evt);
             }
+        });
+        this.vista.txtBuscadorAlmacen.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BuscarArticulos(evt);
+            }
+
         });
 
     }
@@ -222,42 +236,44 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     /*-----ALMACEN-----*/
     /*----------------------------------------------------METODO BUSCAR-----------------------------------------------*/
-    
     //Buscar facturas y pedidos
     private void BuscarVisualizar(java.awt.event.KeyEvent evt) {
         String buscar = this.vista.txtBuscadorArticulos.getText();
         if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DNI"
                 || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
-            
-            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarPedido(buscar));
-            
+
+            this.vista.tablaVisualizarPedido.setModel(this.modelo.buscarPedido(buscar));
+
         } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DID_Factura"
                 || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
-            
-            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarFactura(buscar));
-            
+
+            this.vista.tablaVisualizarFactura.setModel(this.modelo.buscarFactura(buscar));
+
         } else if (this.vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-")) {
+            
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar las tablas");
+            
         } else if (this.vista.jComboBuscar.getSelectedItem() == "-Seleccionar-") {
-            
+
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar la Columna");
-            
+
         }
 
     }
-    
+
     //Buscar Proveedores
-    private void BuscarProveedores(java.awt.event.KeyEvent evt) {                 
-        String buscar= this.vista.txtBuscadorClientes.getText();
-        this.vista.tableClientes.setModel(this.modelo.buscarProveedores(buscar));       
+    private void BuscarProveedores(java.awt.event.KeyEvent evt) {
+        String buscar = this.vista.txtBuscadorProveedores.getText();
+        this.vista.tableProveedores.setModel(this.modelo.buscarProveedores(buscar));
     }
-    
+
     //buscar en articulos
-    private void BuscarArticulo(java.awt.event.KeyEvent evt) {                 
-        String buscar= this.vista.txtBuscadorClientes.getText();
-        this.vista.tableClientes.setModel(this.modelo.buscarArticulo(buscar));       
+    private void BuscarArticulos(java.awt.event.KeyEvent evt) {
+        
+        String buscar = this.vista.txtBuscadorAlmacen.getText();
+        this.vista.tablaArticulosAlmacen.setModel(this.modelo.buscarArticulo(buscar));
     }
     /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
 

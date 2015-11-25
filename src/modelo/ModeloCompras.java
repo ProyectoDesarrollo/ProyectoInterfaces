@@ -10,9 +10,9 @@ public class ModeloCompras extends DatabaseSQLite {
 
     public ModeloCompras() {
     }
-    /*--------------------TABLAS--------------------*/
+    /*-----------------------------------------------------------------TABLAS-----------------------------------------------------*/
 
-    /*-----COMPRAS-----*/
+    /*-----------------------------------------------------------------COMPRAS----------------------------------------------------*/
     public DefaultTableModel getTablaProveedores() {
 
         DefaultTableModel tablemodel = new DefaultTableModel();
@@ -53,7 +53,9 @@ public class ModeloCompras extends DatabaseSQLite {
         return tablemodel;
     }
 
-    /*-----ALMACEN-----*/
+    
+    /*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
+    
     public DefaultTableModel getTablaPedido() {
 
         DefaultTableModel tablemodel = new DefaultTableModel();
@@ -130,7 +132,7 @@ public class ModeloCompras extends DatabaseSQLite {
         return tablemodel;
     }
 
-    /*--------------------INSERT--------------------*/
+    /*-----------------------------------------------------INSERT---------------------------------------------------------------*/
     public boolean InsertarProveedores(String nif, String nombre, String apellidos, int telefono) {
         //Consulta para insertar 
 
@@ -148,7 +150,7 @@ public class ModeloCompras extends DatabaseSQLite {
         return false;
     }
 
-    /*--------------------DELETED--------------------*/
+    /*----------------------------------------------------------DELETED--------------------------------------------------------------*/
     public boolean EliminarProveedores(String nif) {
         boolean res = false;
         //se arma la consulta
@@ -164,7 +166,7 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return res;
     }
-    /*--------------------UPDATE--------------------*/
+    /*-------------------------------------------------------------UPDATE----------------------------------------------------------*/
 
     public void modificarProveedor(String nif, String nombre, String apellidos, int telefono) {
 
@@ -186,8 +188,10 @@ public class ModeloCompras extends DatabaseSQLite {
         }
     }
 
-    /*--------------------LOOK FOR--------------------*/
-    /*-----COMPRAS-----*/
+    /*-------------------------------------------------------------------LOOK FOR-----------------------------------------------*/
+    
+    
+    /*-------------------------------------------------------------------COMPRAS----------------------------------------------------*/
     
     //Metodo buscar en proveedores
     public DefaultTableModel buscarProveedores(String buscar) {
@@ -197,7 +201,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Proveedores where Nombre like '%" + buscar + "%'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Proveedores where (Nombre like '%" + buscar + "%') || ( NIF like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos = res.getInt("total");
@@ -212,7 +216,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Proveedores where (Nombre like '%" + buscar + "%') or ( NIF like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Proveedores where (Nombre like '%" + buscar + "%') || ( NIF like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             int i = 0;
 
@@ -239,7 +243,7 @@ public class ModeloCompras extends DatabaseSQLite {
         return tablemodel;
     }
 
-    /*-----ALMACEN-----*/
+    /*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
     
     //Metodo buscar en Pedido
     public DefaultTableModel buscarPedido(String buscar) {
@@ -249,7 +253,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedidos where (ID like '%" + buscar + "%')or (DNI_Cliente like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedidos where (ID like '%" + buscar + "%') || (DNI_Cliente like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos = res.getInt("total");
@@ -264,7 +268,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Pedidos where (ID like '%" + buscar + "%')or (DNI_Cliente like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Pedidos where (ID like '%" + buscar + "%') || (DNI_Cliente like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             int i = 0;
 
@@ -299,7 +303,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Facturas where (ID_Pedido like '%" + buscar + "%')or (ID like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Facturas where (ID_Pedido like '%" + buscar + "%') || (ID like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos = res.getInt("total");
@@ -314,7 +318,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Facturas where (ID_Pedido like '%" + buscar + "%')or (ID like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Facturas where (ID_Pedido like '%" + buscar + "%') || (ID like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             int i = 0;
 
@@ -344,13 +348,14 @@ public class ModeloCompras extends DatabaseSQLite {
     
     //Metodo buscar en Articulo
     public DefaultTableModel buscarArticulo(String buscar) {
+        
         DefaultTableModel tablemodel = new DefaultTableModel();
         int productos = 0;
         String[] columNames = {"ID", "Nombre", "Stock", "Precio"};
 
         try {
 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Articulos where Nombre like '%" + buscar + "%'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Articulos where (ID Like'%" + buscar + "%' ) || (Nombre like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos = res.getInt("total");
@@ -365,7 +370,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Articulos where Nombre like '%" + buscar + "%'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM  Articulos where (ID Like'%" + buscar + "%' ) || (Nombre like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             int i = 0;
 
