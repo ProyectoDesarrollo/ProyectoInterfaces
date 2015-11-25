@@ -134,7 +134,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 tablaArticulosAlmacenMouseClicked(evt);
             }
         });
-        this.vista.txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+        this.vista.txtBuscadorArticulos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Buscar(evt);
             }
@@ -547,8 +547,8 @@ public class ControladorVentas implements ActionListener, MouseListener {
     
     private void Buscar(java.awt.event.KeyEvent evt) {  
                
-        String buscador= this.vista.txtBuscadorArticulos.getText();
-        String buscar=String.valueOf(buscador.toLowerCase());            
+        String buscar= this.vista.txtBuscadorArticulos.getText();
+        //String buscar=String.valueOf(buscador.toLowerCase());            
         this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));
         
     }
