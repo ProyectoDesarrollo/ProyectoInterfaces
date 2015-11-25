@@ -149,6 +149,11 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 BuscarClientes(evt);
             }
         });
+        this.vista.txtDNIPedido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                DNIPedido(evt);
+            }
+        });
 
     }
 
@@ -609,6 +614,18 @@ public class ControladorVentas implements ActionListener, MouseListener {
     private void BuscarClientes(java.awt.event.KeyEvent evt) {                 
         String buscar= this.vista.txtBuscadorClientes.getText();
         this.vista.tableClientes.setModel(this.modelo.buscarCliente(buscar));       
+    }
+    
+    private void DNIPedido(java.awt.event.KeyEvent evt) {
+        
+        String dni= this.vista.txtDNIPedido.getText();
+        String[] Relleno= this.modelo.Rellenar(dni);        
+        this.vista.txtNombrePedido.setText(Relleno[0]);
+        this.vista.txtApellidosPedido.setText(Relleno[1]);
+        this.vista.txtDireccionPedido.setText(Relleno[2]);
+        this.vista.txtTarjetaPedido.setText(Relleno[3]);
+        this.vista.txtTelefonoPedido.setText(Relleno[4]);
+        
     }
          
     

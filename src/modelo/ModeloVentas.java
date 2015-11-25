@@ -11,7 +11,7 @@ import vista.Interface;
 
 public class ModeloVentas extends DatabaseSQLite{
     
-    
+    Interface vista;
     public ModeloVentas() {}
     
     public DefaultTableModel getTabla(ArrayList <Articulo> d) {
@@ -96,24 +96,26 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
-    public void Rellenar(String dni){       
+    public String[] Rellenar(String dni){     
+        String[] Relleno= new String[5];
       try{
          
          PreparedStatement pstm = this.getConexion().prepareStatement("SELECT Nombre, Apellidos, Direccion, Telefono, Tarjeta FROM Clientes WHERE DNI like '%"+dni+"%'");
          ResultSet res = pstm.executeQuery();
-
-         while(res.next()){
-            String nom = res.getString("Nombre");
-            String ape= res.getString("Apellidos");
-            String dir= res.getString("Direccion");
-            String telf= res.getString("Telefono");
-            String tar= res.getString("Tarjeta");  
-         }
          
+         while(res.next()){ 
+            Relleno[0] = res.getString("Nombre");
+            Relleno[1]= res.getString("Apellidos");
+            Relleno[2]= res.getString("Direccion");
+            Relleno[3]= res.getString("Telefono");
+            Relleno[4]= res.getString("Tarjeta");
+          
+         }           
          res.close();
          }catch(SQLException e){
             System.err.println( e.getMessage() );
         }
+        return Relleno; 
     }
     
     public DefaultTableModel getTablaAlmacen(){
