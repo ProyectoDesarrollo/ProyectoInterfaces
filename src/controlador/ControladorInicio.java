@@ -114,6 +114,14 @@ public class ControladorInicio implements ActionListener, MouseListener {
             case btnPedido:
 
                 try {
+                    
+                    this.vista.txtDNIPedido.setEnabled(true);
+                    this.vista.txtBuscadorArticulos.setEnabled(true);
+                    this.vista.txtCantidadPedido.setEnabled(true);
+                    this.vista.btnAñadirPedido.setEnabled(true);
+                    this.vista.btnModificarPedido.setEnabled(true);
+                    this.vista.btnBorrarPedido.setEnabled(true);
+                    this.vista.btnCrearFactura.setEnabled(true);
 
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
