@@ -1356,7 +1356,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextField txtApellidosCliente;
     public javax.swing.JTextField txtApellidosPedido;
     public javax.swing.JTextField txtApellidosProveedores;
-    private javax.swing.JTextField txtBuscadorArticulos;
+    public javax.swing.JTextField txtBuscadorArticulos;
     private javax.swing.JTextField txtBuscadorPresupuesto;
     public javax.swing.JTextField txtBuscar;
     public javax.swing.JSpinner txtCantidadPedido;

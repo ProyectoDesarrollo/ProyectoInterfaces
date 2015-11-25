@@ -546,13 +546,13 @@ public class ControladorVentas implements ActionListener, MouseListener {
     }
     
     private void Buscar(java.awt.event.KeyEvent evt) {  
-        
-        String buscar= this.vista.txtBuscar.getText();
-        String buscar1=String.valueOf(buscar.toLowerCase());
-             
-        //this.vista.tableClientes.setModel(this.modelo.buscar(buscar));
+               
+        String buscador= this.vista.txtBuscadorArticulos.getText();
+        String buscar=String.valueOf(buscador.toLowerCase());            
+        this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));
         
     }
+         
     
     /*--------------------------------------AUTOGENERADO--------------------------------------*/
     public void mouseClicked(MouseEvent e) {
