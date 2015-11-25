@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import vista.Interface;
 
 public class ModeloVentas extends DatabaseSQLite{
     
@@ -93,6 +94,26 @@ public class ModeloVentas extends DatabaseSQLite{
             System.err.println( e.getMessage() );
         }
         return tablemodel;
+    }
+    
+    public void Rellenar(String dni){       
+      try{
+         
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT Nombre, Apellidos, Direccion, Telefono, Tarjeta FROM Clientes WHERE DNI like '%"+dni+"%'");
+         ResultSet res = pstm.executeQuery();
+
+         while(res.next()){
+            String nom = res.getString("Nombre");
+            String ape= res.getString("Apellidos");
+            String dir= res.getString("Direccion");
+            String telf= res.getString("Telefono");
+            String tar= res.getString("Tarjeta");
+            
+         }
+         res.close();
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
     }
     
     public DefaultTableModel getTablaAlmacen(){
