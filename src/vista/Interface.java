@@ -159,10 +159,10 @@ public class Interface extends javax.swing.JFrame {
         jComboBuscar = new javax.swing.JComboBox();
         txtBuscar = new javax.swing.JTextField();
         pPanelVisualizarInicial = new javax.swing.JPanel();
-        pPanelVisualizarPedido = new javax.swing.JPanel();
+        pPanelVisualizarFactura = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         tablaVisualizarFactura = new javax.swing.JTable();
-        pPanelVisualizarFactura = new javax.swing.JPanel();
+        pPanelVisualizarPedido = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tablaVisualizarPedido = new javax.swing.JTable();
         btnImprimir = new javax.swing.JButton();
@@ -1062,22 +1062,22 @@ public class Interface extends javax.swing.JFrame {
         ));
         jScrollPane8.setViewportView(tablaVisualizarFactura);
 
-        javax.swing.GroupLayout pPanelVisualizarPedidoLayout = new javax.swing.GroupLayout(pPanelVisualizarPedido);
-        pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
-        pPanelVisualizarPedidoLayout.setHorizontalGroup(
-            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pPanelVisualizarFacturaLayout = new javax.swing.GroupLayout(pPanelVisualizarFactura);
+        pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
+        pPanelVisualizarFacturaLayout.setHorizontalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 688, Short.MAX_VALUE)
-            .addGroup(pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE))
         );
-        pPanelVisualizarPedidoLayout.setVerticalGroup(
-            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pPanelVisualizarFacturaLayout.setVerticalGroup(
+            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 505, Short.MAX_VALUE)
-            .addGroup(pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE))
         );
 
-        pPanelVisualizarFactura.setPreferredSize(new java.awt.Dimension(0, 452));
+        pPanelVisualizarPedido.setPreferredSize(new java.awt.Dimension(0, 452));
 
         tablaVisualizarPedido.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1092,14 +1092,14 @@ public class Interface extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tablaVisualizarPedido);
 
-        javax.swing.GroupLayout pPanelVisualizarFacturaLayout = new javax.swing.GroupLayout(pPanelVisualizarFactura);
-        pPanelVisualizarFactura.setLayout(pPanelVisualizarFacturaLayout);
-        pPanelVisualizarFacturaLayout.setHorizontalGroup(
-            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout pPanelVisualizarPedidoLayout = new javax.swing.GroupLayout(pPanelVisualizarPedido);
+        pPanelVisualizarPedido.setLayout(pPanelVisualizarPedidoLayout);
+        pPanelVisualizarPedidoLayout.setHorizontalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
         );
-        pPanelVisualizarFacturaLayout.setVerticalGroup(
-            pPanelVisualizarFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        pPanelVisualizarPedidoLayout.setVerticalGroup(
+            pPanelVisualizarPedidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)
         );
 
@@ -1127,12 +1127,12 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelVisualizarLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pPanelVisualizarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pPanelVisualizarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanelVisualizarLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(pPanelVisualizarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
+                    .addComponent(pPanelVisualizarPedido, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
@@ -1158,12 +1158,12 @@ public class Interface extends javax.swing.JFrame {
             .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
                     .addContainerGap(90, Short.MAX_VALUE)
-                    .addComponent(pPanelVisualizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pPanelVisualizarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(51, Short.MAX_VALUE)))
             .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
                     .addContainerGap(90, Short.MAX_VALUE)
-                    .addComponent(pPanelVisualizarFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pPanelVisualizarPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(51, Short.MAX_VALUE)))
             .addGroup(jPanelVisualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelVisualizarLayout.createSequentialGroup()
