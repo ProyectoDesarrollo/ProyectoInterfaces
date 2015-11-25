@@ -11,7 +11,7 @@ public class ModeloCompras extends DatabaseSQLite {
     public ModeloCompras() {
     }
     /*--------------------TABLAS--------------------*/
-    
+
     /*-----COMPRAS-----*/
     public DefaultTableModel getTablaProveedores() {
 
@@ -52,7 +52,7 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-    
+
     /*-----ALMACEN-----*/
     public DefaultTableModel getTablaPedido() {
 
@@ -91,8 +91,7 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-    
-    
+
     public DefaultTableModel getTablaFactura() {
 
         DefaultTableModel tablemodel = new DefaultTableModel();
@@ -130,61 +129,211 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-    
-    
+
     /*--------------------INSERT--------------------*/
-    public boolean InsertarProveedores (String nif, String nombre , String apellidos, int telefono) {
+    public boolean InsertarProveedores(String nif, String nombre, String apellidos, int telefono) {
             //Consulta para insertar 
-        
-        String q=" INSERT INTO Proveedores ( Nif ,Nombre ,Apellidos ,Telefono ) "
-                    + "VALUES ( '" + nif + "','" + nombre + "', '" + apellidos + "', " + telefono + " ) ";
-            //se ejecuta la consulta
+
+        String q = " INSERT INTO Proveedores ( Nif ,Nombre ,Apellidos ,Telefono ) "
+                + "VALUES ( '" + nif + "','" + nombre + "', '" + apellidos + "', " + telefono + " ) ";
+        //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
             return true;
-        }catch(SQLException e){
-            System.err.println( e.getMessage() );
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
         }
-            return false;      
+        return false;
     }
-    
+
     /*--------------------DELETED--------------------*/
-     public boolean EliminarProveedores( String nif ){
-         boolean res=false;
+    public boolean EliminarProveedores(String nif) {
+        boolean res = false;
         //se arma la consulta
-        String q = " DELETE FROM Proveedores WHERE  NIF='" + nif + "' " ;
+        String q = " DELETE FROM Proveedores WHERE  NIF='" + nif + "' ";
         //se ejecuta la consulta
-         try {
+        try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
             pstm.execute();
             pstm.close();
-            res=true;
-         }catch(SQLException e){
-            System.err.println( e.getMessage() );
+            res = true;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
         }
         return res;
     }
     /*--------------------UPDATE--------------------*/
-      public void modificarProveedor (String nif, String nombre , String apellidos, int telefono) {
-        
-        String q="Update Proveedores set Nombre='"+nombre+"', Apellidos='"+apellidos+"', Telefono='"+telefono+"' where NIF='"+nif+"';";
-        
+
+    public void modificarProveedor(String nif, String nombre, String apellidos, int telefono) {
+
+        String q = "Update Proveedores set Nombre='" + nombre + "', Apellidos='" + apellidos + "', Telefono='" + telefono + "' where NIF='" + nif + "';";
+
         try {
-            
+
             //Se mete en la base de datos
             PreparedStatement pstm1 = this.getConexion().prepareStatement(q);
             pstm1.execute();
-            pstm1.close();            
+            pstm1.close();
 
-        }catch(SQLException e){
-            System.err.println( e.getMessage() );
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
-        }catch(Exception e){
-            
+        } catch (Exception e) {
+
             JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
-        }  
+        }
+    }
+
+    /*--------------------LOOK FOR--------------------*/
+    /*-----COMPRAS-----*/
+    public DefaultTableModel buscarProveedores(String buscar) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos = 0;
+        String[] columNames = {"NIF", "Nombre", "Apellidos", "Telefono"};//Columnas tablas
+
+        try { 
+
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Proveedores where Nombre like '%" + buscar + "%'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos = res.getInt("total");
+            res.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][4];
+
+        try {
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Proveedores where (Nombre like '%" + buscar + "%') or ( NIF like '%" + buscar + "%')");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+
+            while (res.next()) { //y llenamos los datos en la matriz
+                data[i][0] = res.getString("NIF");
+                data[i][1] = res.getString("Nombre");
+                data[i][2] = res.getString("Apellidos");
+                data[i][3] = res.getString("Telefono");
+                i++;
+            }
+
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
     }
     
+    /*-----ALMACEN-----*/
+     public DefaultTableModel buscarPedido(String buscar) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos = 0;
+        String[] columNames = {"ID Pedido", "DNI Cliente", "FECHA"};//Columnas tablas
+
+        try { 
+
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Pedidos where (ID like '%" + buscar + "%')or (DNI_Cliente like '%" + buscar + "%')");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos = res.getInt("total");
+            res.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][3];
+
+        try {
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Pedidos where (ID like '%" + buscar + "%')or (DNI_Cliente like '%" + buscar + "%')");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+
+            while (res.next()) { //y llenamos los datos en la matriz
+                data[i][0] = res.getString("ID");
+                data[i][1] = res.getString("DNI_Cliente");
+                data[i][2] = res.getString("FECHA");
+
+                i++;
+            }
+
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+     
+      public DefaultTableModel buscarFactura(String buscar) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos = 0;
+        String[] columNames = {"ID Factura", "ID Pedido", "FECHA"};//Columnas tablas
+
+        try { 
+
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as total FROM Facturas where (ID_Pedido like '%" + buscar + "%')or (ID like '%" + buscar + "%')");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos = res.getInt("total");
+            res.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][3];
+
+        try {
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Facturas where (ID_Pedido like '%" + buscar + "%')or (ID like '%" + buscar + "%')");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+
+            while (res.next()) { //y llenamos los datos en la matriz
+                data[i][0] = res.getString("ID");
+                data[i][1] = res.getString("ID_Pedido");
+                data[i][2] = res.getString("Precio_Total");
+
+                i++;
+            }
+
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+
 }

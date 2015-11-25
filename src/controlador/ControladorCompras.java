@@ -21,7 +21,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
     int pedido = 1;
     int factura = 2;
     String[] comboBuscarPedido = {"-Seleccionar-", "ID Pedido", "DNI"};
-    String[] comboBuscarFactura = {"-Seleccionar-", "ID Factura", "ID Pedido"};
+    String[] comboBuscarFactura = {"-Seleccionar-", "ID Factura", "ID Pedido Factura"};
     String[] comboVisualizar = {"-Seleccionar-", "Pedido", "Factura"};
     private TableRowSorter filtro;
 
@@ -48,8 +48,8 @@ public class ControladorCompras implements ActionListener, MouseListener {
             this.vista.tablaVisualizarPedido.setModel(this.modelo.getTablaPedido());
 
             this.vista.jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(comboVisualizar));
-            this.vista.jComboBuscar.setSelectedIndex(0);
-            this.vista.jComboVisualizar.setSelectedIndex(0);
+            //this.vista.jComboBuscar.setSelectedIndex(0);
+            //this.vista.jComboVisualizar.setSelectedIndex(0);
 
             //this.vista.jTable.setModel(this.modelo.());
             //this.vista.jTable.setModel(this.modelo.());
@@ -79,7 +79,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
         this.vista.txtTelefonoProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                
+
                 soloNumeros(evt);
                 if (vista.txtTelefonoProveedor.getText().length() >= 9) {
                     evt.consume();
@@ -116,12 +116,13 @@ public class ControladorCompras implements ActionListener, MouseListener {
             }
 
         });
+
         this.vista.txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            
+
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 soloNumeros(evt);
-                txtBuscarKeyTyped(evt);
+                Buscar(evt);
             }
         });
 
@@ -220,42 +221,29 @@ public class ControladorCompras implements ActionListener, MouseListener {
     }
 
     /*-----ALMACEN-----*/
-    
-    
     /*----------------------------------------------------METODO BUSCAR-----------------------------------------------*/
-    public void buscar() {
-        int columBuscar = 0;
-        if ((this.vista.jComboBuscar.getSelectedItem() == "ID Pedido") || this.vista.jComboBuscar.getSelectedItem() == "ID Factura") {
-            columBuscar = 1;
-        } 
-        if ((this.vista.jComboBuscar.getSelectedItem() == "ID Pedido") || (this.vista.jComboBuscar.getSelectedItem() == "DNI")) {
-            columBuscar = 2;
-        }
-        filtro.setRowFilter(RowFilter.regexFilter(this.vista.txtBuscar.getText(), columBuscar));
-    }
-
-    public void txtBuscarKeyTyped(java.awt.event.KeyEvent evt) {
-        this.vista.txtBuscar.addKeyListener(new KeyAdapter() {
-
-            public void KeyReased(final KeyEvent evt) {
-                String cadena = (vista.txtBuscar.getText());
-                vista.txtBuscar.setText(cadena);
-                buscar();
-            }
-        });
-        if (vista.jComboVisualizar.getSelectedItem() == "Pedido") {
-            filtro = new TableRowSorter(modelo.getTablaPedido());
-        } else if (vista.jComboVisualizar.getSelectedItem() == "Factura") {
-            filtro = new TableRowSorter(modelo.getTablaFactura());
+    private void Buscar(java.awt.event.KeyEvent evt) {
+        String buscar = this.vista.txtBuscadorArticulos.getText();
+        if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
+                && (this.vista.jComboBuscar.getSelectedItem() == "DNI"
+                || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
+            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarPedido(buscar));
+        } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
+                && (this.vista.jComboBuscar.getSelectedItem() == "DID_Factura"
+                || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
+            this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarFactura(buscar));
+        }else if(this.vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-") 
+                ){
+            JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar las tablas");
+        }else if( this.vista.jComboBuscar.getSelectedItem() == "-Seleccionar-"){
+            JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar la Columna");
         }
 
     }
-     /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
-    
-    
+    /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
+
     /*--------METODOS PARA CONTROLAR LA ESCRITURA---------*/
-
-    //Para letras
+//Para letras
     public void soloLetras(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
         if ((c < 'A') || (c > 'Z') && (c < 'a') || (c > 'z')) {
