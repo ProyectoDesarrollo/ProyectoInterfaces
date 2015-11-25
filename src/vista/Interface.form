@@ -465,6 +465,9 @@
               </AuxValues>
             </Component>
             <Component class="javax.swing.JTextField" name="txtBuscadorPresupuesto">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel40">
               <Properties>
