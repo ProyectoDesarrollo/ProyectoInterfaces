@@ -396,6 +396,32 @@ public class ModeloVentas extends DatabaseSQLite{
         }
         return tablemodel;
     }
+    
+    public int getStock(int i) {
+        
+        int r = 0;
+        String q = "SELECT Stock FROM Articulos WHERE ID = " + i;
+        
+        // Se sacara de la base de datos la información correspondiente al articulo indicado.
+        try {
+            
+            Statement stmt = this.getConexion().createStatement();
+            
+            ResultSet res = stmt.executeQuery(q);
+            res.next();
+            r = res.getInt("Stock");
+            res.close();
+            
+        } catch (SQLException e) {
+        
+            System.err.println(e.getMessage());
+            
+        }
+        
+        return r;
+        
+    }
+    
 }
        
 
