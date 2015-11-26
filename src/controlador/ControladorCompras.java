@@ -20,7 +20,6 @@ public class ControladorCompras implements ActionListener, MouseListener {
     ModeloVentas modeloV = new ModeloVentas();
     int fila = -1;
     String tabla;
-    String auxiliar;
     int pedido = 1;
     int factura = 2;
     String[] comboBuscarPedido = {"-Seleccionar-", "ID Pedido", "DNI"};
@@ -233,7 +232,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
             if (vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
                 this.vista.jPanelPedido.setVisible(true);
                 this.vista.jPanelVisualizar.setVisible(false);
-                this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(auxiliar));
+               
             }
         }
 
@@ -278,11 +277,11 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     private void tablaVisualizarPedido(java.awt.event.MouseEvent evt) {
         fila = this.vista.tablaVisualizarPedido.getSelectedRow();
-        String ID = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
+        String id_pedido = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
         String DNI = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 1);
 
         this.vista.txtDNIPedido.setText(DNI);
-        auxiliar = ID;
+        this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(id_pedido));
     }
     /*----------------------------------------------------METODO BUSCAR-----------------------------------------------*/
 
