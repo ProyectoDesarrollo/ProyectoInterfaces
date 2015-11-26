@@ -527,7 +527,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%') || (FECHA like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos where (NIF_Proveedor like '%" + buscar + "%') || (ID_Articulo like '%" + buscar + "%') || (FECHA like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos = res.getInt("total");
@@ -542,7 +542,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')|| (FECHA like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos where (NIF_Proveedor like '%" + buscar + "%') || (ID_Articulo like '%" + buscar + "%')|| (FECHA like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             int i = 0;
 
