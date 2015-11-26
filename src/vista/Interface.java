@@ -79,6 +79,7 @@ public class Interface extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         btnSalir = new javax.swing.JButton();
         jPanelPrincipal = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
         jPanelPresupuestos = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -579,15 +580,21 @@ public class Interface extends javax.swing.JFrame {
         jPanelPrincipal.setMinimumSize(new java.awt.Dimension(0, 0));
         jPanelPrincipal.setPreferredSize(new java.awt.Dimension(600, 650));
 
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/acuerdo_vivendi_activision.jpg"))); // NOI18N
+
         javax.swing.GroupLayout jPanelPrincipalLayout = new javax.swing.GroupLayout(jPanelPrincipal);
         jPanelPrincipal.setLayout(jPanelPrincipalLayout);
         jPanelPrincipalLayout.setHorizontalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                .addComponent(jLabel45)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanelPrincipalLayout.setVerticalGroup(
             jPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanelPrincipalLayout.createSequentialGroup()
+                .addComponent(jLabel45)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 750, 690));
@@ -1803,6 +1810,7 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;

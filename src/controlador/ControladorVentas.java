@@ -300,7 +300,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                        precio_total +=(int) this.vista.tablePedidoCarrito.getValueAt(fila, 3);
                     }
                     
-                    String id_pedido = String.valueOf( this.modelo.getID_Pedido(dni));
+                    /*String id_pedido = String.valueOf( this.modelo.getID_Pedido(dni));
                     int id_factura = this.modelo.getFacturaIDf(id_pedido);
                     int fecha = this.modelo.getFacturaF(id_factura);
                     this.vista.txtFacturaDNI.setText(dni);
@@ -313,7 +313,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     this.vista.txtFacturaPedido.setText(id_pedido));
                     this.vista.txtFacturaFactura.setText(String.valueOf(id_factura));
                     this.vista.txtFacturaTotal.setText(String.valueOf(precio_total));
-                    this.vista.txtFacturaTotalIVA.setText(String.valueOf(precio_total*0.24));
+                    this.vista.txtFacturaTotalIVA.setText(String.valueOf(precio_total*0.24));*/
                           
                     
                 } catch (Exception ex) {
