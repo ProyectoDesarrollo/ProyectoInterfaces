@@ -98,7 +98,7 @@ public class ModeloVentas extends DatabaseSQLite{
     }
     
     
-    public DefaultTableModel getTablaCarrito(int id_pedido){
+    public DefaultTableModel getTablaCarritos(int id_pedido){
         
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0; // Indica la cantidad de filas de la tabla.
@@ -134,6 +134,45 @@ public class ModeloVentas extends DatabaseSQLite{
             System.err.println( e.getMessage() );
         }
         return tablemodel;
+    }
+    
+    public ArrayList<Articulo> getTablaCarrito (int id_pedido) {
+        
+        ArrayList<Articulo> carrito = new ArrayList();
+        DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0; // Indica la cantidad de filas de la tabla.
+      String[] columNames = { "ID Articulo" ,"ID Pedido" ,"Cantidad"}; // Indica el nombre de las columnas de la tabla.
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Carrito where ID_Pedido = "+id_pedido+"");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+      Object[][] data = new String[registros][3];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT a.ID, a.Nombre, a.Cantidad, a.Precio, c.ID_Articulo, c.ID_Pedido FROM Articulos a, Carrito c WHERE a.ID = c.ID_Articulo AND c.ID_Pedido = " + id_pedido);
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+             
+                carrito.add(new Articulo(res.getString("a.ID"), res.getString("a.Nombre"), res.getString("a.Cantidad"), res.getString("a.Precio")));
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return carrito;
+        
     }
     
     public DefaultTableModel getTablaPedido(){
