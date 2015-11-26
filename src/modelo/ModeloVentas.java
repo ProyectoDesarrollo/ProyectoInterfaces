@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -85,6 +86,83 @@ public class ModeloVentas extends DatabaseSQLite{
                 data[i][1] = res.getString("Nombre");
                 data[i][2] = res.getString("Stock");
                 data[i][3] = res.getString("Precio");
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+    }
+    
+    
+    public DefaultTableModel getTablaCarrito(){
+        
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0; // Indica la cantidad de filas de la tabla.
+      String[] columNames = { "ID_Articulo" ,"ID_Pedido" ,"Cantidad"}; // Indica el nombre de las columnas de la tabla.
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Carrito");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+      Object[][] data = new String[registros][3];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID_Articulo, ID_Pedido, Cantidad FROM Carrito");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                data[i][0] = res.getString("ID_Articulo");
+                data[i][1] = res.getString("ID_Pedido");
+                data[i][2] = res.getString("Cantidad");
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+    }
+    
+    public DefaultTableModel getTablaPedido(){
+        
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0; // Indica la cantidad de filas de la tabla.
+      String[] columNames = { "ID" ,"DNI_Cliente" ,"Fecha"}; // Indica el nombre de las columnas de la tabla.
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Pedidos");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+      Object[][] data = new String[registros][3];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID ,DNI_Cliente ,Fecha FROM Pedidos");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                data[i][0] = res.getString("ID");
+                data[i][1] = res.getString("DNI_Cliente");
+                data[i][2] = res.getString("Fecha");
             i++;
          }
          res.close();
@@ -208,6 +286,40 @@ public class ModeloVentas extends DatabaseSQLite{
         
         String q=" INSERT INTO Articulos ( Nombre ,Stock ,Precio, NIF_Proveedor,  IVA )"
                     + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + nif + "','" + iva + "') ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
+    
+    public boolean InsertarCarrito (String id ,String idPedido, int cantidad) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Carrito ( ID_Articulo ,ID_Pedido ,Cantidad )"
+                    + "VALUES ( '" + id + "','" + idPedido + "','" + cantidad + "') ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
+    
+    public boolean InsertarPedidos (String id ,String dni, Date fecha) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Carrito ( ID ,DNI_Cliente ,FECHA )"
+                    + "VALUES ( '" + id + "','" + dni + "','" + fecha + "') ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
