@@ -97,8 +97,10 @@ public class ControladorCompras implements ActionListener, MouseListener {
         });
 
         /*-----ALMACEN-----*/
-        this.vista.btnBuscar.setActionCommand("btnBuscar");
-        this.vista.btnBuscar.addActionListener(this);
+        //this.vista.btnBuscar.setActionCommand("btnBuscar");
+        //this.vista.btnBuscar.addActionListener(this);
+        this.vista.btnImprimir.setActionCommand("btnImprimir");
+        this.vista.btnImprimir.addActionListener(this);
 
         //controlamos lo que ocurra en el jComboBox Visualizar
         this.vista.jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -111,6 +113,10 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     vista.pPanelVisualizarInicial.setVisible(false);
                     vista.pPanelVisualizarFactura.setVisible(false);
                     vista.jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(comboBuscarPedido));
+                    //Mostramos el boton
+                    vista.btnImprimir.setVisible(true);
+                    //Cambio nombre del boton
+                    vista.btnImprimir.setLabel("Visualizar");
 
                 } else if (vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
                     //LLamada a los paneles     
@@ -118,7 +124,14 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     vista.pPanelVisualizarInicial.setVisible(false);
                     vista.pPanelVisualizarFactura.setVisible(true);
                     vista.jComboBuscar.setModel(new javax.swing.DefaultComboBoxModel(comboBuscarFactura));
+                    //Mostramos el boton
+                    vista.btnImprimir.setVisible(true);
+                    //Cambio nombre del boton
+                    vista.btnImprimir.setLabel("Imprimir");
 
+                } else if (vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-")) {
+                    //Ocultamos el boton
+                    vista.btnImprimir.setVisible(false);
                 }
             }
 
@@ -211,14 +224,19 @@ public class ControladorCompras implements ActionListener, MouseListener {
             } catch (Exception ex) {
             }
 
-        } else if (comand.equals("btnBuscar")) { /*-----ALMACEN-----*/
+        } else if (comand.equals("btnImprimir")) { /*-----ALMACEN-----*/
 
 
+            if (vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
+                this.vista.jPanelPedido.setVisible(true);
+                this.vista.jPanelVisualizar.setVisible(false);
+            }
         }
 
     }
- /*----------------------------------------------------TABLAS-----------------------------------------------*/
+    /*----------------------------------------------------TABLAS-----------------------------------------------*/
     /*-----COMPRAS-----*/
+
     private void tableProveedoresMouseClicked(java.awt.event.MouseEvent evt) {
 
         fila = this.vista.tableProveedores.getSelectedRow();
@@ -235,7 +253,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
     }
 
     /*-----ALMACEN-----*/
-      private void tablaArticulosAlmacenMouseClicked(java.awt.event.MouseEvent evt) {
+    private void tablaArticulosAlmacenMouseClicked(java.awt.event.MouseEvent evt) {
 
         fila = this.vista.tablaArticulosAlmacen.getSelectedRow();
         String id = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 0);
@@ -253,9 +271,19 @@ public class ControladorCompras implements ActionListener, MouseListener {
         this.vista.txtIVAAlmacen.setValue(0);
 
     }
+
+    private void tablaVisualizarPedido(java.awt.event.MouseEvent evt) {
+        fila = this.vista.tablaVisualizarPedido.getSelectedRow();
+        String ID = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
+        String DNI = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 1);
+
+        this.vista.txtDNIPedido.setText(DNI);
+    }
     /*----------------------------------------------------METODO BUSCAR-----------------------------------------------*/
+
     //Buscar facturas y pedidos
     private void BuscarVisualizar(java.awt.event.KeyEvent evt) {
+
         String buscar = this.vista.txtBuscadorArticulos.getText();
         if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DNI"
@@ -270,9 +298,9 @@ public class ControladorCompras implements ActionListener, MouseListener {
             this.vista.tablaVisualizarFactura.setModel(this.modelo.buscarFactura(buscar));
 
         } else if (this.vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-")) {
-            
+
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar las tablas");
-            
+
         } else if (this.vista.jComboBuscar.getSelectedItem() == "-Seleccionar-") {
 
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar la Columna");
@@ -289,7 +317,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     //Buscar en articulos
     private void BuscarArticulos(java.awt.event.KeyEvent evt) {
-        
+
         String buscar = this.vista.txtBuscadorAlmacen.getText();
         this.vista.tablaArticulosAlmacen.setModel(this.modelo.buscarArticulo(buscar));
     }
