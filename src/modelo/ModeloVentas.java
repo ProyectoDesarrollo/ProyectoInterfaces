@@ -98,15 +98,15 @@ public class ModeloVentas extends DatabaseSQLite{
     }
     
     
-    public DefaultTableModel getTablaCarrito(){
+    public DefaultTableModel getTablaCarrito(int id_pedido){
         
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0; // Indica la cantidad de filas de la tabla.
-      String[] columNames = { "ID_Articulo" ,"ID_Pedido" ,"Cantidad"}; // Indica el nombre de las columnas de la tabla.
+      String[] columNames = { "ID Articulo" ,"ID Pedido" ,"Cantidad"}; // Indica el nombre de las columnas de la tabla.
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
       try{
-         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Carrito");
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Carrito where ID_Pedido like '%"+id_pedido+"%'");
          ResultSet res = pstm.executeQuery();
          res.next();
          registros = res.getInt("total");
@@ -118,7 +118,7 @@ public class ModeloVentas extends DatabaseSQLite{
       Object[][] data = new String[registros][3];
       try{
           //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID_Articulo, ID_Pedido, Cantidad FROM Carrito");
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID_Articulo, ID_Pedido, Cantidad FROM Carrito where ID_Pedido like '%"+id_pedido+"%'");
          ResultSet res = pstm.executeQuery();
          int i=0;
          while(res.next()){
@@ -140,7 +140,7 @@ public class ModeloVentas extends DatabaseSQLite{
         
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0; // Indica la cantidad de filas de la tabla.
-      String[] columNames = { "ID" ,"DNI_Cliente" ,"Fecha"}; // Indica el nombre de las columnas de la tabla.
+      String[] columNames = { "ID" ,"DNI Cliente" ,"Fecha"}; // Indica el nombre de las columnas de la tabla.
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
       try{

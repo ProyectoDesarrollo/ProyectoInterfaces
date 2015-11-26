@@ -10,12 +10,14 @@ import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 import modelo.ModeloCompras;
+import modelo.ModeloVentas;
 import vista.Interface;
 
 public class ControladorCompras implements ActionListener, MouseListener {
 
     Interface vista;
     ModeloCompras modelo = new ModeloCompras();
+    ModeloVentas modeloV = new ModeloVentas();
     int fila = -1;
     String tabla;
     int pedido = 1;
