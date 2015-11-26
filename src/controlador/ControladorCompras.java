@@ -179,7 +179,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
         });
         this.vista.txtBuscadorPagos.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
-            public void keyTyped(java.awt.event.KeyEvent evt) {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
                 BuscarPagos(evt);
             }
         });
@@ -265,8 +265,10 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     JOptionPane.showMessageDialog(vista, "Seleccione una fila");
 
                 } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {//comprobamos en que tabla estamos
+                    String id_pedido= (String)this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
                     this.vista.jPanelPedido.setVisible(true);//cambiamos de panel
                     this.vista.jPanelVisualizar.setVisible(false);//ocultamos el actual
+                    this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(Integer.valueOf(id_pedido)));
 
                 }/*else if(this.vista.jComboVisualizar.getSelectedItem().equals("Factura")){
                  PARA CREAR LA FATURA CON EL INDITEX O COMO COÑO SE ESCRIBA 
@@ -324,7 +326,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
         String DNI = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 1);
 
         this.vista.txtDNIPedido.setText(DNI);
-        this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(id_pedido));
+        this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(Integer.valueOf(id_pedido)));
     }
 
     private void tablaPagoMouseClicked(java.awt.event.MouseEvent evt) {

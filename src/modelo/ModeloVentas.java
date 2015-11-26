@@ -98,7 +98,7 @@ public class ModeloVentas extends DatabaseSQLite{
     }
     
     
-    public DefaultTableModel getTablaCarrito(String id_pedido){
+    public DefaultTableModel getTablaCarrito(int id_pedido){
         
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0; // Indica la cantidad de filas de la tabla.
@@ -106,7 +106,7 @@ public class ModeloVentas extends DatabaseSQLite{
       //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
       //para formar la matriz de datos
       try{
-         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Carrito where ID_Pedido like '%"+id_pedido+"%'");
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Carrito where ID_Pedido = "+id_pedido+"");
          ResultSet res = pstm.executeQuery();
          res.next();
          registros = res.getInt("total");
