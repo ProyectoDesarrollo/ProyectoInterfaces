@@ -140,10 +140,10 @@ public class ControladorCompras implements ActionListener, MouseListener {
             }
         });
         this.vista.tablePagos.addMouseListener(new java.awt.event.MouseAdapter() {
-            
-               @Override
+
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                   tablaPagoMouseClicked(evt);
+                tablaPagoMouseClicked(evt);
             }
         });
 
@@ -189,7 +189,6 @@ public class ControladorCompras implements ActionListener, MouseListener {
                 BuscarPagos(evt);
             }
         });
-
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -432,7 +431,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
                 this.vista.tablePagos.setModel(this.modelo.buscarPagosFechas(fecha1, fecha2)); //si solo usamos la fecha
 
-            } else if ((!buscar.equals("") && fecha1.equals("") && !fecha2.equals("")) || (!buscar.equals("") && !fecha1.equals("") && fecha2.equals(""))) {
+            } else if ((!buscar.equals("") && fecha1.equals("") && !fecha2.equals("")) || (!buscar.equals("") && !fecha1.equals("") && fecha2.equals(""))) { //Comprobamos que ambas fechas estan escritas
 
                 JOptionPane.showMessageDialog(vista, "Debe rellenar ambas fechas");
 
