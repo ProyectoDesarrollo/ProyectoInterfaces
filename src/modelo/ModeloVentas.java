@@ -722,6 +722,29 @@ public class ModeloVentas extends DatabaseSQLite{
         
         return r;
     }
+    
+    public int getFactura(String dni){
+        
+        int r=0;
+        String q = "SELECT Fecha, ID_Pedido, ID_Factura FROM Facturas WHERE ID_Pedido like (SELECT ID FROM Pedidos Where DNI = '"+dni+"')";
+        
+        try {
+            
+            Statement stmt = this.getConexion().createStatement();
+            
+            ResultSet res = stmt.executeQuery(q);
+            res.next();
+            r = res.getInt("Fecha");
+            res.close();
+            
+        } catch (SQLException e) {
+        
+            e.printStackTrace();
+            
+        }
+        
+        return r;
+    }
 }
        
 
