@@ -356,7 +356,7 @@ public class ModeloVentas extends DatabaseSQLite{
         
         try{
             
-            PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Articulos where Nombre like '%"+buscar+"%'");
+            PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as total FROM Articulos where (Nombre like '%"+buscar+"%' ) ||( ID like '%"+buscar+"%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos=res.getInt("total");
@@ -372,7 +372,7 @@ public class ModeloVentas extends DatabaseSQLite{
         
         try{
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Articulos where Nombre like '%"+buscar+"%'");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT * FROM Articulos where (Nombre like '%"+buscar+"%' ) ||( ID like '%"+buscar+"%')");
             ResultSet res = pstm.executeQuery();
             int i=0;
             

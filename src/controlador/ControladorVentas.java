@@ -129,26 +129,31 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 tablePresupuestoCarritoMouseClicked(evt);
             }
         });
+        
         this.vista.tablaArticulosAlmacen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaArticulosAlmacenMouseClicked(evt);
             }
         });
+        
         this.vista.txtBuscadorArticulos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Buscar(evt);
             }
         });
+        
         this.vista.txtBuscadorPresupuesto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BuscarPresupuesto(evt);
             }
         });
+        
         this.vista.txtBuscadorClientes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BuscarClientes(evt);
             }
         });
+        
         this.vista.txtDNIPedido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 DNIPedido(evt);
