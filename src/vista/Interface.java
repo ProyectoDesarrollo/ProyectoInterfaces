@@ -1385,7 +1385,7 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnClientes;
     public javax.swing.JButton btnCrearFactura;
     public javax.swing.JButton btnEliminarProveedor;
-    private javax.swing.JButton btnImprimir;
+    public javax.swing.JButton btnImprimir;
     public javax.swing.JButton btnImprimirPresupuesto;
     public javax.swing.JButton btnModificarAlmacen;
     public javax.swing.JButton btnModificarCliente;
