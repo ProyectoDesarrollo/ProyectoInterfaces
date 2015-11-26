@@ -46,7 +46,9 @@ public class ControladorVentas implements ActionListener, MouseListener {
         btnModificarPresupuesto,
         btnBorrarPresupuesto,
         btnAñadirAlmacen,
-        btnModificarAlmacen
+        btnModificarAlmacen,
+        jMenuItem1,
+        jMenuItem2
     }
 
     public ControladorVentas(Interface vista) {
@@ -104,7 +106,13 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
         this.vista.btnModificarAlmacen.setActionCommand("btnModificarAlmacen");
         this.vista.btnModificarAlmacen.addActionListener(this);
-
+        
+        this.vista.jMenuItem1.setActionCommand("jMenuItem1");
+        this.vista.jMenuItem1.addActionListener(this);
+        
+        this.vista.jMenuItem2.setActionCommand("jMenuItem2");
+        this.vista.jMenuItem2.addActionListener(this);
+        
         //----------------------Funciones de click de ratón sobre tablas---------------------
         this.vista.tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -171,7 +179,19 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
     public void actionPerformed(ActionEvent e) {
         switch (AccionMVC.valueOf(e.getActionCommand())) {
-
+            
+            case jMenuItem1:
+                
+                this.vista.dispose();
+                
+                break;
+                
+            case jMenuItem2:
+                
+                JOptionPane.showMessageDialog(null, "Trabajo realizado por: ");
+                
+                break;
+                
             case btnAñadirPedido://Añade un pedido a la tabla pedidos
 
                 try {
