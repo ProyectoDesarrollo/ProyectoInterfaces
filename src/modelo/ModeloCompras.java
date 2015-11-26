@@ -53,9 +53,7 @@ public class ModeloCompras extends DatabaseSQLite {
         return tablemodel;
     }
 
-    
     /*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
-    
     public DefaultTableModel getTablaPedido() {
 
         DefaultTableModel tablemodel = new DefaultTableModel();
@@ -133,6 +131,7 @@ public class ModeloCompras extends DatabaseSQLite {
     }
 
     /*-----------------------------------------------------INSERT---------------------------------------------------------------*/
+    /*-----------------------------------------------------------------COMPRAS----------------------------------------------------*/
     public boolean InsertarProveedores(String nif, String nombre, String apellidos, int telefono) {
         //Consulta para insertar 
 
@@ -150,7 +149,27 @@ public class ModeloCompras extends DatabaseSQLite {
         return false;
     }
 
+    /*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
+    public boolean InsertarArticulo(String nombre, int stock, double precio, String nif, int iva) {
+            //Consulta para insertar 
+
+        String q = " INSERT INTO Articulos ( Nombre ,Stock ,Precio, NIF_Proveedor,  IVA )"
+                + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + nif + "','" + iva + "') ";
+        //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return false;
+    }
+
     /*----------------------------------------------------------DELETED--------------------------------------------------------------*/
+    
+    /*-----------------------------------------------------------------COMPRAS----------------------------------------------------*/
     public boolean EliminarProveedores(String nif) {
         boolean res = false;
         //se arma la consulta
@@ -167,6 +186,9 @@ public class ModeloCompras extends DatabaseSQLite {
         return res;
     }
     /*-------------------------------------------------------------UPDATE----------------------------------------------------------*/
+    
+    
+    /*-------------------------------------------------------------------COMPRAS----------------------------------------------------*/
 
     public void modificarProveedor(String nif, String nombre, String apellidos, int telefono) {
 
@@ -187,12 +209,34 @@ public class ModeloCompras extends DatabaseSQLite {
             JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
         }
     }
+    
+/*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
+    
+    public void modificarArticulo(String id, String nombre, int stock, double precio, String nif, int iva) {
+
+        String q = "Update Articulos set ID='" + id + "', Nombre='" + nombre + "', Stock='" + stock + "', Precio='" + precio + "',NIF_Proveedor='" + nif + "', IVA='" + iva + "' where ID='" + id + "';";
+
+        try {
+
+            //Se mete en la base de datos
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
+        }
+    }
+
 
     /*-------------------------------------------------------------------LOOK FOR-----------------------------------------------*/
     
     
     /*-------------------------------------------------------------------COMPRAS----------------------------------------------------*/
-    
     //Metodo buscar en proveedores
     public DefaultTableModel buscarProveedores(String buscar) {
         DefaultTableModel tablemodel = new DefaultTableModel();
@@ -244,7 +288,6 @@ public class ModeloCompras extends DatabaseSQLite {
     }
 
     /*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
-    
     //Metodo buscar en Pedido
     public DefaultTableModel buscarPedido(String buscar) {
         DefaultTableModel tablemodel = new DefaultTableModel();
@@ -344,11 +387,10 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-    
-    
+
     //Metodo buscar en Articulo
     public DefaultTableModel buscarArticulo(String buscar) {
-        
+
         DefaultTableModel tablemodel = new DefaultTableModel();
         int productos = 0;
         String[] columNames = {"ID", "Nombre", "Stock", "Precio"};

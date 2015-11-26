@@ -217,7 +217,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
         }
 
     }
-
+ /*----------------------------------------------------TABLAS-----------------------------------------------*/
     /*-----COMPRAS-----*/
     private void tableProveedoresMouseClicked(java.awt.event.MouseEvent evt) {
 
@@ -235,6 +235,24 @@ public class ControladorCompras implements ActionListener, MouseListener {
     }
 
     /*-----ALMACEN-----*/
+      private void tablaArticulosAlmacenMouseClicked(java.awt.event.MouseEvent evt) {
+
+        fila = this.vista.tablaArticulosAlmacen.getSelectedRow();
+        String id = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 0);
+        String nombre = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 1);
+        String stock = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 2);
+        String precio = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 3);
+        String nif = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 4);
+        String iva = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 5);
+
+        this.vista.txtIDAlmacen.setText(id);
+        this.vista.txtNombreAlmacen.setText(nombre);
+        this.vista.txtStockAlmacen.setText(stock);
+        this.vista.txtPrecioAlmacen.setText(precio);
+        this.vista.txtNIFAlmacen.setText(nif);
+        this.vista.txtIVAAlmacen.setValue(0);
+
+    }
     /*----------------------------------------------------METODO BUSCAR-----------------------------------------------*/
     //Buscar facturas y pedidos
     private void BuscarVisualizar(java.awt.event.KeyEvent evt) {
@@ -269,7 +287,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
         this.vista.tableProveedores.setModel(this.modelo.buscarProveedores(buscar));
     }
 
-    //buscar en articulos
+    //Buscar en articulos
     private void BuscarArticulos(java.awt.event.KeyEvent evt) {
         
         String buscar = this.vista.txtBuscadorAlmacen.getText();
