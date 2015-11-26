@@ -377,7 +377,7 @@ public class ModeloVentas extends DatabaseSQLite{
     public boolean InsertarFactura (String id, int idPedido, double precioTotal) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Articulos ( ID, ID_Pedido, Precio_Total )"
+        String q=" INSERT INTO Factura ( ID, ID_Pedido, Precio_Total )"
                     + "VALUES ( '" + id + "', '" + idPedido + "','" + precioTotal + "') ";
             //se ejecuta la consulta
         try {
@@ -411,7 +411,7 @@ public class ModeloVentas extends DatabaseSQLite{
     public boolean InsertarPedidos (String id ,String dni, Date fecha) {
             //Consulta para insertar 
         
-        String q=" INSERT INTO Carrito ( ID ,DNI_Cliente ,FECHA )"
+        String q=" INSERT INTO Pedidos ( ID ,DNI_Cliente ,FECHA )"
                     + "VALUES ( '" + id + "','" + dni + "','" + fecha + "') ";
             //se ejecuta la consulta
         try {
@@ -459,7 +459,22 @@ public class ModeloVentas extends DatabaseSQLite{
             return false;      
     }
     
-   
+   public boolean InsertarPago (String nif, int telefono, int tarjeta, double precio, Date fecha) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Pagos ( NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA ) "
+                    + "VALUES ( '" + nif + "', " + telefono + ", " + tarjeta + ", " + precio + ", '" + fecha + "' ) ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
     
     public boolean EliminarClientes( String dni ){
          boolean res=false;

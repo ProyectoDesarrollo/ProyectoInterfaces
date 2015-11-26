@@ -12,6 +12,7 @@ import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.Articulo;
+import modelo.ModeloCompras;
 import modelo.ModeloVentas;
 import vista.Interface;
 
@@ -23,6 +24,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
     Interface vista;
     ModeloVentas modelo = new ModeloVentas();
+    ModeloCompras modeloC = new ModeloCompras();
     int fila = -1;
     int fila1 = -1;
     ArrayList<Articulo> ListaPedido;
@@ -496,6 +498,8 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     if (iva <= 0 || precio <= 0 || stock < 0) {
                         JOptionPane.showMessageDialog(vista, "La cantidad es incorrecta");
                     } else {
+                        
+                        //this.modelo.InsertarCobros(nif, iva, iva, nif);
                         this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
                         this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
                         this.vista.txtIDAlmacen.setText("");
