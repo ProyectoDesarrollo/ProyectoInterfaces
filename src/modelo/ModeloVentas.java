@@ -98,7 +98,7 @@ public class ModeloVentas extends DatabaseSQLite{
     }
     
     
-    public DefaultTableModel getTablaCarrito(int id_pedido){
+    public DefaultTableModel getTablaCarrito(String id_pedido){
         
       DefaultTableModel tablemodel = new DefaultTableModel();
       int registros = 0; // Indica la cantidad de filas de la tabla.
