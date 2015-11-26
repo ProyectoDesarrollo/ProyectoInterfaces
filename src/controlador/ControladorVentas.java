@@ -48,7 +48,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
         this.vista = vista;
 
     }
-
+    
     public void iniciar() {
 
         try {
@@ -99,7 +99,8 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
         this.vista.btnModificarAlmacen.setActionCommand("btnModificarAlmacen");
         this.vista.btnModificarAlmacen.addActionListener(this);
-
+        
+        //----------------------Funciones de click de ratón sobre tablas---------------------
         this.vista.tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableClientesMouseClicked(evt);
@@ -136,6 +137,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
             }
         });
         
+        //----------------------------Funcines de teclado-----------------------------
         this.vista.txtBuscadorArticulos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Buscar(evt);
@@ -165,7 +167,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
     public void actionPerformed(ActionEvent e) {
         switch (AccionMVC.valueOf(e.getActionCommand())) {
 
-            case btnAñadirPedido:
+            case btnAñadirPedido://Añade un pedido a la tabla pedidos
                 
                 try {
 
@@ -214,7 +216,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 
                 break;
 
-            case btnModificarPedido:
+            case btnModificarPedido://Modifica un pedido
 
                 try {
 
@@ -253,7 +255,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnBorrarPedido:
+            case btnBorrarPedido://Borra un pedido
 
                 try {
 
@@ -276,7 +278,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnCrearFactura:
+            case btnCrearFactura://Crea la factura
 
                 try {
                                      
@@ -288,7 +290,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnAñadirCliente:
+            case btnAñadirCliente://Añade un cliente
 
                 try {
 
@@ -313,7 +315,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnModificarCliente:
+            case btnModificarCliente://Modifica un cliente
 
                 try {
 
@@ -346,7 +348,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnBorrarCliente:
+            case btnBorrarCliente://Borra un cliente
 
                 try {
 
@@ -370,7 +372,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnAñadirPresupuesto:
+            case btnAñadirPresupuesto://Añade un presupuesto
                 
                 try {
 
@@ -419,7 +421,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 
                 break;
 
-            case btnModificarPresupuesto:
+            case btnModificarPresupuesto://Modifica un presupuesto
 
                 try {
 
@@ -458,7 +460,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnBorrarPresupuesto:
+            case btnBorrarPresupuesto://Borra un presupuesto
 
                 try {
 
@@ -481,7 +483,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnAñadirAlmacen:
+            case btnAñadirAlmacen://Insertas Articulos
 
                 try {
 
@@ -504,7 +506,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 break;
 
-            case btnModificarAlmacen:
+            case btnModificarAlmacen://Modifica un Artículo
 
                 try {
 
@@ -536,7 +538,8 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 break;
         }
     }
-
+    
+    //----------------------Permite la selección de elementos dentro de tablas---------------------------
     private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {
 
         fila = this.vista.tableClientes.getSelectedRow();
@@ -650,23 +653,24 @@ public class ControladorVentas implements ActionListener, MouseListener {
         }
     }
     
-    private void Buscar(java.awt.event.KeyEvent evt) {                 
+    //------------------------Metodos Buscar--------------------------------
+    private void Buscar(java.awt.event.KeyEvent evt) {//Busca Artículos
         String buscar= this.vista.txtBuscadorArticulos.getText();
         this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));       
     }
     
-    private void BuscarPresupuesto(java.awt.event.KeyEvent evt) {                 
+    private void BuscarPresupuesto(java.awt.event.KeyEvent evt) {//Busca presupuesto           
         String buscar= this.vista.txtBuscadorPresupuesto.getText();
         this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));       
     }
     
-    private void BuscarClientes(java.awt.event.KeyEvent evt) {                 
+    private void BuscarClientes(java.awt.event.KeyEvent evt) {//Busca Clientes            
         String buscar= this.vista.txtBuscadorClientes.getText();
         this.vista.tableClientes.setModel(this.modelo.buscarCliente(buscar));       
     }
     
+    //--------Rellena los Textfield con información del cliente en función al DNI------------ 
     private void DNIPedido(java.awt.event.KeyEvent evt) {
-        
         String dni= this.vista.txtDNIPedido.getText();
         String[] Relleno= this.modelo.Rellenar(dni);        
         this.vista.txtNombrePedido.setText(Relleno[0]);
