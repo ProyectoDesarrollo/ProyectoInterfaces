@@ -177,7 +177,7 @@ public class ModeloCompras extends DatabaseSQLite {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0; // Indica la cantidad de filas de la tabla.
         int cantidad = 0;
-        String[] columNames = {"ID", "Nombre", "Stock", "Precio"}; // Indica el nombre de las columnas de la tabla.
+        String[] columNames = {"ID", "Nombre", "Stock", "Precio", "NIF", "IVA"}; // Indica el nombre de las columnas de la tabla.
         //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
         //para formar la matriz de datos
         try {
@@ -190,10 +190,10 @@ public class ModeloCompras extends DatabaseSQLite {
             System.err.println(e.getMessage());
         }
         //se crea una matriz con tantas filas y columnas que necesite
-        Object[][] data = new String[registros][4];
+        Object[][] data = new String[registros][6];
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID, Nombre, Stock, Precio FROM Articulos where Stock >" + cantidad + "");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID, Nombre, Stock, Precio ,NIF_Proveedor, IVA FROM Articulos where Stock >" + cantidad + "");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
@@ -201,6 +201,8 @@ public class ModeloCompras extends DatabaseSQLite {
                 data[i][1] = res.getString("Nombre");
                 data[i][2] = res.getString("Stock");
                 data[i][3] = res.getString("Precio");
+                data[i][4] = res.getString("NIF_Proveedor");
+                data[i][5] = res.getString("IVA");
                 i++;
             }
             res.close();

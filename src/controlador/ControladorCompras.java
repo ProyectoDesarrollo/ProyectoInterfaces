@@ -166,7 +166,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
                 if (vista.cbxStockAlmacen.isSelected() == true) {
                     vista.tablaArticulosAlmacen.setModel(modelo.getTablaArticulosStock());
                 } else {
-                    vista.tablaArticulosAlmacen.setModel(modeloV.getTablaArticulos());
+                    vista.tablaArticulosAlmacen.setModel(modeloV.getTablaAlmacen());
                 }
 
             }
