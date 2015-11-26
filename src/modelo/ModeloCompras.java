@@ -3,6 +3,7 @@ package modelo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -668,5 +669,28 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-
+    
+    public int getPrecioArticulo(int id){
+        
+        int r=0;
+        String q = "SELECT Precio FROM Articulos WHERE ID= '"+id+"'" ;
+        
+        try {
+            
+            Statement stmt = this.getConexion().createStatement();
+            
+            ResultSet res = stmt.executeQuery(q);
+            res.next();
+            r = res.getInt("Precio");
+            res.close();
+            
+        } catch (SQLException e) {
+        
+            e.printStackTrace();
+            
+        }
+        
+        return r;
+    }
+    
 }
