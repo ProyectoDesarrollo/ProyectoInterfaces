@@ -495,6 +495,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     String nombre = this.vista.txtNombreAlmacen.getText();
                     int stock = Integer.parseInt(this.vista.txtStockAlmacen.getText());
                     double precio = Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
+                    double precioT = Double.parseDouble(this.vista.txtPrecioAlmacen.getText())*0.85;
                     String nif = this.vista.txtNIFAlmacen.getText();
                     int id = Integer.parseInt(this.vista.txtIDAlmacen.getText());
                     String dia = Integer.toString(c.get(Calendar.DATE));
@@ -508,7 +509,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                         JOptionPane.showMessageDialog(vista, "La cantidad es incorrecta");
                     } else {
                         
-                        this.modelo.InsertarPago(nif, id, stock, precio, fecha);
+                        this.modelo.InsertarPago(nif, id, stock, precioT, fecha);
                         this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
                         this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
                         this.vista.txtIDAlmacen.setText("");

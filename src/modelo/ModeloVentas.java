@@ -459,11 +459,11 @@ public class ModeloVentas extends DatabaseSQLite{
             return false;      
     }
     
-   public boolean InsertarPago (String nif, int id, int stock, double precio, String fecha) {
+   public boolean InsertarPago (String nif, int id, int stock, double precioT, String fecha) {
             //Consulta para insertar 
         
         String q=" INSERT INTO Pagos ( NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA ) "
-                    + "VALUES ( '" + nif + "', " + id + ", " + stock + ", " + precio + ", '" + fecha + "' ) ";
+                    + "VALUES ( '" + nif + "', " + id + ", " + stock + ", " + precioT + ", '" + fecha + "' ) ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
