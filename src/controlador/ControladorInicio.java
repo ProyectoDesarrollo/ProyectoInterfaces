@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import modelo.ModeloCompras;
 import modelo.ModeloVentas;
 import vista.Interface;
 
@@ -11,6 +12,7 @@ public class ControladorInicio implements ActionListener, MouseListener {
 
     Interface vista;
     ModeloVentas modelo;
+    ModeloCompras modeloC;
     ControladorCompras controladorCompras;
     ControladorVentas controladorVentas;
 
@@ -30,6 +32,8 @@ public class ControladorInicio implements ActionListener, MouseListener {
     public ControladorInicio(Interface vista) {
         
         modelo = new ModeloVentas();
+        modeloC = new ModeloCompras();
+                
         this.vista = vista;
     }
 
@@ -171,6 +175,7 @@ public class ControladorInicio implements ActionListener, MouseListener {
 
                 try {
 
+                    this.vista.tablePagos.setModel(this.modeloC.getTablaPagos());
                     this.vista.jPanelPrincipal.setVisible(false);
                     this.vista.jPanelPresupuestos.setVisible(false);
                     this.vista.jPanelPedido.setVisible(false);
