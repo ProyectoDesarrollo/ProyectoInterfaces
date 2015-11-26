@@ -527,7 +527,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%') || (FECHA like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             res.next();
             productos = res.getInt("total");
@@ -542,7 +542,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         try {
             //realizamos la consulta sql 
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')|| (FECHA like '%" + buscar + "%')");
             ResultSet res = pstm.executeQuery();
             int i = 0;
 
@@ -569,8 +569,10 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-     //Pagos por FECHAS
-    public DefaultTableModel buscarPagosFechas(String Fecha1 , String Fecha2) {
+/*
+    //Pagos por FECHAS
+
+    public DefaultTableModel buscarPagosFechas(String Fecha1, String Fecha2) {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int productos = 0;
         String[] columNames = {"NIF Proveedor", "ID Articulo", "Cantidad", "Precio Total", "FECHA"};//Columnas tablas
@@ -619,8 +621,10 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-     //Pagos por nif- id + FECHAS
-    public DefaultTableModel buscarPagosBuscarFechas(String buscar,String Fecha1 , String Fecha2) {
+
+    //Pagos por nif- id + FECHAS
+
+    public DefaultTableModel buscarPagosBuscarFechas(String buscar, String Fecha1, String Fecha2) {
         DefaultTableModel tablemodel = new DefaultTableModel();
         int productos = 0;
         String[] columNames = {"NIF Proveedor", "ID Articulo", "Cantidad", "Precio Total", "FECHA"};//Columnas tablas
@@ -669,28 +673,28 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
-    
-    public int getPrecioArticulo(int id){
-        
-        int r=0;
-        String q = "SELECT Precio FROM Articulos WHERE ID= '"+id+"'" ;
-        
+*/
+    public int getPrecioArticulo(int id) {
+
+        int r = 0;
+        String q = "SELECT Precio FROM Articulos WHERE ID=" + id + "";
+
         try {
-            
+
             Statement stmt = this.getConexion().createStatement();
-            
+
             ResultSet res = stmt.executeQuery(q);
             res.next();
             r = res.getInt("Precio");
             res.close();
-            
+
         } catch (SQLException e) {
-        
+
             e.printStackTrace();
-            
+
         }
-        
+
         return r;
     }
-    
+
 }

@@ -183,12 +183,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
                 BuscarPagos(evt);
             }
         });
-        this.vista.txtFechaA.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                BuscarPagos(evt);
-            }
-        });
+     
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -341,12 +336,14 @@ public class ControladorCompras implements ActionListener, MouseListener {
         String cantidad = (String) this.vista.tablePagos.getValueAt(fila, 2);
         String precio = (String) this.vista.tablePagos.getValueAt(fila, 3);
         String fecha = (String) this.vista.tablePagos.getValueAt(fila, 4);
-
+        //buscamos el precio dle articulo
+        int precio_articulo = this.modelo.getPrecioArticulo(Integer.valueOf(id_articulo));
         //Volcamos los datos en los jtextField
         this.vista.txtPagosProveedor.setText(nif);
         this.vista.txtPagosArticulo.setText(id_articulo);
         this.vista.txtPagosCantidad.setText(cantidad);
-        this.vista.txtPagosPrecio.setText(precio);
+        this.vista.txtPagosPrecio.setText(String.valueOf(precio_articulo));
+        this.vista.txtPagosTotal.setText(precio);
         this.vista.txtPagosFecha.setText(fecha);
 
     }
@@ -396,50 +393,9 @@ public class ControladorCompras implements ActionListener, MouseListener {
     //Buscar Pagos
     private void BuscarPagos(java.awt.event.KeyEvent evt) {
 
-        //recogemos los datos de los jtxt 
-        String buscar = this.vista.txtBuscadorPagos.getText();
-        int fechaDe_Day = this.vista.txtFechaDe.getCalendar().get(Calendar.DATE);
-        int fechaDe_Month = this.vista.txtFechaDe.getCalendar().get(Calendar.MONTH) + 1;
-        int fechaDe_Year = this.vista.txtFechaDe.getCalendar().get(Calendar.YEAR);
-        int fechaA_Day = this.vista.txtFechaA.getCalendar().get(Calendar.DATE);
-        int fechaA_Month = this.vista.txtFechaA.getCalendar().get(Calendar.MONTH) + 1;
-        int fechaA_Year = this.vista.txtFechaA.getCalendar().get(Calendar.YEAR);
+            String buscar = this.vista.txtBuscadorPagos.getText();
+            this.vista.tablePagos.setModel(this.modelo.buscarPagos(buscar));
 
-        //Controlamos las fechas
-        if (fechaA_Year < fechaDe_Year) {
-            JOptionPane.showMessageDialog(vista, "La segunda fecha debe ser mayor que la primera");
-        } else if (fechaA_Year == fechaDe_Year) {
-            if (fechaA_Month < fechaDe_Month) {
-                JOptionPane.showMessageDialog(vista, "La segunda fecha debe ser mayor que la primera");
-            } else if (fechaA_Month == fechaDe_Month) {
-                if (fechaA_Day < fechaDe_Day) {
-                    JOptionPane.showMessageDialog(vista, "La segunda fecha debe ser mayor que la primera");
-                }
-            }
-        } else {
-
-            //pasamos el dia, mes ,año a un string
-            String fecha1 = fechaDe_Day + "/" + fechaDe_Month + "/" + fechaDe_Year;
-            JOptionPane.showMessageDialog(vista, fecha1);
-            String fecha2 = fechaA_Day + "/" + fechaA_Month + "/" + fechaA_Year;
-
-            if (!buscar.equals("") && fecha1.equals("") && fecha2.equals("")) {
-
-                this.vista.tablePagos.setModel(this.modelo.buscarPagos(buscar)); //si solo usamos  buscar
-
-            } else if (buscar.equals("") && fecha1.equals("") && fecha2.equals("")) {
-
-                this.vista.tablePagos.setModel(this.modelo.buscarPagosFechas(fecha1, fecha2)); //si solo usamos la fecha
-
-            } else if ((!buscar.equals("") && fecha1.equals("") && !fecha2.equals("")) || (!buscar.equals("") && !fecha1.equals("") && fecha2.equals(""))) { //Comprobamos que ambas fechas estan escritas
-
-                JOptionPane.showMessageDialog(vista, "Debe rellenar ambas fechas");
-
-            } else {
-                this.vista.tablePagos.setModel(this.modelo.buscarPagosBuscarFechas(buscar, fecha1, fecha2)); //si usamos buscar y fechas
-
-            }
-        }
     }
     /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
     /*--------METODOS PARA CONTROLAR LA ESCRITURA---------*/
