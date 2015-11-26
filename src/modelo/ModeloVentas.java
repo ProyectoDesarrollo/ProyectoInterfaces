@@ -146,7 +146,7 @@ public class ModeloVentas extends DatabaseSQLite{
          ResultSet res = pstm.executeQuery();
          while(res.next()){
              
-                carrito.add(new Articulo(res.getString("a.ID"), res.getString("a.Nombre"), res.getString("a.Cantidad"), res.getString("a.Precio")));
+                carrito.add(new Articulo(res.getString("Articulos.ID"), res.getString("Articulos.Nombre"), res.getString("Articulos.Cantidad"), res.getString("Articulos.Precio")));
          }
          res.close();
          }catch(SQLException e){
