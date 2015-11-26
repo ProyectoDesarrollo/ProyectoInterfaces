@@ -135,7 +135,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
         DefaultTableModel tablemodel = new DefaultTableModel();
         int registros = 0; // Indica la cantidad de filas de la tabla.
-        String[] columNames = { "NIF Proveedor", "ID Articulo", "Cantidad", "Precio", "FECHA" }; // Indica el nombre de las columnas de la tabla.
+        String[] columNames = {"NIF Proveedor", "ID Articulo", "Cantidad", "Precio Total", "FECHA"}; // Indica el nombre de las columnas de la tabla.
         //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
         //para formar la matriz de datos
         try {
@@ -151,14 +151,14 @@ public class ModeloCompras extends DatabaseSQLite {
         Object[][] data = new String[registros][5];
         try {
             //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
-            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio , FECHA FROM Pagos");
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos");
             ResultSet res = pstm.executeQuery();
             int i = 0;
             while (res.next()) {
                 data[i][0] = res.getString("NIF_Proveedor");
                 data[i][1] = res.getString("ID_Articulo");
                 data[i][2] = res.getString("Cantidad");
-                data[i][3] = res.getString("Precio");
+                data[i][3] = res.getString("Precio_Total");
                 data[i][4] = res.getString("FECHA");
                 i++;
             }
@@ -170,6 +170,48 @@ public class ModeloCompras extends DatabaseSQLite {
         }
         return tablemodel;
     }
+
+    //Articulos con stock para el checkBox
+    public DefaultTableModel getTablaArticulosStock() {
+
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0; // Indica la cantidad de filas de la tabla.
+        int cantidad = 0;
+        String[] columNames = {"ID", "Nombre", "Stock", "Precio"}; // Indica el nombre de las columnas de la tabla.
+        //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+        //para formar la matriz de datos
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Articulos");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        //se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][4];
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID, Nombre, Stock, Precio FROM Articulos where Stock >" + cantidad + "");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("ID");
+                data[i][1] = res.getString("Nombre");
+                data[i][2] = res.getString("Stock");
+                data[i][3] = res.getString("Precio");
+                i++;
+            }
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+    }
+
 
     /*-----------------------------------------------------INSERT---------------------------------------------------------------*/
     /*-----------------------------------------------------------------COMPRAS----------------------------------------------------*/

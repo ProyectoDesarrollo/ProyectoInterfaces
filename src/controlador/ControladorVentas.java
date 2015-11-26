@@ -48,7 +48,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
         this.vista = vista;
 
     }
-    
+
     public void iniciar() {
 
         try {
@@ -99,7 +99,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
         this.vista.btnModificarAlmacen.setActionCommand("btnModificarAlmacen");
         this.vista.btnModificarAlmacen.addActionListener(this);
-        
+
         //----------------------Funciones de click de ratón sobre tablas---------------------
         this.vista.tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,32 +130,32 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 tablePresupuestoCarritoMouseClicked(evt);
             }
         });
-        
+
         this.vista.tablaArticulosAlmacen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablaArticulosAlmacenMouseClicked(evt);
             }
         });
-        
+
         //----------------------------Funcines de teclado-----------------------------
         this.vista.txtBuscadorArticulos.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 Buscar(evt);
             }
         });
-        
+
         this.vista.txtBuscadorPresupuesto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BuscarPresupuesto(evt);
             }
         });
-        
+
         this.vista.txtBuscadorClientes.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BuscarClientes(evt);
             }
         });
-        
+
         this.vista.txtDNIPedido.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 DNIPedido(evt);
@@ -168,52 +168,52 @@ public class ControladorVentas implements ActionListener, MouseListener {
         switch (AccionMVC.valueOf(e.getActionCommand())) {
 
             case btnAñadirPedido://Añade un pedido a la tabla pedidos
-                
+
                 try {
 
                     String id = this.vista.txtIDPedido.getText();
                     String nombre = this.vista.txtNombreArticuloPedido.getText();
                     String cantidad = String.valueOf(this.vista.txtCantidadPedido.getValue());
                     String precio = this.vista.txtPrecio.getText();
-	
+
                     int stk = this.modelo.getStock(Integer.parseInt(id));
                     int cnt = Integer.parseInt(cantidad);
-	
+
                     if (stk >= cnt && cnt > 0) {
-		
+
                         int c = 0;
-		
-                        for (Articulo a: ListaPedido) {
-			
+
+                        for (Articulo a : ListaPedido) {
+
                             if (Integer.parseInt(a.getID()) == Integer.parseInt(id)) {
-				
-				c++;
-				
+
+                                c++;
+
                             }
-			
+
                         }
-		
+
                         if (c > 0) {
-			
+
                             JOptionPane.showMessageDialog(vista, "Este artículo ya se encuentra en la lista. Eliminelo de la lista si desea cambiar la cantidad.");
-			
+
                         } else {
-			
+
                             ListaPedido.add(new Articulo(id, nombre, cantidad, precio));
                             this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));
-			
+
                         }
-		
+
                     } else {
-		
+
                         JOptionPane.showMessageDialog(vista, "Cantidad indicada incorrecta.");
-		
+
                     }
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
 
             case btnModificarPedido://Modifica un pedido
@@ -226,25 +226,25 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     String precio = this.vista.txtPrecio.getText();
 
                     if (this.vista.tablePedidoCarrito.getSelectedRow() < 0) {
-                        
+
                         JOptionPane.showMessageDialog(null, "Seleccione una fila");
 
                     } else {
 
                         fila = this.vista.tablePedidoCarrito.getSelectedRow();
-                        
+
                         int stk = this.modelo.getStock(Integer.parseInt(id));
                         int cnt = Integer.parseInt(cantidad);
-                        
+
                         if (stk >= cnt && cnt > 0) {
-                        
+
                             ListaPedido.set(fila, new Articulo(id, nombre, cantidad, precio));
                             this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));
-                        
+
                         } else {
-                            
+
                             JOptionPane.showMessageDialog(vista, "Cantidad indicada incorrecta.");
-                            
+
                         }
 
                     }
@@ -281,9 +281,9 @@ public class ControladorVentas implements ActionListener, MouseListener {
             case btnCrearFactura://Crea la factura
 
                 try {
-                                     
-                    String dni= this.vista.txtDNIPedido.getText();  
-                                        
+
+                    String dni = this.vista.txtDNIPedido.getText();
+
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -373,52 +373,52 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 break;
 
             case btnAñadirPresupuesto://Añade un presupuesto
-                
+
                 try {
 
                     String id = this.vista.txtIDPresupuesto.getText();
                     String nombre = this.vista.txtNombreArticuloPresupuesto.getText();
                     String cantidad = String.valueOf(this.vista.txtCantidadPresupuesto.getValue());
                     String precio = this.vista.txtPrecioPresupuesto.getText();
-	
+
                     int stk = this.modelo.getStock(Integer.parseInt(id));
                     int cnt = Integer.parseInt(cantidad);
-	
+
                     if (stk >= cnt && cnt > 0) {
-		
+
                         int c = 0;
-		
-                        for (Articulo a: ListaPresupuesto) {
-			
+
+                        for (Articulo a : ListaPresupuesto) {
+
                             if (Integer.parseInt(a.getID()) == Integer.parseInt(id)) {
-				
-				c++;
-				
+
+                                c++;
+
                             }
-			
+
                         }
-		
+
                         if (c > 0) {
-			
+
                             JOptionPane.showMessageDialog(vista, "Este artículo ya se encuentra en la lista. Eliminelo de la lista si desea cambiar la cantidad.");
-			
+
                         } else {
-			
+
                             ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));
                             this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));
-			
+
                         }
-		
+
                     } else {
-		
+
                         JOptionPane.showMessageDialog(vista, "Cantidad indicada incorrecta.");
-		
+
                     }
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
-                
+
                 break;
 
             case btnModificarPresupuesto://Modifica un presupuesto
@@ -431,25 +431,25 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     String precio = this.vista.txtPrecioPresupuesto.getText();
 
                     if (this.vista.tablePresupuestoCarrito.getSelectedRow() < 0) {
-                        
+
                         JOptionPane.showMessageDialog(null, "Seleccione una fila");
 
                     } else {
 
                         fila = this.vista.tablePresupuestoCarrito.getSelectedRow();
-                        
+
                         int stk = this.modelo.getStock(Integer.parseInt(id));
                         int cnt = Integer.parseInt(cantidad);
-                        
+
                         if (stk >= cnt && cnt > 0) {
-                        
+
                             ListaPresupuesto.set(fila, new Articulo(id, nombre, cantidad, precio));
                             this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));
-                        
+
                         } else {
-                            
+
                             JOptionPane.showMessageDialog(vista, "Cantidad indicada incorrecta.");
-                            
+
                         }
 
                     }
@@ -492,13 +492,19 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     double precio = Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
                     String nif = this.vista.txtNIFAlmacen.getText();
                     int iva = Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
-                    this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
-                    this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
-                    this.vista.txtNombreAlmacen.setText("");
-                    this.vista.txtStockAlmacen.setText("");
-                    this.vista.txtPrecioAlmacen.setText("");
-                    this.vista.txtNIFAlmacen.setText("");
-                    this.vista.txtIVAAlmacen.setValue(0);
+
+                    if (iva <= 0 || precio <= 0 || stock < 0) {
+                        JOptionPane.showMessageDialog(vista, "La cantidad es incorrecta");
+                    } else {
+                        this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
+                        this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
+                        this.vista.txtIDAlmacen.setText("");
+                        this.vista.txtNombreAlmacen.setText("");
+                        this.vista.txtStockAlmacen.setText("");
+                        this.vista.txtPrecioAlmacen.setText("");
+                        this.vista.txtNIFAlmacen.setText("");
+                        this.vista.txtIVAAlmacen.setValue(0);
+                    }
 
                 } catch (Exception ex) {
                     ex.printStackTrace();
@@ -524,6 +530,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                         int iva = Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
                         this.modelo.modificarArticulo(id, nombre, stock, precio, nif, iva);
                         this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
+                        this.vista.txtIDAlmacen.setText("");
                         this.vista.txtNombreAlmacen.setText("");
                         this.vista.txtStockAlmacen.setText("");
                         this.vista.txtPrecioAlmacen.setText("");
@@ -538,7 +545,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 break;
         }
     }
-    
+
     //----------------------Permite la selección de elementos dentro de tablas---------------------------
     private void tableClientesMouseClicked(java.awt.event.MouseEvent evt) {
 
@@ -556,7 +563,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
         this.vista.txtDireccionCliente.setText(direccion);
         this.vista.txtTelefonoCliente.setText(telefono);
         this.vista.txtTarjetaCliente.setText(tarjeta);
-        
+
     }
 
     private void tablePedidoBuscarArticuloMouseClicked(java.awt.event.MouseEvent evt) {
@@ -652,36 +659,35 @@ public class ControladorVentas implements ActionListener, MouseListener {
             evt.consume();
         }
     }
-    
+
     //------------------------Metodos Buscar--------------------------------
     private void Buscar(java.awt.event.KeyEvent evt) {//Busca Artículos
-        String buscar= this.vista.txtBuscadorArticulos.getText();
-        this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));       
+        String buscar = this.vista.txtBuscadorArticulos.getText();
+        this.vista.tablePedidoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));
     }
-    
+
     private void BuscarPresupuesto(java.awt.event.KeyEvent evt) {//Busca presupuesto           
-        String buscar= this.vista.txtBuscadorPresupuesto.getText();
-        this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));       
+        String buscar = this.vista.txtBuscadorPresupuesto.getText();
+        this.vista.tablePresuspuestoBuscarArticulo.setModel(this.modelo.buscarArticulo(buscar));
     }
-    
+
     private void BuscarClientes(java.awt.event.KeyEvent evt) {//Busca Clientes            
-        String buscar= this.vista.txtBuscadorClientes.getText();
-        this.vista.tableClientes.setModel(this.modelo.buscarCliente(buscar));       
+        String buscar = this.vista.txtBuscadorClientes.getText();
+        this.vista.tableClientes.setModel(this.modelo.buscarCliente(buscar));
     }
-    
+
     //--------Rellena los Textfield con información del cliente en función al DNI------------ 
     private void DNIPedido(java.awt.event.KeyEvent evt) {
-        String dni= this.vista.txtDNIPedido.getText();
-        String[] Relleno= this.modelo.Rellenar(dni);        
+        String dni = this.vista.txtDNIPedido.getText();
+        String[] Relleno = this.modelo.Rellenar(dni);
         this.vista.txtNombrePedido.setText(Relleno[0]);
         this.vista.txtApellidosPedido.setText(Relleno[1]);
         this.vista.txtDireccionPedido.setText(Relleno[2]);
         this.vista.txtTarjetaPedido.setText(Relleno[3]);
         this.vista.txtTelefonoPedido.setText(Relleno[4]);
-        
+
     }
-         
-    
+
     /*--------------------------------------AUTOGENERADO--------------------------------------*/
     public void mouseClicked(MouseEvent e) {
     }
