@@ -226,7 +226,9 @@ public class Interface extends javax.swing.JFrame {
         btnImprimir = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
 
         dlgFactura.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         dlgFactura.setTitle("Factura");
@@ -523,7 +525,7 @@ public class Interface extends javax.swing.JFrame {
 
         jPanelBotones.setLayout(new java.awt.GridLayout(0, 1));
 
-        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel1.setBackground(new java.awt.Color(51, 153, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Ventas");
@@ -544,7 +546,7 @@ public class Interface extends javax.swing.JFrame {
         jSeparator3.setPreferredSize(new java.awt.Dimension(20, 10));
         jPanelBotones.add(jSeparator3);
 
-        jLabel2.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel2.setBackground(new java.awt.Color(51, 153, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Compras");
@@ -558,7 +560,7 @@ public class Interface extends javax.swing.JFrame {
         jPanelBotones.add(btnProveedores);
         jPanelBotones.add(jSeparator2);
 
-        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setBackground(new java.awt.Color(51, 153, 255));
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Almacen");
@@ -1666,10 +1668,18 @@ public class Interface extends javax.swing.JFrame {
 
         getContentPane().add(jPanelVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 720, 670));
 
-        jMenu1.setText("File");
+        jMenu1.setText("Archivo");
+
+        jMenuItem1.setText("Salir");
+        jMenu1.add(jMenuItem1);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Edit");
+        jMenu2.setText("Help");
+
+        jMenuItem2.setText("Acerca de");
+        jMenu2.add(jMenuItem2);
+
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
@@ -1837,6 +1847,8 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
