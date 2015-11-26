@@ -14,7 +14,7 @@ import modelo.ModeloVentas;
 import vista.Interface;
 
 public class ControladorCompras implements ActionListener, MouseListener {
-
+    
     Interface vista;
     ModeloCompras modelo = new ModeloCompras();
     ModeloVentas modeloV = new ModeloVentas();
@@ -41,14 +41,16 @@ public class ControladorCompras implements ActionListener, MouseListener {
     public ControladorCompras(Interface vista) {
         this.vista = vista;
     }
-
+    
     public void iniciar() {
         try {
-
+            
             this.vista.tableProveedores.setModel(this.modelo.getTablaProveedores());
             this.vista.tablaVisualizarFactura.setModel(this.modelo.getTablaFactura());
             this.vista.tablaVisualizarPedido.setModel(this.modelo.getTablaPedido());
-
+            this.vista.tablePagos.setModel(this.modelo.getTablaPagos());
+            
+            
             this.vista.jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(comboVisualizar));
             //this.vista.jComboBuscar.setSelectedIndex(0);
             //this.vista.jComboVisualizar.setSelectedIndex(0);
@@ -60,13 +62,13 @@ public class ControladorCompras implements ActionListener, MouseListener {
         /*-----COMPRAS-----*/
         this.vista.btnAñadirProveedor.setActionCommand("btnAñadirProveedor");
         this.vista.btnAñadirProveedor.addActionListener(this);
-
+        
         this.vista.btnModificarProveedor.setActionCommand("btnModificarProveedor");
         this.vista.btnModificarProveedor.addActionListener(this);
-
+        
         this.vista.btnEliminarProveedor.setActionCommand("btnEliminarProveedor");
         this.vista.btnEliminarProveedor.addActionListener(this);
-
+        
         this.vista.tableProveedores.addMouseListener(this);
 
         //evento tabla proveedores
@@ -75,27 +77,27 @@ public class ControladorCompras implements ActionListener, MouseListener {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tableProveedoresMouseClicked(evt);
             }
-
+            
         });
         //eventos para bloquear letras o Numeros , además de la longitud
         this.vista.txtTelefonoProveedor.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
-
+                
                 soloNumeros(evt);
                 if (vista.txtTelefonoProveedor.getText().length() >= 9) {
                     evt.consume();
                 }
-
+                
             }
-
+            
         });
         this.vista.txtBuscadorProveedores.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BuscarProveedores(evt);
             }
-
+            
         });
 
         /*-----ALMACEN-----*/
@@ -106,7 +108,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
         //controlamos lo que ocurra en el jComboBox Visualizar
         this.vista.jComboVisualizar.addActionListener(new java.awt.event.ActionListener() {
-
+            
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
@@ -119,7 +121,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     vista.btnImprimir.setVisible(true);
                     //Cambio nombre del boton
                     vista.btnImprimir.setLabel("Visualizar");
-
+                    
                 } else if (vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
                     //LLamada a los paneles     
                     vista.pPanelVisualizarPedido.setVisible(false);
@@ -130,17 +132,17 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     vista.btnImprimir.setVisible(true);
                     //Cambio nombre del boton
                     vista.btnImprimir.setLabel("Imprimir");
-
+                    
                 } else if (vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-")) {
                     //Ocultamos el boton
                     vista.btnImprimir.setVisible(false);
                 }
             }
-
+            
         });
-
+        
         this.vista.txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-
+            
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 soloNumeros(evt);
@@ -152,11 +154,17 @@ public class ControladorCompras implements ActionListener, MouseListener {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 BuscarArticulos(evt);
             }
-
+            
         });
-
+        this.vista.tablaVisualizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaVisualizarPedido(evt);
+            }
+        });
+        
     }
-
+    
     public void actionPerformed(ActionEvent e) {
         //Captura en String el comando accionado por el usuario
         String comand = e.getActionCommand();
@@ -164,7 +172,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
         /*-----COMPRAS-----*/
         //dependiendo del comand realizara una accion u otra
         if (comand.equals("btnAñadirProveedor")) {
-
+            
             try {
                 //obtenemos los datos de los jTextField
                 String dni = this.vista.txtNIFProveedores.getText();
@@ -180,10 +188,10 @@ public class ControladorCompras implements ActionListener, MouseListener {
                 this.vista.txtNombreProveedores.setText("");
                 this.vista.txtApellidosProveedores.setText("");
                 this.vista.txtTelefonoProveedor.setText("");
-
+                
             } catch (Exception ex) {
             }
-
+            
         } else if (comand.equals("btnModificarProveedor")) {
             try {
                 this.vista.tableProveedores.getSelectedRow();
@@ -205,11 +213,11 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     this.vista.txtApellidosProveedores.setText(" ");
                     this.vista.txtTelefonoProveedor.setText(" ");
                 }
-
+                
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-
+            
         } else if (comand.equals("btnEliminarProveedor")) {
             try {
                 this.vista.tableProveedores.getSelectedRow();
@@ -222,42 +230,56 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     //refrescamos la tabla
                     this.vista.tableProveedores.setModel(this.modelo.getTablaProveedores());
                 }
-
+                
             } catch (Exception ex) {
             }
-
+            
         } else if (comand.equals("btnImprimir")) { /*-----ALMACEN-----*/
+            
+            try {
+                
+                this.vista.tablaVisualizarPedido.getSelectedRow();
+                //comprobamos que se selecciona una fila en la tabla 
+                if (this.vista.tablaVisualizarPedido.getSelectedRow() < 0) {
+                    JOptionPane.showMessageDialog(vista, "Seleccione una fila");
+                    
+                } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {//comprobamos en que tabla estamos
+                    this.vista.jPanelPedido.setVisible(true);//cambiamos de panel
+                    this.vista.jPanelVisualizar.setVisible(false);//ocultamos el actual
 
+                }/*else if(this.vista.jComboVisualizar.getSelectedItem().equals("Factura")){
+                 PARA CREAR LA FATURA CON EL INDITEX O COMO COÑO SE ESCRIBA 
+                 xDDDDDDDD TO PA TI PEDRO TO PA TI ....
+                 }*/
 
-            if (vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {
-                this.vista.jPanelPedido.setVisible(true);
-                this.vista.jPanelVisualizar.setVisible(false);
-               
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
+            
         }
-
+        
     }
     /*----------------------------------------------------TABLAS-----------------------------------------------*/
     /*-----COMPRAS-----*/
-
+    
     private void tableProveedoresMouseClicked(java.awt.event.MouseEvent evt) {
-
+        
         fila = this.vista.tableProveedores.getSelectedRow();
         String dni = (String) this.vista.tableProveedores.getValueAt(fila, 0);
         String nombre = (String) this.vista.tableProveedores.getValueAt(fila, 1);
         String apellidos = (String) this.vista.tableProveedores.getValueAt(fila, 2);
         String telefono = (String) this.vista.tableProveedores.getValueAt(fila, 3);
-
+        
         this.vista.txtNIFProveedores.setText(dni);
         this.vista.txtNombreProveedores.setText(nombre);
         this.vista.txtApellidosProveedores.setText(apellidos);
         this.vista.txtTelefonoProveedor.setText(telefono);
-
+        
     }
 
     /*-----ALMACEN-----*/
     private void tablaArticulosAlmacenMouseClicked(java.awt.event.MouseEvent evt) {
-
+        
         fila = this.vista.tablaArticulosAlmacen.getSelectedRow();
         String id = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 0);
         String nombre = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 1);
@@ -265,21 +287,21 @@ public class ControladorCompras implements ActionListener, MouseListener {
         String precio = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 3);
         String nif = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 4);
         String iva = (String) this.vista.tablaArticulosAlmacen.getValueAt(fila, 5);
-
+        
         this.vista.txtIDAlmacen.setText(id);
         this.vista.txtNombreAlmacen.setText(nombre);
         this.vista.txtStockAlmacen.setText(stock);
         this.vista.txtPrecioAlmacen.setText(precio);
         this.vista.txtNIFAlmacen.setText(nif);
         this.vista.txtIVAAlmacen.setValue(0);
-
+        
     }
-
+    
     private void tablaVisualizarPedido(java.awt.event.MouseEvent evt) {
         fila = this.vista.tablaVisualizarPedido.getSelectedRow();
         String id_pedido = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
         String DNI = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 1);
-
+        
         this.vista.txtDNIPedido.setText(DNI);
         this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(id_pedido));
     }
@@ -287,30 +309,30 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     //Buscar facturas y pedidos
     private void BuscarVisualizar(java.awt.event.KeyEvent evt) {
-
+        
         String buscar = this.vista.txtBuscadorArticulos.getText();
         if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DNI"
                 || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
-
+            
             this.vista.tablaVisualizarPedido.setModel(this.modelo.buscarPedido(buscar));
-
+            
         } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")
                 && (this.vista.jComboBuscar.getSelectedItem() == "DID_Factura"
                 || this.vista.jComboBuscar.getSelectedItem() == "ID_Pedido")) {
-
+            
             this.vista.tablaVisualizarFactura.setModel(this.modelo.buscarFactura(buscar));
-
+            
         } else if (this.vista.jComboVisualizar.getSelectedItem().equals("-Seleccionar-")) {
-
+            
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar las tablas");
-
+            
         } else if (this.vista.jComboBuscar.getSelectedItem() == "-Seleccionar-") {
-
+            
             JOptionPane.showMessageDialog(vista, "Tienes que Seleccionar la Columna");
-
+            
         }
-
+        
     }
 
     //Buscar Proveedores
@@ -321,7 +343,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     //Buscar en articulos
     private void BuscarArticulos(java.awt.event.KeyEvent evt) {
-
+        
         String buscar = this.vista.txtBuscadorAlmacen.getText();
         this.vista.tablaArticulosAlmacen.setModel(this.modelo.buscarArticulo(buscar));
     }
@@ -333,9 +355,9 @@ public class ControladorCompras implements ActionListener, MouseListener {
         char c = evt.getKeyChar();
         if ((c < 'A') || (c > 'Z') && (c < 'a') || (c > 'z')) {
             evt.consume();
-
+            
         }
-
+        
     }
 
     //Para Numeros
@@ -349,17 +371,17 @@ public class ControladorCompras implements ActionListener, MouseListener {
     /*--------------------------------------AUTOGENERADO--------------------------------------*/
     public void mouseClicked(MouseEvent e) {
     }
-
+    
     public void mousePressed(MouseEvent e) {
     }
-
+    
     public void mouseReleased(MouseEvent e) {
     }
-
+    
     public void mouseEntered(MouseEvent e) {
     }
-
+    
     public void mouseExited(MouseEvent e) {
     }
-
+    
 }

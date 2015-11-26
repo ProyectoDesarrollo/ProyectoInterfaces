@@ -130,6 +130,47 @@ public class ModeloCompras extends DatabaseSQLite {
         return tablemodel;
     }
 
+    //Tabla pagos
+    public DefaultTableModel getTablaPagos() {
+
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int registros = 0; // Indica la cantidad de filas de la tabla.
+        String[] columNames = { "NIF Proveedor", "ID Articulo", "Cantidad", "Precio", "FECHA" }; // Indica el nombre de las columnas de la tabla.
+        //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+        //para formar la matriz de datos
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        //se crea una matriz con tantas filas y columnas que necesite
+        Object[][] data = new String[registros][5];
+        try {
+            //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio , FECHA FROM Pagos");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                data[i][0] = res.getString("NIF_Proveedor");
+                data[i][1] = res.getString("ID_Articulo");
+                data[i][2] = res.getString("Cantidad");
+                data[i][3] = res.getString("Precio");
+                data[i][4] = res.getString("FECHA");
+                i++;
+            }
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return tablemodel;
+    }
+
     /*-----------------------------------------------------INSERT---------------------------------------------------------------*/
     /*-----------------------------------------------------------------COMPRAS----------------------------------------------------*/
     public boolean InsertarProveedores(String nif, String nombre, String apellidos, int telefono) {
@@ -151,7 +192,7 @@ public class ModeloCompras extends DatabaseSQLite {
 
     /*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
     public boolean InsertarArticulo(String nombre, int stock, double precio, String nif, int iva) {
-            //Consulta para insertar 
+        //Consulta para insertar 
 
         String q = " INSERT INTO Articulos ( Nombre ,Stock ,Precio, NIF_Proveedor,  IVA )"
                 + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + nif + "','" + iva + "') ";
@@ -168,7 +209,6 @@ public class ModeloCompras extends DatabaseSQLite {
     }
 
     /*----------------------------------------------------------DELETED--------------------------------------------------------------*/
-    
     /*-----------------------------------------------------------------COMPRAS----------------------------------------------------*/
     public boolean EliminarProveedores(String nif) {
         boolean res = false;
@@ -186,10 +226,8 @@ public class ModeloCompras extends DatabaseSQLite {
         return res;
     }
     /*-------------------------------------------------------------UPDATE----------------------------------------------------------*/
-    
-    
-    /*-------------------------------------------------------------------COMPRAS----------------------------------------------------*/
 
+    /*-------------------------------------------------------------------COMPRAS----------------------------------------------------*/
     public void modificarProveedor(String nif, String nombre, String apellidos, int telefono) {
 
         String q = "Update Proveedores set Nombre='" + nombre + "', Apellidos='" + apellidos + "', Telefono='" + telefono + "' where NIF='" + nif + "';";
@@ -209,9 +247,8 @@ public class ModeloCompras extends DatabaseSQLite {
             JOptionPane.showMessageDialog(null, "No se ha encontrado la matricula en la base de datos");
         }
     }
-    
-/*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
-    
+
+    /*---------------------------------------------------------------------ALMACEN-----------------------------------------------------------*/
     public void modificarArticulo(String id, String nombre, int stock, double precio, String nif, int iva) {
 
         String q = "Update Articulos set ID='" + id + "', Nombre='" + nombre + "', Stock='" + stock + "', Precio='" + precio + "',NIF_Proveedor='" + nif + "', IVA='" + iva + "' where ID='" + id + "';";
@@ -234,8 +271,6 @@ public class ModeloCompras extends DatabaseSQLite {
 
 
     /*-------------------------------------------------------------------LOOK FOR-----------------------------------------------*/
-    
-    
     /*-------------------------------------------------------------------COMPRAS----------------------------------------------------*/
     //Metodo buscar en proveedores
     public DefaultTableModel buscarProveedores(String buscar) {
