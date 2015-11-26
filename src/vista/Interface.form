@@ -393,58 +393,25 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel72" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel73" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <EmptySpace min="0" pref="312" max="32767" attributes="0"/>
+                          <Component id="jLabel73" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtFacturaTotalIVA1" alignment="0" pref="180" max="32767" attributes="0"/>
-                              <Component id="txtFacturaTotal2" alignment="0" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="txtFacturaTotal2" min="-2" pref="180" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel47" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel67" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel57" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel60" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel66" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtFacturaDNI1" alignment="0" pref="180" max="32767" attributes="0"/>
-                                      <Component id="txtFacturaNombre2" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel59" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabel71" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtFacturaFecha1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtFacturaApellidos1" alignment="0" pref="180" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtFacturaDireccion1" min="-2" pref="486" max="-2" attributes="0"/>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="txtFacturaTarjeta1" min="-2" pref="180" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jLabel67" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txtFacturaTelefono2" min="-2" pref="180" max="-2" attributes="0"/>
-                              </Group>
+                              <Component id="txtFacturaNombre2" max="32767" attributes="0"/>
+                              <Component id="txtFacturaTelefono2" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -457,41 +424,20 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFacturaDNI1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel47" alignment="3" max="32767" attributes="0"/>
-                      <Component id="txtFacturaFecha1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel71" alignment="3" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtFacturaNombre2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtFacturaApellidos1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel59" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFacturaDireccion1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel60" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFacturaTarjeta1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel66" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtFacturaTelefono2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel67" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel5" max="32767" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="txtFacturaTotal2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel73" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="txtFacturaTotalIVA1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel72" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -499,14 +445,6 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel47">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="DNI:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel57">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -515,52 +453,12 @@
             <Property name="text" type="java.lang.String" value="Nombre:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel59">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Apellidos:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel60">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Direcci&#xf3;n:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel66">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Num. Tarjeta:"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel67">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Tel&#xe9;fono:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel71">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Fecha:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel72">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="11" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Precio Total con IVA:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel73">
@@ -587,61 +485,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPane13" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel74" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtFacturaPedido1" min="-2" pref="140" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                              <Component id="jLabel75" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="txtFacturaFactura1" min="-2" pref="140" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <Component id="jScrollPane13" pref="548" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jLabel75" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtFacturaFactura1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="jLabel74" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtFacturaPedido1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane13" pref="373" max="32767" attributes="0"/>
+                      <Component id="jScrollPane13" pref="525" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel74">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="ID Pedido:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="jLabel75">
-              <Properties>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Tahoma" size="11" style="1"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="ID Factura:"/>
-              </Properties>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane13">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -666,32 +525,8 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="txtFacturaPedido1">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtFacturaFactura1">
-              <Properties>
-                <Property name="editable" type="boolean" value="false"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-              </AuxValues>
-            </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="txtFacturaTotalIVA1">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtFacturaTotal2">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
@@ -700,47 +535,7 @@
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtFacturaDNI1">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JTextField" name="txtFacturaNombre2">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtFacturaDireccion1">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtFacturaTarjeta1">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtFacturaFecha1">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtFacturaApellidos1">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
