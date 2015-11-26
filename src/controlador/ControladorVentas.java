@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import modelo.Articulo;
 import modelo.ModeloCompras;
@@ -486,20 +488,27 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 break;
 
             case btnAñadirAlmacen://Insertas Articulos
-
+                
+                Calendar c = new GregorianCalendar();
                 try {
 
                     String nombre = this.vista.txtNombreAlmacen.getText();
                     int stock = Integer.parseInt(this.vista.txtStockAlmacen.getText());
                     double precio = Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
                     String nif = this.vista.txtNIFAlmacen.getText();
+                    int id = Integer.parseInt(this.vista.txtIDAlmacen.getText());
+                    String dia = Integer.toString(c.get(Calendar.DATE));
+                    String mes = Integer.toString(c.get(Calendar.MONTH)+1);
+                    String annio = Integer.toString(c.get(Calendar.YEAR));
+                    String fecha = dia + "/" + mes + "/" + annio;
+                    
                     int iva = Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
 
                     if (iva <= 0 || precio <= 0 || stock < 0) {
                         JOptionPane.showMessageDialog(vista, "La cantidad es incorrecta");
                     } else {
                         
-                        //this.modelo.InsertarCobros(nif, iva, iva, nif);
+                        this.modelo.InsertarPago(nif, id, stock, precio, fecha);
                         this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
                         this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
                         this.vista.txtIDAlmacen.setText("");
