@@ -268,6 +268,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     String id_pedido= (String)this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
                     this.vista.jPanelPedido.setVisible(true);//cambiamos de panel
                     this.vista.jPanelVisualizar.setVisible(false);//ocultamos el actual
+                    
                     this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(Integer.valueOf(id_pedido)));
 
                 }/*else if(this.vista.jComboVisualizar.getSelectedItem().equals("Factura")){
