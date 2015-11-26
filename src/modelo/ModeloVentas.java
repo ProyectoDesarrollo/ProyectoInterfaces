@@ -495,7 +495,7 @@ public class ModeloVentas extends DatabaseSQLite{
   
     public void modificarArticulo (String id, String nombre , int stock, double precio, String nif ,int iva) {
         
-        String q="Update Articulos set ID='"+id+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"',NIF_Proveedor='"+nif+"', IVA='"+iva+"' where ID='"+id+"';";
+        String q="Update Articulos set ID='"+id+"', Nombre='"+nombre+"', Stock='"+stock+"', Precio='"+precio+"',NIF_Proveedor='"+nif+"', IVA='"+iva+"' where ID='"+id+"'";
         
         try {
             
@@ -661,6 +661,28 @@ public class ModeloVentas extends DatabaseSQLite{
         
     }
     
+    public int getIdArticulo(String nombre){
+        
+        int r=0;
+        String q = "SELECT ID FROM Articulos WHERE Nombre= "+nombre ;
+        
+        try {
+            
+            Statement stmt = this.getConexion().createStatement();
+            
+            ResultSet res = stmt.executeQuery(q);
+            res.next();
+            r = res.getInt("ID");
+            res.close();
+            
+        } catch (SQLException e) {
+        
+            System.err.println(e.getMessage());
+            
+        }
+        
+        return r;
+    }
 }
        
 
