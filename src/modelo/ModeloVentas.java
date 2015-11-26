@@ -723,10 +723,10 @@ public class ModeloVentas extends DatabaseSQLite{
         return r;
     }
     
-    public int getFactura(String dni){
+    public int getFacturaIDF(String dni){
         
         int r=0;
-        String q = "SELECT Fecha, ID_Pedido, ID_Factura FROM Facturas WHERE ID_Pedido like (SELECT ID FROM Pedidos Where DNI = '"+dni+"')";
+        String q = "Select  ID_Factura FROM Facturas WHERE ID_Pedido = (SELECT ID FROM Pedidos Where DNI = '"+dni+"')";
         
         try {
             
@@ -734,7 +734,51 @@ public class ModeloVentas extends DatabaseSQLite{
             
             ResultSet res = stmt.executeQuery(q);
             res.next();
-            r = res.getInt("Fecha");
+            r = res.getInt("ID_Factura");
+            res.close();
+            
+        } catch (SQLException e) {
+        
+            e.printStackTrace();
+            
+        }
+        
+        return r;
+    }
+      public int getFacturaIDP(int id_factura){
+        
+        int r=0;
+        String q = "Select ID_Pedido FROM Facturas WHERE ID_Factura = "+id_factura+")";
+        
+        try {
+            
+            Statement stmt = this.getConexion().createStatement();
+            
+            ResultSet res = stmt.executeQuery(q);
+            res.next();
+            r = res.getInt("ID_Pedido");
+            res.close();
+            
+        } catch (SQLException e) {
+        
+            e.printStackTrace();
+            
+        }
+        
+        return r;
+    }
+        public int getFacturaF(int id_factura){
+        
+        int r=0;
+        String q = "Select FECHA FROM Facturas WHERE ID_Factura = "+id_factura+")";
+        
+        try {
+            
+            Statement stmt = this.getConexion().createStatement();
+            
+            ResultSet res = stmt.executeQuery(q);
+            res.next();
+            r = res.getInt("FECHA");
             res.close();
             
         } catch (SQLException e) {

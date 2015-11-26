@@ -29,6 +29,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
     ModeloCompras modeloC = new ModeloCompras();
     int fila = -1;
     int fila1 = -1;
+    int precio_total;
     ArrayList<Articulo> ListaPedido;
     ArrayList<Articulo> ListaPresupuesto;
 
@@ -286,8 +287,35 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                 try {
 
+                    this.vista.jPanelPedido.setVisible(true);
+                    this.vista.dlgFactura.setVisible(true);
                     String dni = this.vista.txtDNIPedido.getText();
+                    String nombre = this.vista.txtNombrePedido.getText();
+                    String apellido = this.vista.txtApellidosPedido.getText();
+                    String telefono = this.vista.txtTelefonoPedido.getText();
+                    String tarjeta = this.vista.txtTarjetaPedido.getText();
+                    String direccion = this.vista.txtDireccionPedido.getText();
 
+                    for(;;){
+                       precio_total +=(int) this.vista.tablePedidoCarrito.getValueAt(fila, 3);
+                    }
+                    
+                    int id_factura = this.modelo.getFacturaIDF(dni);
+                    int id_perdido = this.modelo.getFacturaIDP(id_factura);
+                    int fecha = this.modelo.getFacturaF(id_factura);
+                    this.vista.txtFacturaDNI.setText(dni);
+                    this.vista.txtFacturaNombre.setText(nombre);
+                    this.vista.txtFacturaDireccion.setText(direccion);
+                    this.vista.txtFacturaTarjeta.setText(tarjeta);
+                    this.vista.txtFacturaFecha.setText(String.valueOf(fecha));
+                    this.vista.txtFacturaApellidos.setText(apellido);
+                    this.vista.txtFacturaTelefono.setText(telefono);
+                    this.vista.txtFacturaPedido.setText(String.valueOf(id_perdido));
+                    this.vista.txtFacturaFactura.setText(String.valueOf(id_factura));
+                    this.vista.txtFacturaTotal.setText(String.valueOf(precio_total));
+                    this.vista.txtFacturaTotalIVA.setText(String.valueOf(precio_total*0.24));
+                          
+                    
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -488,29 +516,29 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 break;
 
             case btnAñadirAlmacen://Insertas Articulos
-                
+
                 Calendar c = new GregorianCalendar();
                 try {
 
                     String nombre = this.vista.txtNombreAlmacen.getText();
                     int stock = Integer.parseInt(this.vista.txtStockAlmacen.getText());
                     double precio = Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
-                    double precioT = Double.parseDouble(this.vista.txtPrecioAlmacen.getText())*0.85;
-                    precioT= precioT*stock;
+                    double precioT = Double.parseDouble(this.vista.txtPrecioAlmacen.getText()) * 0.85;
+                    precioT = precioT * stock;
                     String nif = this.vista.txtNIFAlmacen.getText();
                     String dia = Integer.toString(c.get(Calendar.DATE));
-                    String mes = Integer.toString(c.get(Calendar.MONTH)+1);
+                    String mes = Integer.toString(c.get(Calendar.MONTH) + 1);
                     String annio = Integer.toString(c.get(Calendar.YEAR));
                     String fecha = dia + "/" + mes + "/" + annio;
-                    
+
                     int iva = Integer.parseInt(String.valueOf(this.vista.txtIVAAlmacen.getValue()));
 
                     if (iva <= 0 || precio <= 0 || stock < 0) {
                         JOptionPane.showMessageDialog(vista, "La cantidad es incorrecta");
                     } else {
-                                                
+
                         this.modelo.InsertarArticulo(nombre, stock, precio, nif, iva);
-                        int id= this.modelo.getIdArticulo(nombre);
+                        int id = this.modelo.getIdArticulo(nombre);
                         this.modelo.InsertarPago(nif, id, stock, precioT, fecha);
                         this.vista.tablaArticulosAlmacen.setModel(this.modelo.getTablaAlmacen());
                         this.vista.txtIDAlmacen.setText("");
