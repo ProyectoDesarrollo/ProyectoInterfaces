@@ -6,6 +6,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
@@ -51,7 +52,6 @@ public class ControladorCompras implements ActionListener, MouseListener {
             this.vista.tablePagos.setModel(this.modelo.getTablaPagos());
 
             this.vista.jComboVisualizar.setModel(new javax.swing.DefaultComboBoxModel(comboVisualizar));
- 
 
         } catch (Exception e) {
         }
@@ -64,8 +64,6 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
         this.vista.btnEliminarProveedor.setActionCommand("btnEliminarProveedor");
         this.vista.btnEliminarProveedor.addActionListener(this);
-
-        this.vista.tableProveedores.addMouseListener(this);
 
         //evento tabla proveedores
         this.vista.tableProveedores.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -158,6 +156,8 @@ public class ControladorCompras implements ActionListener, MouseListener {
                 tablaVisualizarPedido(evt);
             }
         });
+
+        //evento checkbox
         this.vista.cbxStockAlmacen.addActionListener(new java.awt.event.ActionListener() {
 
             @Override
@@ -169,6 +169,20 @@ public class ControladorCompras implements ActionListener, MouseListener {
                     vista.tablaArticulosAlmacen.setModel(modeloV.getTablaAlmacen());
                 }
 
+            }
+        });
+        /*-------------------------------------BUSCAR PAGOS-----------------------------------------*/
+
+        this.vista.txtBuscadorPagos.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                BuscarPagos(evt);
+            }
+        });
+        this.vista.txtFechaA.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                 BuscarPagos(evt);
             }
         });
 
@@ -356,10 +370,57 @@ public class ControladorCompras implements ActionListener, MouseListener {
         String buscar = this.vista.txtBuscadorAlmacen.getText();
         this.vista.tablaArticulosAlmacen.setModel(this.modelo.buscarArticulo(buscar));
     }
-    /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
 
+    private void BuscarPagos(java.awt.event.KeyEvent evt) {
+
+        //recogemos los datos de los jtxt 
+        String buscar = this.vista.txtBuscadorPagos.getText();
+        int fechaDe_Day = this.vista.txtFechaDe.getCalendar().get(Calendar.DATE);
+        int fechaDe_Month = this.vista.txtFechaDe.getCalendar().get(Calendar.MONTH) + 1;
+        int fechaDe_Year = this.vista.txtFechaDe.getCalendar().get(Calendar.YEAR);
+        int fechaA_Day = this.vista.txtFechaA.getCalendar().get(Calendar.DATE);
+        int fechaA_Month = this.vista.txtFechaA.getCalendar().get(Calendar.MONTH) + 1;
+        int fechaA_Year = this.vista.txtFechaA.getCalendar().get(Calendar.YEAR);
+
+        //Controlamos las fechas
+        if (fechaA_Year < fechaDe_Year) {
+            JOptionPane.showMessageDialog(vista, "La segunda fecha debe ser mayor que la primera");
+        } else if (fechaA_Year == fechaDe_Year) {
+            if (fechaA_Month < fechaDe_Month) {
+                JOptionPane.showMessageDialog(vista, "La segunda fecha debe ser mayor que la primera");
+            } else if (fechaA_Month == fechaDe_Month) {
+                if (fechaA_Day < fechaDe_Day) {
+                    JOptionPane.showMessageDialog(vista, "La segunda fecha debe ser mayor que la primera");
+                }
+            }
+        } else {
+
+            //pasamos el dia, mes ,año a un string
+            String fecha1 = fechaDe_Day + "/" + fechaDe_Month + "/" + fechaDe_Year;
+            String fecha2 = fechaA_Day + "/" + fechaA_Month + "/" + fechaA_Year;
+
+            if (!buscar.equals("") && fecha1.equals("") && fecha2.equals("")) {
+
+                this.vista.tablePagos.setModel(this.modelo.buscarPagos(buscar)); //si solo usamos  buscar
+
+            } else if (buscar.equals("") && fecha1.equals("") && fecha2.equals("")) {
+
+                this.vista.tablePagos.setModel(this.modelo.buscarPagosFechas(fecha1, fecha2)); //si solo usamos la fecha
+
+            } else if ((!buscar.equals("") && fecha1.equals("") && !fecha2.equals("")) || (!buscar.equals("") && !fecha1.equals("") && fecha2.equals(""))) {
+
+                JOptionPane.showMessageDialog(vista, "Debe rellenar ambas fechas");
+
+            } else {
+                this.vista.tablePagos.setModel(this.modelo.buscarPagosBuscarFechas(buscar, fecha1, fecha2)); //si usamos buscar y fechas
+
+            }
+        }
+    }
+    /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
     /*--------METODOS PARA CONTROLAR LA ESCRITURA---------*/
-//Para letras
+
+    //Para letras
     public void soloLetras(java.awt.event.KeyEvent evt) {
         char c = evt.getKeyChar();
         if ((c < 'A') || (c > 'Z') && (c < 'a') || (c > 'z')) {

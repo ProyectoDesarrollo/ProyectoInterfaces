@@ -518,4 +518,155 @@ public class ModeloCompras extends DatabaseSQLite {
         return tablemodel;
     }
 
+    //Pagos por NIF o ID
+    public DefaultTableModel buscarPagos(String buscar) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos = 0;
+        String[] columNames = {"NIF Proveedor", "ID Articulo", "Cantidad", "Precio Total", "FECHA"};//Columnas tablas
+
+        try {
+
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos = res.getInt("total");
+            res.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][6];
+
+        try {
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos where (NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+
+            while (res.next()) { //y llenamos los datos en la matriz
+                data[i][0] = res.getString("NIF_Proveedor");
+                data[i][1] = res.getString("ID_Articulo");
+                data[i][2] = res.getString("Cantidad");
+                data[i][3] = res.getString("Precio_Total");
+                data[i][4] = res.getString("FECHA");
+                i++;
+            }
+
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+     //Pagos por FECHAS
+    public DefaultTableModel buscarPagosFechas(String Fecha1 , String Fecha2) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos = 0;
+        String[] columNames = {"NIF Proveedor", "ID Articulo", "Cantidad", "Precio Total", "FECHA"};//Columnas tablas
+
+        try {
+
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos where FECHA between '" + Fecha1 + "' and '" + Fecha2 + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos = res.getInt("total");
+            res.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][6];
+
+        try {
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos where FECHA between '" + Fecha1 + "' and '" + Fecha2 + "'");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+
+            while (res.next()) { //y llenamos los datos en la matriz
+                data[i][0] = res.getString("NIF_Proveedor");
+                data[i][1] = res.getString("ID_Articulo");
+                data[i][2] = res.getString("Cantidad");
+                data[i][3] = res.getString("Precio_Total");
+                data[i][4] = res.getString("FECHA");
+                i++;
+            }
+
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+     //Pagos por nif- id + FECHAS
+    public DefaultTableModel buscarPagosBuscarFechas(String buscar,String Fecha1 , String Fecha2) {
+        DefaultTableModel tablemodel = new DefaultTableModel();
+        int productos = 0;
+        String[] columNames = {"NIF Proveedor", "ID Articulo", "Cantidad", "Precio Total", "FECHA"};//Columnas tablas
+
+        try {
+
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT count(*) as Total FROM Pagos where ((NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')) and (FECHA between '" + Fecha1 + "' and '" + Fecha2 + "'");
+            ResultSet res = pstm.executeQuery();
+            res.next();
+            productos = res.getInt("total");
+            res.close();
+
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+
+        //se crea una matriz con tantas filas y columnas que necesite(de clase object para que no haya problemas)
+        Object[][] data = new String[productos][6];
+
+        try {
+            //realizamos la consulta sql 
+            PreparedStatement pstm = this.getConexion().prepareStatement("SELECT NIF_Proveedor , ID_Articulo , Cantidad , Precio_Total, FECHA FROM Pagos where  ((NIF_Proveedores like '%" + buscar + "%') || (ID_Articulos like '%" + buscar + "%')) and (FECHA between '" + Fecha1 + " and '" + Fecha2 + "'");
+            ResultSet res = pstm.executeQuery();
+            int i = 0;
+
+            while (res.next()) { //y llenamos los datos en la matriz
+                data[i][0] = res.getString("NIF_Proveedor");
+                data[i][1] = res.getString("ID_Articulo");
+                data[i][2] = res.getString("Cantidad");
+                data[i][3] = res.getString("Precio_Total");
+                data[i][4] = res.getString("FECHA");
+                i++;
+            }
+
+            res.close();
+            //se añade la matriz de datos en el DefaultTableModel
+            tablemodel.setDataVector(data, columNames);
+
+        } catch (SQLException e) {
+
+            System.err.println(e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se ha podido conectar con la base de datos.");
+        } catch (Exception e) {
+
+            JOptionPane.showMessageDialog(null, "Ha ocurrido un error.");
+        }
+        return tablemodel;
+    }
+
 }
