@@ -279,13 +279,67 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
-  
+    public DefaultTableModel getTablaFactura(){
+        
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0; // Indica la cantidad de filas de la tabla.
+      String[] columNames = {"ID","ID_Pedido","Precio_Total"}; // Indica el nombre de las columnas de la tabla.
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Facturas");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+      Object[][] data = new String[registros][3];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT ID ,ID_Pedido ,Precio_Total FROM Facturas");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                data[i][0] = res.getString("ID");
+                data[i][1] = res.getString("ID_Pedido");
+                data[i][2] = res.getString("Precio_Total");
+                
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+    }
     
     public boolean InsertarArticulo (String nombre , int stock, double precio, String nif, int iva) {
             //Consulta para insertar 
         
         String q=" INSERT INTO Articulos ( Nombre ,Stock ,Precio, NIF_Proveedor,  IVA )"
                     + "VALUES ( '" + nombre + "', '" + stock + "', '" + precio + "','" + nif + "','" + iva + "') ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
+    
+    public boolean InsertarFactura (String id, int idPedido, double precioTotal) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Articulos ( ID, ID_Pedido, Precio_Total )"
+                    + "VALUES ( '" + id + "', '" + idPedido + "','" + precioTotal + "') ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);

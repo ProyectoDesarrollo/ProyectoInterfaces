@@ -279,12 +279,9 @@ public class ControladorVentas implements ActionListener, MouseListener {
             case btnCrearFactura:
 
                 try {
-                    
+                                     
                     String dni= this.vista.txtDNIPedido.getText();  
-                    
-                    
-                    
-                    
+                                        
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
