@@ -185,7 +185,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
                 BuscarPagos(evt);
             }
         });
-     
+
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -259,29 +259,26 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
         } else if (comand.equals("btnImprimir")) { /*-----ALMACEN-----*/
 
-            try {
 
-                this.vista.tablaVisualizarPedido.getSelectedRow();
-                //comprobamos que se selecciona una fila en la tabla 
-                if (this.vista.tablaVisualizarPedido.getSelectedRow() < 0) {
-                    JOptionPane.showMessageDialog(vista, "Seleccione una fila");
+            this.vista.tablaVisualizarPedido.getSelectedRow();
 
-                } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {//comprobamos en que tabla estamos
-                    String id_pedido= (String)this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
-                    this.vista.jPanelPedido.setVisible(true);//cambiamos de panel
-                    this.vista.jPanelVisualizar.setVisible(false);//ocultamos el actual
-                    ArrayList<Articulo> al = this.modeloV.getTablaCarrito(Integer.valueOf(id_pedido));
-                    this.vista.tablePedidoCarrito.setModel(this.modeloV.getTabla(al));
+        }
+        if (this.vista.jComboVisualizar.getSelectedItem().equals("Pedido")) {//comprobamos en que tabla estamos
+            //comprobamos que se selecciona una fila en la tabla 
+            if (this.vista.tablaVisualizarPedido.getSelectedRow() < 0) {
+                JOptionPane.showMessageDialog(vista, "Seleccione una fila");
 
-                }/*else if(this.vista.jComboVisualizar.getSelectedItem().equals("Factura")){
-                 PARA CREAR LA FATURA CON EL INDITEX O COMO COÑO SE ESCRIBA 
-                 xDDDDDDDD TO PA TI PEDRO TO PA TI ....
-                 }*/
-
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            } else {
+                String id_pedido = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
+                this.vista.jPanelPedido.setVisible(true);//cambiamos de panel
+                this.vista.jPanelVisualizar.setVisible(false);//ocultamos el actual
+                ArrayList<Articulo> al = this.modeloV.getTablaCarrito(Integer.valueOf(id_pedido));
+                this.vista.tablePedidoCarrito.setModel(this.modeloV.getTabla(al));
             }
 
+        } else if (this.vista.jComboVisualizar.getSelectedItem().equals("Factura")) {
+            JOptionPane.showMessageDialog(null, "NO IMPLEMENTADO",
+                    "MENSAJE DE ERROR", JOptionPane.ERROR_MESSAGE);
         }
 
     }
@@ -398,8 +395,8 @@ public class ControladorCompras implements ActionListener, MouseListener {
     //Buscar Pagos
     private void BuscarPagos(java.awt.event.KeyEvent evt) {
 
-            String buscar = this.vista.txtBuscadorPagos.getText();
-            this.vista.tablePagos.setModel(this.modelo.buscarPagos(buscar));
+        String buscar = this.vista.txtBuscadorPagos.getText();
+        this.vista.tablePagos.setModel(this.modelo.buscarPagos(buscar));
 
     }
     /*-----------------------------------------------FIN--METODO BUSCAR-----------------------------------------------*/
