@@ -95,8 +95,6 @@ public class ControladorCompras implements ActionListener, MouseListener {
         });
 
         /*-----ALMACEN-----*/
-        //this.vista.btnBuscar.setActionCommand("btnBuscar");
-        //this.vista.btnBuscar.addActionListener(this);
         this.vista.btnImprimir.setActionCommand("btnImprimir");
         this.vista.btnImprimir.addActionListener(this);
 
@@ -134,26 +132,18 @@ public class ControladorCompras implements ActionListener, MouseListener {
             }
 
         });
-
-        this.vista.txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-
-            @Override
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                soloNumeros(evt);
-                BuscarVisualizar(evt);
-            }
-        });
-        this.vista.txtBuscadorAlmacen.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                BuscarArticulos(evt);
-            }
-
-        });
+        /*-----------------------------TABLAS---------------------------------------*/
         this.vista.tablaVisualizarPedido.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tablaVisualizarPedido(evt);
+                tablaVisualizarPedidoMouseClicked(evt);
+            }
+        });
+        this.vista.tablePagos.addMouseListener(new java.awt.event.MouseAdapter() {
+            
+               @Override
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                   tablaPagoMouseClicked(evt);
             }
         });
 
@@ -171,8 +161,22 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
             }
         });
-        /*-------------------------------------BUSCAR PAGOS-----------------------------------------*/
+        /*-------------------------------------BUSCAR -----------------------------------------*/
+        this.vista.txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
 
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                soloNumeros(evt);
+                BuscarVisualizar(evt);
+            }
+        });
+        this.vista.txtBuscadorAlmacen.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                BuscarArticulos(evt);
+            }
+
+        });
         this.vista.txtBuscadorPagos.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -182,7 +186,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
         this.vista.txtFechaA.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                 BuscarPagos(evt);
+                BuscarPagos(evt);
             }
         });
 
@@ -320,13 +324,32 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     }
 
-    private void tablaVisualizarPedido(java.awt.event.MouseEvent evt) {
+    private void tablaVisualizarPedidoMouseClicked(java.awt.event.MouseEvent evt) {
         fila = this.vista.tablaVisualizarPedido.getSelectedRow();
         String id_pedido = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 0);
         String DNI = (String) this.vista.tablaVisualizarPedido.getValueAt(fila, 1);
 
         this.vista.txtDNIPedido.setText(DNI);
         this.vista.tablePedidoCarrito.setModel(this.modeloV.getTablaCarrito(id_pedido));
+    }
+
+    private void tablaPagoMouseClicked(java.awt.event.MouseEvent evt) {
+
+        //Recogemos los valores de las tablas
+        fila = this.vista.tablePagos.getSelectedRow();
+        String nif = (String) this.vista.tablePagos.getValueAt(fila, 0);
+        String id_articulo = (String) this.vista.tablePagos.getValueAt(fila, 1);
+        String cantidad = (String) this.vista.tablePagos.getValueAt(fila, 2);
+        String precio = (String) this.vista.tablePagos.getValueAt(fila, 3);
+        String fecha = (String) this.vista.tablePagos.getValueAt(fila, 4);
+
+        //Volcamos los datos en los jtextField
+        this.vista.txtPagosProveedor.setText(nif);
+        this.vista.txtPagosArticulo.setText(id_articulo);
+        this.vista.txtPagosCantidad.setText(cantidad);
+        this.vista.txtPagosPrecio.setText(precio);
+        this.vista.txtPagosFecha.setText(fecha);
+
     }
     /*----------------------------------------------------METODO BUSCAR-----------------------------------------------*/
 
@@ -360,17 +383,18 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
     //Buscar Proveedores
     private void BuscarProveedores(java.awt.event.KeyEvent evt) {
-        String buscar = this.vista.txtBuscadorProveedores.getText();
-        this.vista.tableProveedores.setModel(this.modelo.buscarProveedores(buscar));
+        String buscar = this.vista.txtBuscadorProveedores.getText();//pasamos el valor recogido en el jtxtfield
+        this.vista.tableProveedores.setModel(this.modelo.buscarProveedores(buscar));//refrescamos la tabla
     }
 
     //Buscar en articulos
     private void BuscarArticulos(java.awt.event.KeyEvent evt) {
 
-        String buscar = this.vista.txtBuscadorAlmacen.getText();
-        this.vista.tablaArticulosAlmacen.setModel(this.modelo.buscarArticulo(buscar));
+        String buscar = this.vista.txtBuscadorAlmacen.getText();//pasamos el valor recogido en el jtxtfield
+        this.vista.tablaArticulosAlmacen.setModel(this.modelo.buscarArticulo(buscar));//refrescamos la tabla
     }
 
+    //Buscar Pagos
     private void BuscarPagos(java.awt.event.KeyEvent evt) {
 
         //recogemos los datos de los jtxt 
@@ -397,6 +421,7 @@ public class ControladorCompras implements ActionListener, MouseListener {
 
             //pasamos el dia, mes ,año a un string
             String fecha1 = fechaDe_Day + "/" + fechaDe_Month + "/" + fechaDe_Year;
+            JOptionPane.showMessageDialog(vista, fecha1);
             String fecha2 = fechaA_Day + "/" + fechaA_Month + "/" + fechaA_Year;
 
             if (!buscar.equals("") && fecha1.equals("") && fecha2.equals("")) {
