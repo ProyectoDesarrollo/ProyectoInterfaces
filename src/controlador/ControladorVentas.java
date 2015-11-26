@@ -496,6 +496,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     int stock = Integer.parseInt(this.vista.txtStockAlmacen.getText());
                     double precio = Double.parseDouble(this.vista.txtPrecioAlmacen.getText());
                     double precioT = Double.parseDouble(this.vista.txtPrecioAlmacen.getText())*0.85;
+                    precioT= precioT*stock;
                     String nif = this.vista.txtNIFAlmacen.getText();
                     String dia = Integer.toString(c.get(Calendar.DATE));
                     String mes = Integer.toString(c.get(Calendar.MONTH)+1);

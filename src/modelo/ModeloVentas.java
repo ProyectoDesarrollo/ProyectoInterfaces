@@ -471,7 +471,7 @@ public class ModeloVentas extends DatabaseSQLite{
             pstm.close();
             return true;
         }catch(SQLException e){
-            System.err.println( e.getMessage() );
+            e.printStackTrace();
         }
             return false;      
     }
@@ -664,7 +664,7 @@ public class ModeloVentas extends DatabaseSQLite{
     public int getIdArticulo(String nombre){
         
         int r=0;
-        String q = "SELECT ID FROM Articulos WHERE Nombre= "+nombre ;
+        String q = "SELECT ID FROM Articulos WHERE Nombre= '"+nombre+"'" ;
         
         try {
             
@@ -677,7 +677,7 @@ public class ModeloVentas extends DatabaseSQLite{
             
         } catch (SQLException e) {
         
-            System.err.println(e.getMessage());
+            e.printStackTrace();
             
         }
         
