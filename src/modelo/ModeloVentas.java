@@ -174,6 +174,45 @@ public class ModeloVentas extends DatabaseSQLite{
         return tablemodel;
     }
     
+    public DefaultTableModel getTablaCobros(){
+        
+      DefaultTableModel tablemodel = new DefaultTableModel();
+      int registros = 0; // Indica la cantidad de filas de la tabla.
+      String[] columNames = { "DNI_Cliente" ,"ID_Factura" ,"Meses", "Tipo"}; // Indica el nombre de las columnas de la tabla.
+      //obtenemos la cantidad de registros existentes en la tabla y se almacena en la variable "registros"
+      //para formar la matriz de datos
+      try{
+         PreparedStatement pstm = this.getConexion().prepareStatement( "SELECT count(*) as Total FROM Cobros");
+         ResultSet res = pstm.executeQuery();
+         res.next();
+         registros = res.getInt("total");
+         res.close();
+      }catch(SQLException e){
+         System.err.println( e.getMessage() );
+      }
+    //se crea una matriz con tantas filas y columnas que necesite
+      Object[][] data = new String[registros][4];
+      try{
+          //realizamos la consulta sql y llenamos los datos en la matriz "Object[][] data"
+         PreparedStatement pstm = this.getConexion().prepareStatement("SELECT DNI_Cliente ,ID_Factura, Meses, Tipo FROM Cobros");
+         ResultSet res = pstm.executeQuery();
+         int i=0;
+         while(res.next()){
+                data[i][0] = res.getString("DNI_Cliente");
+                data[i][1] = res.getString("ID_Factura");
+                data[i][2] = res.getString("Meses");
+                data[i][3] = res.getString("Tipo");
+            i++;
+         }
+         res.close();
+         //se añade la matriz de datos en el DefaultTableModel
+         tablemodel.setDataVector(data, columNames );
+         }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+        return tablemodel;
+    }
+    
     public String[] Rellenar(String dni){     
         String[] Relleno= new String[5];
       try{
@@ -374,6 +413,23 @@ public class ModeloVentas extends DatabaseSQLite{
         
         String q=" INSERT INTO Carrito ( ID ,DNI_Cliente ,FECHA )"
                     + "VALUES ( '" + id + "','" + dni + "','" + fecha + "') ";
+            //se ejecuta la consulta
+        try {
+            PreparedStatement pstm = this.getConexion().prepareStatement(q);
+            pstm.execute();
+            pstm.close();
+            return true;
+        }catch(SQLException e){
+            System.err.println( e.getMessage() );
+        }
+            return false;      
+    }
+    
+    public boolean InsertarCobros (String dni ,int idFactura ,int meses ,String tipo) {
+            //Consulta para insertar 
+        
+        String q=" INSERT INTO Carrito ( DNI_Cliente ,ID_Factura ,Meses, Tipo)"
+                    + "VALUES ( '" + dni + "','" + idFactura + "','" + meses + "','" + tipo + "') ";
             //se ejecuta la consulta
         try {
             PreparedStatement pstm = this.getConexion().prepareStatement(q);
