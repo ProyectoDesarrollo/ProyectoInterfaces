@@ -188,7 +188,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 
             case jMenuItem2:
                 
-                JOptionPane.showMessageDialog(null, "Trabajo realizado por: ");
+                JOptionPane.showMessageDialog(null, "Trabajo realizado por: \n \nAlejandro Hinojosa García\n \nRoberto Aparicio Delgado\n \nPedro Luis Castro Sánchez\n");
                 
                 break;
                 
