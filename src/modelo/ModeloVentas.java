@@ -146,7 +146,7 @@ public class ModeloVentas extends DatabaseSQLite{
          ResultSet res = pstm.executeQuery();
          while(res.next()){
              
-                carrito.add(new Articulo(res.getString("Articulos.ID"), res.getString("Articulos.Nombre"), res.getString("Articulos.Cantidad"), res.getString("Articulos.Precio")));
+                carrito.add(new Articulo(res.getString("Articulos.ID"), res.getString("Articulos.Nombre"), res.getString("Carrito.Cantidad"), res.getString("Articulos.Precio")));
          }
          res.close();
          }catch(SQLException e){
@@ -462,7 +462,7 @@ public class ModeloVentas extends DatabaseSQLite{
             return false;      
     }
     
-    public boolean InsertarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, int tarjeta) {
+    public boolean InsertarCliente (String dni, String nombre , String apellidos, String direccion,  int telefono, long tarjeta) {
             //Consulta para insertar 
         
         String q=" INSERT INTO Clientes ( DNI ,Nombre ,Apellidos ,Direccion ,Telefono, Tarjeta ) "

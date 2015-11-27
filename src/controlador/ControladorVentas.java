@@ -174,6 +174,14 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 DNIPedido(evt);
             }
         });
+        this.vista.txtTarjetaCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                soloNumeros(evt);
+                if( vista.txtTarjetaCliente.getText().length()>=16){
+                    evt.consume();
+                }
+            }
+        });
 
     }
 
@@ -350,7 +358,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     String nombre = this.vista.txtNombreCliente.getText();
                     String apellidos = this.vista.txtApellidosCliente.getText();
                     String direccion = this.vista.txtDireccionCliente.getText();
-                    int tarjeta = Integer.parseInt(this.vista.txtTarjetaCliente.getText());
+                    long tarjeta = Long.parseLong(this.vista.txtTarjetaCliente.getText());
                     int telefono = Integer.parseInt(this.vista.txtTelefonoCliente.getText());
                     this.modelo.InsertarCliente(dni, nombre, apellidos, direccion, telefono, tarjeta);
                     this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
@@ -382,7 +390,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                         String apellidos = this.vista.txtApellidosCliente.getText();
                         String direccion = this.vista.txtDireccionCliente.getText();
                         int telefono = Integer.parseInt(this.vista.txtTelefonoCliente.getText());
-                        int tarjeta = Integer.parseInt(this.vista.txtTarjetaCliente.getText());
+                        long tarjeta = Long.parseLong(this.vista.txtTarjetaCliente.getText());
 
                         this.modelo.modificarCliente(dni, nombre, apellidos, direccion, telefono, tarjeta);
                         this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
