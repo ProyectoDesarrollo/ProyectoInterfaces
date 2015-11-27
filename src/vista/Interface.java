@@ -224,7 +224,6 @@ public class Interface extends javax.swing.JFrame {
         dlgFactura.setTitle("Factura");
         dlgFactura.setMinimumSize(new java.awt.Dimension(620, 746));
         dlgFactura.setModal(true);
-        dlgFactura.setPreferredSize(new java.awt.Dimension(620, 746));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setText("DNI:");
@@ -967,7 +966,7 @@ public class Interface extends javax.swing.JFrame {
 
         btnBorrarCliente.setText("Borrar");
 
-        txtTarjetaCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#### #### #### ####"))));
+        txtTarjetaCliente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("################"))));
 
         txtBuscadorClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

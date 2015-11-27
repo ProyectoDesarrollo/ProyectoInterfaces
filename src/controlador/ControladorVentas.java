@@ -174,12 +174,16 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 DNIPedido(evt);
             }
         });
+         //eventos para bloquear letras o Numeros , además de la longitud
         this.vista.txtTarjetaCliente.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
+            @Override
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+
                 soloNumeros(evt);
-                if( vista.txtTarjetaCliente.getText().length()>=16){
+                if (vista.txtTarjetaCliente.getText().length() >= 16) {
                     evt.consume();
                 }
+
             }
         });
 
@@ -394,12 +398,12 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                         this.modelo.modificarCliente(dni, nombre, apellidos, direccion, telefono, tarjeta);
                         this.vista.tableClientes.setModel(this.modelo.getTablaClientes());
-                        this.vista.txtDNICliente.setText(" ");
-                        this.vista.txtNombreCliente.setText(" ");
-                        this.vista.txtApellidosCliente.setText(" ");
-                        this.vista.txtDireccionCliente.setText(" ");
-                        this.vista.txtTelefonoCliente.setText(" ");
-                        this.vista.txtTarjetaCliente.setText(" ");
+                        this.vista.txtDNICliente.setText("");
+                        this.vista.txtNombreCliente.setText("");
+                        this.vista.txtApellidosCliente.setText("");
+                        this.vista.txtDireccionCliente.setText("");
+                        this.vista.txtTelefonoCliente.setText("");
+                        this.vista.txtTarjetaCliente.setText("");
                     }
 
                 } catch (Exception ex) {
