@@ -53,16 +53,6 @@ public class Interface extends javax.swing.JFrame {
         txtFacturaFecha = new javax.swing.JTextField();
         txtFacturaApellidos = new javax.swing.JTextField();
         txtFacturaTelefono = new javax.swing.JTextField();
-        dlgPresupuesto = new javax.swing.JDialog();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel73 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        tableFactura2 = new javax.swing.JTable();
-        txtFacturaTotal2 = new javax.swing.JTextField();
-        txtFacturaNombre2 = new javax.swing.JTextField();
-        txtFacturaTelefono2 = new javax.swing.JTextField();
         jPanelBotones = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnPresupuestos = new javax.swing.JButton();
@@ -232,7 +222,9 @@ public class Interface extends javax.swing.JFrame {
 
         dlgFactura.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         dlgFactura.setTitle("Factura");
+        dlgFactura.setMinimumSize(new java.awt.Dimension(620, 746));
         dlgFactura.setModal(true);
+        dlgFactura.setPreferredSize(new java.awt.Dimension(620, 746));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel33.setText("DNI:");
@@ -422,100 +414,6 @@ public class Interface extends javax.swing.JFrame {
                 .addGroup(dlgFacturaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtFacturaTotalIVA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel64))
-                .addContainerGap())
-        );
-
-        dlgPresupuesto.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        dlgPresupuesto.setTitle("Presupuesto");
-        dlgPresupuesto.setModal(true);
-
-        jLabel57.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel57.setText("Nombre:");
-
-        jLabel67.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel67.setText("Teléfono:");
-
-        jLabel73.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel73.setText("Precio Total:");
-
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de Compra", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 11))); // NOI18N
-
-        tableFactura2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane13.setViewportView(tableFactura2);
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 548, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 525, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        txtFacturaTotal2.setEditable(false);
-
-        txtFacturaNombre2.setEditable(false);
-
-        txtFacturaTelefono2.setEditable(false);
-
-        javax.swing.GroupLayout dlgPresupuestoLayout = new javax.swing.GroupLayout(dlgPresupuesto.getContentPane());
-        dlgPresupuesto.getContentPane().setLayout(dlgPresupuestoLayout);
-        dlgPresupuestoLayout.setHorizontalGroup(
-            dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgPresupuestoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dlgPresupuestoLayout.createSequentialGroup()
-                        .addGap(0, 312, Short.MAX_VALUE)
-                        .addComponent(jLabel73)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtFacturaTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(dlgPresupuestoLayout.createSequentialGroup()
-                        .addGroup(dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel67)
-                            .addComponent(jLabel57))
-                        .addGap(18, 18, 18)
-                        .addGroup(dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtFacturaNombre2)
-                            .addComponent(txtFacturaTelefono2))))
-                .addContainerGap())
-        );
-        dlgPresupuestoLayout.setVerticalGroup(
-            dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(dlgPresupuestoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFacturaNombre2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel57))
-                .addGap(18, 18, 18)
-                .addGroup(dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFacturaTelefono2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel67))
-                .addGap(18, 18, 18)
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addGroup(dlgPresupuestoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFacturaTotal2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel73))
                 .addContainerGap())
         );
 
@@ -1778,7 +1676,6 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JButton btnVisualizar;
     public javax.swing.JCheckBox cbxStockAlmacen;
     public javax.swing.JDialog dlgFactura;
-    public javax.swing.JDialog dlgPresupuesto;
     public javax.swing.JComboBox jComboBuscar;
     public javax.swing.JComboBox jComboVisualizar;
     private javax.swing.JLabel jLabel1;
@@ -1830,18 +1727,15 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel55;
     private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel64;
     private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
@@ -1851,7 +1745,6 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     public javax.swing.JPanel jPanelArticulos;
     public javax.swing.JPanel jPanelBotones;
     public javax.swing.JPanel jPanelClientes;
@@ -1864,7 +1757,6 @@ public class Interface extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -1887,7 +1779,6 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTable tablaVisualizarPedido;
     public javax.swing.JTable tableClientes;
     public javax.swing.JTable tableFactura;
-    public javax.swing.JTable tableFactura2;
     public javax.swing.JTable tablePagos;
     public javax.swing.JTable tablePedidoBuscarArticulo;
     public javax.swing.JTable tablePedidoCarrito;
@@ -1916,13 +1807,10 @@ public class Interface extends javax.swing.JFrame {
     public javax.swing.JTextField txtFacturaFactura;
     public javax.swing.JTextField txtFacturaFecha;
     public javax.swing.JTextField txtFacturaNombre;
-    public javax.swing.JTextField txtFacturaNombre2;
     public javax.swing.JTextField txtFacturaPedido;
     public javax.swing.JTextField txtFacturaTarjeta;
     public javax.swing.JTextField txtFacturaTelefono;
-    public javax.swing.JTextField txtFacturaTelefono2;
     public javax.swing.JTextField txtFacturaTotal;
-    public javax.swing.JTextField txtFacturaTotal2;
     public javax.swing.JTextField txtFacturaTotalIVA;
     public javax.swing.JTextField txtIDAlmacen;
     public javax.swing.JTextField txtIDPedido;
