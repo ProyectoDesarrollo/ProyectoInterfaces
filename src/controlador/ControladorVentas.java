@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.JDBCType;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -106,13 +108,13 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
         this.vista.btnModificarAlmacen.setActionCommand("btnModificarAlmacen");
         this.vista.btnModificarAlmacen.addActionListener(this);
-        
+
         this.vista.jMenuItem1.setActionCommand("jMenuItem1");
         this.vista.jMenuItem1.addActionListener(this);
-        
+
         this.vista.jMenuItem2.setActionCommand("jMenuItem2");
         this.vista.jMenuItem2.addActionListener(this);
-        
+
         //----------------------Funciones de click de ratón sobre tablas---------------------
         this.vista.tableClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -174,7 +176,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
                 DNIPedido(evt);
             }
         });
-         //eventos para bloquear letras o Numeros , además de la longitud
+        //eventos para bloquear letras o Numeros , además de la longitud
         this.vista.txtTarjetaCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -191,28 +193,31 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
     public void actionPerformed(ActionEvent e) {
         switch (AccionMVC.valueOf(e.getActionCommand())) {
-            
+
             case jMenuItem1:
-                
+
                 this.vista.dispose();
-                
+
                 break;
-                
+
             case jMenuItem2:
-                
+
                 JOptionPane.showMessageDialog(null, "Trabajo realizado por: \n \nAlejandro Hinojosa García\n \nRoberto Aparicio Delgado\n \nPedro Luis Castro Sánchez\n");
-                
+
                 break;
-                
+
             case btnAñadirPedido://Añade un pedido a la tabla pedidos
 
                 try {
 
+                    DecimalFormat decimales = new DecimalFormat("0.00");
                     String id = this.vista.txtIDPedido.getText();
                     String nombre = this.vista.txtNombreArticuloPedido.getText();
                     String cantidad = String.valueOf(this.vista.txtCantidadPedido.getValue());
-                    String precio = this.vista.txtPrecio.getText();
-
+                    double precio = Double.parseDouble(this.vista.txtPrecio.getText());
+                    int aux = Integer.parseInt(cantidad);
+                    precio = precio * aux;
+                    String auxPrecio = (decimales.format(precio));
                     int stk = this.modelo.getStock(Integer.parseInt(id));
                     int cnt = Integer.parseInt(cantidad);
 
@@ -236,7 +241,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                         } else {
 
-                            ListaPedido.add(new Articulo(id, nombre, cantidad, precio));
+                            ListaPedido.add(new Articulo(id, nombre, cantidad, auxPrecio));
                             this.vista.tablePedidoCarrito.setModel(this.modelo.getTabla(ListaPedido));
 
                         }
@@ -328,26 +333,20 @@ public class ControladorVentas implements ActionListener, MouseListener {
                     String tarjeta = this.vista.txtTarjetaPedido.getText();
                     String direccion = this.vista.txtDireccionPedido.getText();
 
-                    for(;;){
-                       precio_total +=(int) this.vista.tablePedidoCarrito.getValueAt(fila, 3);
-                    }
-                    
                     /*String id_pedido = String.valueOf( this.modelo.getID_Pedido(dni));
-                    int id_factura = this.modelo.getFacturaIDf(id_pedido);
-                    int fecha = this.modelo.getFacturaF(id_factura);
-                    this.vista.txtFacturaDNI.setText(dni);
-                    this.vista.txtFacturaNombre.setText(nombre);
-                    this.vista.txtFacturaDireccion.setText(direccion);
-                    this.vista.txtFacturaTarjeta.setText(tarjeta);
-                    this.vista.txtFacturaFecha.setText(String.valueOf(fecha));
-                    this.vista.txtFacturaApellidos.setText(apellido);
-                    this.vista.txtFacturaTelefono.setText(telefono);
-                    this.vista.txtFacturaPedido.setText(id_pedido));
-                    this.vista.txtFacturaFactura.setText(String.valueOf(id_factura));
-                    this.vista.txtFacturaTotal.setText(String.valueOf(precio_total));
-                    this.vista.txtFacturaTotalIVA.setText(String.valueOf(precio_total*0.24));*/
-                          
-                    
+                     int id_factura = this.modelo.getFacturaIDf(id_pedido);
+                     int fecha = this.modelo.getFacturaF(id_factura);
+                     this.vista.txtFacturaDNI.setText(dni);
+                     this.vista.txtFacturaNombre.setText(nombre);
+                     this.vista.txtFacturaDireccion.setText(direccion);
+                     this.vista.txtFacturaTarjeta.setText(tarjeta);
+                     this.vista.txtFacturaFecha.setText(String.valueOf(fecha));
+                     this.vista.txtFacturaApellidos.setText(apellido);
+                     this.vista.txtFacturaTelefono.setText(telefono);
+                     this.vista.txtFacturaPedido.setText(id_pedido));
+                     this.vista.txtFacturaFactura.setText(String.valueOf(id_factura));
+                     this.vista.txtFacturaTotal.setText(String.valueOf(precio_total));
+                     this.vista.txtFacturaTotalIVA.setText(String.valueOf(precio_total*0.24));*/
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
@@ -439,12 +438,15 @@ public class ControladorVentas implements ActionListener, MouseListener {
             case btnAñadirPresupuesto://Añade un presupuesto
 
                 try {
-
+                    
+                    DecimalFormat decimales = new DecimalFormat("0.00");
                     String id = this.vista.txtIDPresupuesto.getText();
                     String nombre = this.vista.txtNombreArticuloPresupuesto.getText();
                     String cantidad = String.valueOf(this.vista.txtCantidadPresupuesto.getValue());
-                    String precio = this.vista.txtPrecioPresupuesto.getText();
-
+                    double precio = Double.parseDouble(this.vista.txtPrecioPresupuesto.getText());
+                    int aux = Integer.parseInt(cantidad);
+                    precio = precio * aux;
+                    String auxPrecio = (decimales.format(precio));
                     int stk = this.modelo.getStock(Integer.parseInt(id));
                     int cnt = Integer.parseInt(cantidad);
 
@@ -468,7 +470,7 @@ public class ControladorVentas implements ActionListener, MouseListener {
 
                         } else {
 
-                            ListaPresupuesto.add(new Articulo(id, nombre, cantidad, precio));
+                            ListaPresupuesto.add(new Articulo(id, nombre, cantidad, auxPrecio));
                             this.vista.tablePresupuestoCarrito.setModel(this.modelo.getTabla(ListaPresupuesto));
 
                         }
